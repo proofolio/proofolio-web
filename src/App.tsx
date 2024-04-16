@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import { ThemeProvider, createTheme } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import "./App.css";
+import HomePage from "./pages/HomePage/HomePage";
+import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
+import ResumePage from "./pages/ResumePage/ResumePage";
+import BlogPage from "./pages/BlogPage/BlogPage";
+import ContactPage from "./pages/ContactPage/ContactPage";
 
 export default function App() {
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: prefersDarkMode ? "dark" : "light",
+        },
+      }),
+    [prefersDarkMode]
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Routes>
+          <Route path="/*" element={<HomePage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/resume" element={<ResumePage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
-
-
