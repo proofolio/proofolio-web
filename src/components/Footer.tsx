@@ -5,13 +5,14 @@ import Link from '@mui/material/Link'
 function Footer() {
   return (
     <>
-      <div>Footer</div>
       <Container
+        maxWidth={false}
         sx={{
           display: 'flex',
           justifyContent: 'center',
-          my: 3,
           bgcolor: 'lightgray',
+          marginTop: 'auto',
+          paddingTop: '20px',
         }}
       >
         <Typography> thanks for visiting! </Typography>
