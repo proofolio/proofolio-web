@@ -11,6 +11,18 @@ import { DrawerProvider } from './store/DrawerContext'
 import { SectionProvider } from './store/SectionContext'
 
 export default function App() {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: prefersDarkMode ? 'dark' : 'light',
+        },
+      }),
+    [prefersDarkMode]
+  )
+
   return (
     <DrawerProvider>
       <SectionProvider>
