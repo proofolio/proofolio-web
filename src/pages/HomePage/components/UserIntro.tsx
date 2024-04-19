@@ -5,6 +5,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import EmailIcon from '@mui/icons-material/Email'
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone'
+
 import TechStack from '../../../components/TechStack'
 
 const DUMMY_CONTACT = {

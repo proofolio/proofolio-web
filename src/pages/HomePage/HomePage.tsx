@@ -1,12 +1,13 @@
 import { useContext } from 'react'
 import { Box, CssBaseline } from '@mui/material'
+
+import { SectionContext } from '../../store/SectionContext'
 import Header from '../../components/Header'
 import SideDrawer from '../../components/Drawer'
 import UserIntro from './components/UserIntro'
 import ProjectBrief from './components/ProjectBrief'
 import BlogBrief from './components/BlogBrief'
 import Footer from '../../components/Footer'
-import { SectionContext } from '../../store/SectionContext'
 
 const DUMMY_SECTIONS = [
   {

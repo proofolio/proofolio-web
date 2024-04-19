@@ -1,5 +1,6 @@
 import { Container, Typography, Box } from '@mui/material'
 import Carousel from 'react-material-ui-carousel'
+
 import TechStack from '../../../components/TechStack'
 
 const DUMMY_PROJECTS = [
