@@ -63,4 +63,3 @@ function ProjectsPage() {
 }
 
 export default ProjectsPage
-export default ProjectsPage
