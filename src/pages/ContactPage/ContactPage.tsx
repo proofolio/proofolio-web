@@ -1,15 +1,22 @@
-import React from "react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import React from 'react'
+import { Box } from '@mui/material'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 
 const ContactPage = () => {
   return (
-    <>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
       <Header />
-      <div>ContactPage</div>
+      Contact Page
       <Footer />
-    </>
-  );
-};
+    </Box>
+  )
+}
 
-export default ContactPage;
+export default ContactPage

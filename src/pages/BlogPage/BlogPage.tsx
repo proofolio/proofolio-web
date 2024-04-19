@@ -1,15 +1,22 @@
-import React from "react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import React from 'react'
+import { Box } from '@mui/material'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 
 function BlogPage() {
   return (
-    <>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
       <Header />
-      <div>BlogPage</div>
+      Blog Page
       <Footer />
-    </>
-  );
+    </Box>
+  )
 }
 
-export default BlogPage;
+export default BlogPage
