@@ -1,94 +1,64 @@
-import React, { useState } from 'react'
-import { Container, Typography, Grid, Box } from '@mui/material'
-import TechStack from '../../components/TechStack'
+import { useContext } from 'react'
+import { Box } from '@mui/material'
+
 import Header from '../../components/Header'
 import SideDrawer from '../../components/Drawer'
 import Footer from '../../components/Footer'
+import Project from './components/Project'
+import { SectionContext } from '../../store/SectionContext'
 
-const DUMMY_PROJECTS = [
-  {
-    projectId: 1,
-    projectTitle: 'TabColab',
-    projectTechStack: ['react', 'chromeextension', 'sass'],
-    projectIntro:
-      '<p>TabColab Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente. </p>',
-    demo: 'https://www.tabextend.com/',
-    projectGithub: 'https://github.com/',
-  },
-  {
-    projectId: 2,
-    projectTitle: 'BucketList',
-    projectTechStack: ['typescript', 'react', 'css'],
-    projectIntro:
-      '<p> BucketList Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente. </p>',
-    demo: 'http://proofolio.site/lander',
-    projectGithub: 'https://github.com/',
-  },
-  {
-    projectId: 3,
-    projectTitle: '2048Game',
-    projectTechStack: ['redux', 'html', 'css'],
-    projectIntro:
-      '<p> 2048Game Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente. </p>',
-    demo: 'https://play2048.co/',
-    projectGithub: 'https://github.com/',
-  },
-  {
-    projectId: 4,
-    projectTitle: 'Proofolio',
-    projectTechStack: ['typescript', 'react', 'materialui'],
-    projectIntro:
-      '<p> <h1>Proofolio</h1> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente. </p>',
-    demo: 'http://proofolio.site/lander',
-    projectGithub: 'https://github.com/',
-  },
-]
 const DUMMY_SECTIONS = [
-  { name: 'TabColab', icon: '🗂️' },
-  { name: '2048Game', icon: '🧩' },
-  { name: 'BucketList', icon: '📝' },
-  { name: 'Proofolio', icon: '☺️' },
+  {
+    sectionTitle: 'TabColab',
+    sectionIcon: '🗂️',
+    sectionComponent: <Project selectedIndex={0} />,
+  },
+  {
+    sectionTitle: '2048Game',
+    sectionIcon: '🧩',
+    sectionComponent: <Project selectedIndex={1} />,
+  },
+  {
+    sectionTitle: 'BucketList',
+    sectionIcon: '📝',
+    sectionComponent: <Project selectedIndex={2} />,
+  },
+  {
+    sectionTitle: 'Proofolio',
+    sectionIcon: '☺️',
+    sectionComponent: <Project selectedIndex={3} />,
+  },
 ]
-function ProjectsPage() {
-  const [selectedProject, setSelectedProject] = useState(DUMMY_PROJECTS[0])
 
-  const handleListItemClick = (projectName: string) => {
-    const project = DUMMY_PROJECTS.find((p) => p.projectTitle === projectName)
-    if (project) {
-      setSelectedProject(project)
-    }
+function ProjectsPage() {
+  const sectionContext = useContext(SectionContext)
+  if (!sectionContext) {
+    throw new Error('Component must be wrapped with <SectionContext.Provider>')
   }
+  const { whichSection } = sectionContext
+
+  const sectionIndex = DUMMY_SECTIONS.findIndex(
+    (section) => section.sectionTitle === whichSection
+  )
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-      }}
-    >
-      <Header />
-      <Container>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={4}>
-            <SideDrawer
-              sections={DUMMY_SECTIONS}
-              handleListItemClick={handleListItemClick}
-            />
-          </Grid>
-          <Grid item xs={12} md={8} justifyContent="center">
-            <Typography variant="h5">{selectedProject.projectTitle}</Typography>
-            <Box sx={{ display: 'flex' }}>
-              <TechStack techs={selectedProject.projectTechStack} />
-            </Box>
-            <Typography variant="body1">
-              {selectedProject.projectIntro}
-            </Typography>
-          </Grid>
-        </Grid>
-      </Container>
+    <>
+      <Box
+        sx={{
+          display: 'flex',
+          minHeight: '96vh',
+        }}
+      >
+        <Header />
+        <SideDrawer sections={DUMMY_SECTIONS} />
+        <Box component={'main'} sx={{ flexGrow: 1, p: 3, marginTop: '60px' }}>
+          {sectionIndex === -1
+            ? DUMMY_SECTIONS[0].sectionComponent
+            : DUMMY_SECTIONS[sectionIndex].sectionComponent}
+        </Box>
+      </Box>
       <Footer />
-    </Box>
+    </>
   )
 }
 
