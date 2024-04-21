@@ -17,7 +17,7 @@ const DUMMY_LANGUAGE = [
 
 function Language() {
   return (
-    <Container>
+    <Container id="Language">
       <Typography variant="h2">Languages</Typography>
       <Box>
         <List>

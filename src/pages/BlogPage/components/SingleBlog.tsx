@@ -153,20 +153,18 @@ const DUMMY_BLOGS = [
 ]
 
 interface BlogProps {
-  selectedIndex: number
+  blogId: number
 }
 
-const SingleBlog: React.FC<BlogProps> = ({ selectedIndex }) => {
-  const selectedBlog = DUMMY_BLOGS.find(
-    (blog, index) => index === selectedIndex
-  )
+const SingleBlog: React.FC<BlogProps> = ({ blogId }) => {
+  const selectedBlog = DUMMY_BLOGS.find((blog) => blog.blogId === blogId)
 
   if (!selectedBlog) {
     return <div>No Blog found</div>
   }
 
   return (
-    <Container>
+    <Container sx={{ zIndex: '10' }}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Typography variant="h2">{selectedBlog.blogTitle}</Typography>
         <FavoriteBorderIcon />

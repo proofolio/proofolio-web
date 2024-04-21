@@ -52,7 +52,7 @@ const DUMMY_EXPERIENCES = [
 
 function Experience() {
   return (
-    <Container>
+    <Container id="Experience">
       <Typography variant="h2">Work Experiences</Typography>
       <Timeline
         sx={{

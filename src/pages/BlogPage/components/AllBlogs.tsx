@@ -4,7 +4,6 @@ import ImageListItemBar from '@mui/material/ImageListItemBar'
 import IconButton from '@mui/material/IconButton'
 import { Container, Typography, Box } from '@mui/material'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-import { Link } from 'react-router-dom'
 
 const DUMMY_BLOGS = [
   {
@@ -37,7 +36,7 @@ const DUMMY_BLOGS = [
   {
     blogId: 3,
     publishedDate: 'string',
-    blogTopic: 'Topic A',
+    blogTopic: 'Topic C',
     blogTitle: 'Title 4 ',
     thumbnail: 'https://picsum.photos/id/13/200/300',
     heartNum: 1,
@@ -46,7 +45,7 @@ const DUMMY_BLOGS = [
   {
     blogId: 4,
     publishedDate: 'string',
-    blogTopic: 'Topic C',
+    blogTopic: 'Topic D',
     blogTitle: 'Title 3',
     thumbnail: 'https://picsum.photos/id/19/200/300',
     heartNum: 2,
@@ -80,7 +79,7 @@ function AllBlogs() {
   return (
     <Container>
       {Object.entries(groupedBlogs).map(([topic, blogs]) => (
-        <Box key={topic}>
+        <Box key={topic} id={topic}>
           <Typography>{topic}</Typography>
           <ImageList cols={4} gap={15}>
             {blogs.map((blog) => (

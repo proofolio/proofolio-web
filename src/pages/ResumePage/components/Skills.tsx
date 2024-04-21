@@ -33,7 +33,7 @@ const DUMMY_SKILLS = [
 
 function Skills() {
   return (
-    <Container>
+    <Container id="Skills">
       <Typography variant="h2">Skills</Typography>
       <Box>
         <List>

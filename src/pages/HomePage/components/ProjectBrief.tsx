@@ -1,5 +1,6 @@
 import { Container, Typography, Box } from '@mui/material'
 import Carousel from 'react-material-ui-carousel'
+
 import TechStack from '../../../components/TechStack'
 
 const DUMMY_PROJECTS = [
@@ -43,7 +44,7 @@ const DUMMY_PROJECTS = [
 
 function ProjectBrief() {
   return (
-    <Container sx={{ display: 'flex', my: 3 }}>
+    <Container id="ProjectBrief" sx={{ display: 'flex', my: 3 }}>
       <Carousel sx={{ width: '100%' }}>
         {DUMMY_PROJECTS.map((project) => (
           <Box key={project.projectId} sx={{ display: 'flex' }}>
