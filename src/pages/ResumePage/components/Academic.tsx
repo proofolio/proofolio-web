@@ -30,7 +30,7 @@ const DUMMY_DIPLOMA = [
 ]
 function Academic() {
   return (
-    <Container>
+    <Container id="Academic">
       <Typography variant="h2">Academics</Typography>
       <Box>
         <List>
