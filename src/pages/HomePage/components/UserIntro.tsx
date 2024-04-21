@@ -19,7 +19,7 @@ const DUMMY_TECHS: Array<string> = ['html', 'css', 'javascript', 'npm']
 
 const UserIntro = () => {
   return (
-    <Container>
+    <Container id="UserIntro">
       <Container
         sx={{ display: 'flex', justifyContent: 'space-between', my: 3 }}
       >

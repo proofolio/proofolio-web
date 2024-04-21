@@ -73,7 +73,7 @@ const Drawer = styled(MuiDrawer, {
 interface Sections {
   sectionTitle: string
   sectionIcon: string
-  sectionComponent: React.ReactNode
+  sectionComponent?: React.ReactNode
 }
 interface Props {
   sections?: Array<Sections> | null
@@ -150,6 +150,7 @@ function SideDrawer({ sections }: Props) {
               onClick={() => setWhichSection(section.sectionTitle)}
             >
               <ListItemButton
+                href={`#${section.sectionTitle}`}
                 sx={{
                   minHeight: 48,
                   justifyContent: openDrawer ? 'initial' : 'center',
