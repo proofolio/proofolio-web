@@ -10,42 +10,24 @@ import AllBlogs from './components/AllBlogs'
 
 const DUMMY_SECTIONS = [
   {
-    sectionTitle: 'AllBlogs',
-    sectionIcon: '❄️',
-    sectionComponent: <AllBlogs />,
-  },
-  {
     sectionTitle: 'Topic A',
     sectionIcon: '❄️',
-    sectionComponent: <SingleBlog selectedIndex={0} />,
   },
   {
     sectionTitle: 'Topic B',
     sectionIcon: '❄️',
-    sectionComponent: <SingleBlog selectedIndex={1} />,
   },
   {
     sectionTitle: 'Topic C',
     sectionIcon: '❄️',
-    sectionComponent: <SingleBlog selectedIndex={2} />,
   },
   {
-    sectionTitle: 'section4',
+    sectionTitle: 'Topic D',
     sectionIcon: '❄️',
-    sectionComponent: <SingleBlog selectedIndex={3} />,
   },
 ]
 
 function BlogPage() {
-  const sectionContext = useContext(SectionContext)
-  if (!sectionContext) {
-    throw new Error('Component must be wrapped with <SectionContext.Provider>')
-  }
-  const { whichSection } = sectionContext
-
-  const sectionIndex = DUMMY_SECTIONS.findIndex(
-    (section) => section.sectionTitle === whichSection
-  )
   return (
     <>
       <Box
@@ -58,11 +40,7 @@ function BlogPage() {
         <Header />
         <SideDrawer sections={DUMMY_SECTIONS} />
         <Box component={'main'} sx={{ flexGrow: 1, p: 3, marginTop: '60px' }}>
-          {sectionIndex === -1 ? (
-            <AllBlogs />
-          ) : (
-            DUMMY_SECTIONS[sectionIndex].sectionComponent
-          )}
+          <AllBlogs />
         </Box>
       </Box>
       <Footer />
