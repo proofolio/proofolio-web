@@ -10,11 +10,10 @@ import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { DrawerContext } from '../store/DrawerContext'
 import { SectionContext } from '../store/SectionContext'
-import { Typography } from '@mui/material'
 
 const drawerWidth = 220
 const PAGES = [
@@ -74,13 +73,16 @@ interface Sections {
   sectionTitle: string
   sectionIcon: string
   sectionComponent?: React.ReactNode
+  blogId?: number | string
 }
 interface Props {
-  sections?: Array<Sections> | null
+  sections: Array<Sections> | null
+  sectionLabel?: string
 }
 
-function SideDrawer({ sections }: Props) {
+function SideDrawer({ sections, sectionLabel }: Props) {
   const theme = useTheme()
+  const navigate = useNavigate()
 
   const context = useContext(DrawerContext)
   if (!context) {
@@ -106,7 +108,13 @@ function SideDrawer({ sections }: Props) {
       </DrawerHeader>
       <Divider />
       <List sx={{ display: { xs: 'block', md: 'none' } }}>
-        <ListItem>Pages</ListItem>
+        <ListItem
+          style={{
+            writingMode: openDrawer ? 'horizontal-tb' : 'vertical-rl',
+          }}
+        >
+          Pages
+        </ListItem>
         {PAGES.map((page) => (
           <Link key={page.pageName} to={`/${page}`.toLowerCase()}>
             <ListItem disablePadding sx={{ display: 'block' }}>
@@ -137,10 +145,13 @@ function SideDrawer({ sections }: Props) {
       </List>
       <Divider />
       <List>
-        {sections && <ListItem>Sections</ListItem>}
-        {!sections && openDrawer && (
-          <Typography>Thanks for visiting!</Typography>
-        )}
+        <ListItem
+          style={{
+            writingMode: openDrawer ? 'horizontal-tb' : 'vertical-rl',
+          }}
+        >
+          {sectionLabel}
+        </ListItem>
         {sections &&
           sections.map((section) => (
             <ListItem
@@ -150,7 +161,14 @@ function SideDrawer({ sections }: Props) {
               onClick={() => setWhichSection(section.sectionTitle)}
             >
               <ListItemButton
-                href={`#${section.sectionTitle}`}
+                href={
+                  sectionLabel !== 'Blogs' ? `#${section.sectionTitle}` : ''
+                }
+                onClick={
+                  sectionLabel === 'Blogs'
+                    ? () => navigate(`/blog/${section.blogId}`)
+                    : undefined
+                }
                 sx={{
                   minHeight: 48,
                   justifyContent: openDrawer ? 'initial' : 'center',

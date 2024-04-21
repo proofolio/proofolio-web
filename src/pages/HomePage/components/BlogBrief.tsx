@@ -9,6 +9,7 @@ import BottomNavigation from '@mui/material/BottomNavigation'
 import BottomNavigationAction from '@mui/material/BottomNavigationAction'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import RestoreIcon from '@mui/icons-material/Restore'
+import { useNavigate } from 'react-router-dom'
 
 const DUMMY_BLOGS = [
   {
@@ -106,6 +107,7 @@ const DUMMY_BLOGS = [
 
 function BlogBrief() {
   const [value, setValue] = React.useState('recents')
+  const navigate = useNavigate()
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue)
@@ -143,7 +145,10 @@ function BlogBrief() {
         }}
       >
         {DUMMY_BLOGS.map((blog) => (
-          <ImageListItem key={blog.blogId}>
+          <ImageListItem
+            key={blog.blogId}
+            onClick={() => navigate(`/blog/${blog.blogId}`)}
+          >
             <img
               srcSet={`${blog.thumbnail}?w=248&fit=crop&auto=format&dpr=2 2x`}
               src={`${blog.thumbnail}?w=248&fit=crop&auto=format`}

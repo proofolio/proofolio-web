@@ -7,10 +7,6 @@ import FullResume from './components/FullResume'
 
 const DUMMY_SECTIONS = [
   {
-    sectionTitle: 'Full Resume',
-    sectionIcon: '🛠️',
-  },
-  {
     sectionTitle: 'Academic',
     sectionIcon: '🏫',
   },
@@ -31,7 +27,7 @@ function ResumePage() {
       <Box sx={{ display: 'flex', minHeight: '96vh' }}>
         <CssBaseline />
         <Header />
-        <SideDrawer sections={DUMMY_SECTIONS} />
+        <SideDrawer sections={DUMMY_SECTIONS} sectionLabel="Sections" />
         <Box component={'main'} sx={{ flexGrow: 1, p: 3, marginTop: '60px' }}>
           <FullResume />
         </Box>

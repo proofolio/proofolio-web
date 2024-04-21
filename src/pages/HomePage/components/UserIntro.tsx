@@ -21,7 +21,11 @@ const UserIntro = () => {
   return (
     <Container id="UserIntro">
       <Container
-        sx={{ display: 'flex', justifyContent: 'space-between', my: 3 }}
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          my: 3,
+        }}
       >
         <Box>
           <Typography variant="h3">
