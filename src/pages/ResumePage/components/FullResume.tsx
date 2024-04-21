@@ -7,7 +7,7 @@ import Academic from './Academic'
 
 function FullResume() {
   return (
-    <Container>
+    <Container id="Full Resume">
       <Box
         sx={{
           display: 'flex',
