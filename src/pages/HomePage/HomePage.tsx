@@ -55,6 +55,22 @@ function HomePage() {
           )}
         </Box>
       </Box>
+      <Box sx={{ display: 'flex', minHeight: '96vh' }}>
+        <CssBaseline />
+        <Header />
+        <SideDrawer sections={DUMMY_SECTIONS} />
+        <Box component={'main'} sx={{ flexGrow: 1, p: 3, marginTop: '60px' }}>
+          {sectionIndex === -1 ? (
+            <>
+              <UserIntro />
+              <ProjectBrief />
+              <BlogBrief />
+            </>
+          ) : (
+            DUMMY_SECTIONS[sectionIndex].sectionComponent
+          )}
+        </Box>
+      </Box>
       <Footer />
     </>
   )

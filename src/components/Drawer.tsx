@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom'
 
 import { DrawerContext } from '../store/DrawerContext'
 import { SectionContext } from '../store/SectionContext'
+import { Typography } from '@mui/material'
 
 const drawerWidth = 220
 const PAGES = [
@@ -75,7 +76,7 @@ interface Sections {
   sectionComponent: React.ReactNode
 }
 interface Props {
-  sections: Array<Sections>
+  sections?: Array<Sections> | null
 }
 
 function SideDrawer({ sections }: Props) {
@@ -136,37 +137,41 @@ function SideDrawer({ sections }: Props) {
       </List>
       <Divider />
       <List>
-        <ListItem>Sections</ListItem>
-        {sections.map((section) => (
-          <ListItem
-            key={section.sectionTitle}
-            disablePadding
-            sx={{ display: 'block' }}
-            onClick={() => setWhichSection(section.sectionTitle)}
-          >
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: openDrawer ? 'initial' : 'center',
-                px: 2.5,
-              }}
+        {sections && <ListItem>Sections</ListItem>}
+        {!sections && openDrawer && (
+          <Typography>Thanks for visiting!</Typography>
+        )}
+        {sections &&
+          sections.map((section) => (
+            <ListItem
+              key={section.sectionTitle}
+              disablePadding
+              sx={{ display: 'block' }}
+              onClick={() => setWhichSection(section.sectionTitle)}
             >
-              <ListItemIcon
+              <ListItemButton
                 sx={{
-                  minWidth: 0,
-                  mr: openDrawer ? 3 : 'auto',
-                  justifyContent: 'center',
+                  minHeight: 48,
+                  justifyContent: openDrawer ? 'initial' : 'center',
+                  px: 2.5,
                 }}
               >
-                {section.sectionIcon}
-              </ListItemIcon>
-              <ListItemText
-                primary={section.sectionTitle}
-                sx={{ opacity: openDrawer ? 1 : 0 }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: openDrawer ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {section.sectionIcon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={section.sectionTitle}
+                  sx={{ opacity: openDrawer ? 1 : 0 }}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
       </List>
     </Drawer>
   )
