@@ -30,7 +30,7 @@ const ContactPage = () => {
       >
         <CssBaseline />
         <Header />
-        <SideDrawer sections={null} />
+        <SideDrawer sections={null} sectionLabel="Thanks for visiting!" />
         <Box
           component={'main'}
           sx={{

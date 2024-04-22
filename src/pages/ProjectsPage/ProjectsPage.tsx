@@ -50,7 +50,7 @@ function ProjectsPage() {
         }}
       >
         <Header />
-        <SideDrawer sections={DUMMY_SECTIONS} />
+        <SideDrawer sections={DUMMY_SECTIONS} sectionLabel="Projects" />
         <Box component={'main'} sx={{ flexGrow: 1, p: 3, marginTop: '60px' }}>
           {sectionIndex === -1
             ? DUMMY_SECTIONS[0].sectionComponent

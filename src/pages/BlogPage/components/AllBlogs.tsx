@@ -4,6 +4,7 @@ import ImageListItemBar from '@mui/material/ImageListItemBar'
 import IconButton from '@mui/material/IconButton'
 import { Container, Typography, Box } from '@mui/material'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import { useNavigate } from 'react-router-dom'
 
 const DUMMY_BLOGS = [
   {
@@ -75,6 +76,7 @@ function groupByTopic(blogs: Array<BlogProps>) {
 
 function AllBlogs() {
   const groupedBlogs = groupByTopic(DUMMY_BLOGS)
+  const navigate = useNavigate()
 
   return (
     <Container>
@@ -83,7 +85,10 @@ function AllBlogs() {
           <Typography>{topic}</Typography>
           <ImageList cols={4} gap={15}>
             {blogs.map((blog) => (
-              <ImageListItem key={blog.blogId}>
+              <ImageListItem
+                key={blog.blogId}
+                onClick={() => navigate(`/blog/${blog.blogId}`)}
+              >
                 <img
                   srcSet={`${blog.thumbnail}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   src={`${blog.thumbnail}?w=248&fit=crop&auto=format`}

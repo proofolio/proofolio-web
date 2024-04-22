@@ -1,5 +1,7 @@
-import { Typography, Box, Container } from '@mui/material'
+import { Typography, Box, Container, Button } from '@mui/material'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import { useNavigate } from 'react-router-dom'
 
 const DUMMY_BLOGS = [
   {
@@ -157,26 +159,34 @@ interface BlogProps {
 }
 
 const SingleBlog: React.FC<BlogProps> = ({ blogId }) => {
+  const navigate = useNavigate()
   const selectedBlog = DUMMY_BLOGS.find((blog) => blog.blogId === blogId)
-
   if (!selectedBlog) {
     return <div>No Blog found</div>
   }
 
   return (
-    <Container sx={{ zIndex: '10' }}>
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <Typography variant="h2">{selectedBlog.blogTitle}</Typography>
-        <FavoriteBorderIcon />
-        {selectedBlog.heartNum}
+    <Container>
+      <Box>
+        <Button sx={{ display: 'flex' }} onClick={() => navigate(`/blog`)}>
+          <ArrowBackIcon />
+          <Typography>back to Blogs</Typography>
+        </Button>
+        <Box sx={{ display: 'flex' }}>
+          <Typography variant="h2">{selectedBlog.blogTitle}</Typography>
+          <Button>
+            <FavoriteBorderIcon />
+            {selectedBlog.heartNum}
+          </Button>
+        </Box>
       </Box>
       <img alt={selectedBlog.blogTitle} src={selectedBlog.thumbnail}></img>
       <Typography>{selectedBlog.publishedDate}</Typography>
       <Typography variant="body1">{selectedBlog.blogIntro}</Typography>
       {selectedBlog.blogDetail.map((p) => (
-        <Box>
+        <Box key={p.subTitle}>
           <Typography variant="h6">{p.subTitle}</Typography>
-          <Box sx={{ display: 'flex' }}>
+          <Box>
             <Typography>{p.paragraph}</Typography>
             <img alt={p.subTitle} src={p.image}></img>
           </Box>

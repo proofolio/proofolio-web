@@ -1,11 +1,8 @@
-import { useContext } from 'react'
-import { Box, CssBaseline, Typography } from '@mui/material'
+import { Box, CssBaseline, Typography, Container } from '@mui/material'
 
-import { SectionContext } from '../../store/SectionContext'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SideDrawer from '../../components/Drawer'
-import SingleBlog from './components/SingleBlog'
 import AllBlogs from './components/AllBlogs'
 
 const DUMMY_SECTIONS = [
@@ -38,9 +35,14 @@ function BlogPage() {
       >
         <CssBaseline />
         <Header />
-        <SideDrawer sections={DUMMY_SECTIONS} />
+        <SideDrawer sections={DUMMY_SECTIONS} sectionLabel="Topics" />
         <Box component={'main'} sx={{ flexGrow: 1, p: 3, marginTop: '60px' }}>
-          <AllBlogs />
+          <Container>
+            <Typography variant="h3" textAlign={'center'}>
+              Welcome to my blog{' '}
+            </Typography>
+            <AllBlogs />
+          </Container>
         </Box>
       </Box>
       <Footer />
