@@ -6,21 +6,9 @@ import UserIntro from './components/UserIntro'
 import ProjectBrief from './components/ProjectBrief'
 import BlogBrief from './components/BlogBrief'
 import Footer from '../../components/Footer'
+import data from '../../api/DummyFiles.json'
 
-const DUMMY_SECTIONS = [
-  {
-    sectionTitle: 'UserIntro',
-    sectionIcon: '😊',
-  },
-  {
-    sectionTitle: 'ProjectBrief',
-    sectionIcon: '🗄️',
-  },
-  {
-    sectionTitle: 'BlogBrief',
-    sectionIcon: '✍️',
-  },
-]
+const DUMMY_SECTIONS = data.DUMMY_SECTIONS.homepage
 
 function HomePage() {
   return (

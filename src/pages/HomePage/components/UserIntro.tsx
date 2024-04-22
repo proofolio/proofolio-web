@@ -7,15 +7,9 @@ import EmailIcon from '@mui/icons-material/Email'
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone'
 
 import TechStack from '../../../components/TechStack'
+import data from '../../../api/DummyFiles.json'
 
-const DUMMY_CONTACT = {
-  linkedin: 'linkedin.com',
-  github: 'url',
-  email: 'email@email.com',
-  phone: '123456789',
-}
-
-const DUMMY_TECHS: Array<string> = ['html', 'css', 'javascript', 'npm']
+const DUMMY_USER_INFO = data.DUMMY_USER_INFO
 
 const UserIntro = () => {
   return (
@@ -33,7 +27,7 @@ const UserIntro = () => {
           </Typography>
           <Typography variant="h4">
             <Typewriter
-              words={['Frontend Developer']}
+              words={[DUMMY_USER_INFO.jobTitle]}
               loop={true}
               cursor
               typeSpeed={70}
@@ -42,18 +36,32 @@ const UserIntro = () => {
             />
           </Typography>
           <Box sx={{ display: 'flex' }}>
-            <LinkedInIcon></LinkedInIcon>
-            <GitHubIcon></GitHubIcon>
+            <a
+              href={DUMMY_USER_INFO.contactInfo.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'inherit', textDecoration: 'none' }}
+            >
+              <LinkedInIcon />
+            </a>
+            <a
+              href={DUMMY_USER_INFO.contactInfo.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'inherit', textDecoration: 'none' }}
+            >
+              <GitHubIcon />
+            </a>
             <EmailIcon />
-            <Typography>{DUMMY_CONTACT.email}</Typography>
+            <Typography>{DUMMY_USER_INFO.contactInfo.email}</Typography>
             <PhoneIphoneIcon />
-            <Typography>{DUMMY_CONTACT.phone}</Typography>
+            <Typography>{DUMMY_USER_INFO.contactInfo.phone}</Typography>
           </Box>
         </Box>
         <Avatar
           sx={{ width: 100, height: 100 }}
           alt="name"
-          src="https://mighty.tools/mockmind-api/content/cartoon/32.jpg"
+          src={DUMMY_USER_INFO.headShot}
         />
       </Container>
       <Container
@@ -61,15 +69,9 @@ const UserIntro = () => {
       >
         <Box>
           <Typography variant="h4">About Me</Typography>
-          <Typography>
-            {' '}
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae
-            quas incidunt, repellendus quis, enim ea officia nemo natus vel
-            inventore dolorem ad praesentium eligendi ipsum molestiae et
-            voluptates rerum non.
-          </Typography>
+          <Typography>{DUMMY_USER_INFO.aboutMe}</Typography>
         </Box>
-        <TechStack techs={DUMMY_TECHS} />
+        <TechStack techs={DUMMY_USER_INFO.techStack} />
       </Container>
     </Container>
   )

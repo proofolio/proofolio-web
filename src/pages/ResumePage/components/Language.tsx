@@ -1,19 +1,8 @@
 import { Container, Typography, Box, List, ListItem } from '@mui/material'
 
-const DUMMY_LANGUAGE = [
-  {
-    languageName: 'Mandarin',
-    proficiency: 'Native speaker',
-  },
-  {
-    languageName: 'English',
-    proficiency: 'Advanced ( TOEFL : 106 ) ',
-  },
-  {
-    languageName: 'Taiwanese',
-    proficiency: 'Advanced',
-  },
-]
+import data from '../../../api/DummyFiles.json'
+
+const DUMMY_LANGUAGE = data.DUMMY_RUSEME.languages
 
 function Language() {
   return (

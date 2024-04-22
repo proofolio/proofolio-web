@@ -1,45 +1,17 @@
-import { Typography, Box, Container } from '@mui/material'
+import {
+  Typography,
+  Box,
+  Container,
+  List,
+  ListItem,
+  Divider,
+} from '@mui/material'
+import GitHubIcon from '@mui/icons-material/GitHub'
 
 import TechStack from '../../../components/TechStack'
+import data from '../../../api/DummyFiles.json'
 
-const DUMMY_PROJECTS = [
-  {
-    projectId: 1,
-    projectTitle: 'TabColab',
-    projectTechStack: ['react', 'chromeextension', 'sass'],
-    projectIntro:
-      '<p>TabColab Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente. </p>',
-    demo: 'https://www.tabextend.com/',
-    projectGithub: 'https://github.com/',
-  },
-  {
-    projectId: 2,
-    projectTitle: 'BucketList',
-    projectTechStack: ['typescript', 'react', 'css'],
-    projectIntro:
-      '<p> BucketList Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente. </p>',
-    demo: 'http://proofolio.site/lander',
-    projectGithub: 'https://github.com/',
-  },
-  {
-    projectId: 3,
-    projectTitle: '2048Game',
-    projectTechStack: ['redux', 'html', 'css'],
-    projectIntro:
-      '<p> 2048Game Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente. </p>',
-    demo: 'https://play2048.co/',
-    projectGithub: 'https://github.com/',
-  },
-  {
-    projectId: 4,
-    projectTitle: 'Proofolio',
-    projectTechStack: ['typescript', 'react', 'materialui'],
-    projectIntro:
-      '<p> <h1>Proofolio</h1> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente. </p>',
-    demo: 'http://proofolio.site/lander',
-    projectGithub: 'https://github.com/',
-  },
-]
+const DUMMY_PROJECTS = data.DUMMY_PROJECT_BRIEF
 
 interface ProjectProps {
   selectedIndex: number
@@ -56,11 +28,46 @@ const Project: React.FC<ProjectProps> = ({ selectedIndex }) => {
 
   return (
     <Container>
-      <Typography variant="h2">{selectedProject.projectTitle}</Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Typography variant="h2">{selectedProject.projectTitle}</Typography>
+        <a
+          href={selectedProject.projectGithub}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: 'inherit', textDecoration: 'none' }}
+        >
+          <GitHubIcon />
+        </a>
+      </Box>
       <Box sx={{ display: 'flex' }}>
         <TechStack techs={selectedProject.projectTechStack} />
       </Box>
       <Typography variant="body1">{selectedProject.projectIntro}</Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
+        <List>
+          <Typography variant="h5">Features</Typography>
+          {selectedProject.projectFeatures.map((feature) => (
+            <ListItem>
+              <Typography>{feature.featureTitle}</Typography>
+            </ListItem>
+          ))}
+        </List>
+        <iframe
+          id={selectedProject.projectId.toString()}
+          title={selectedProject.projectTitle}
+          width="400px"
+          height="200px"
+          src={selectedProject.demo}
+        ></iframe>
+      </Box>
+      <Divider sx={{ my: '15px' }} />
+      {selectedProject.projectFeatures.map((feature) => (
+        <Box>
+          <Typography variant="h5">{feature.featureTitle}</Typography>
+          <Typography>{feature.featureIntro}</Typography>
+          <img alt={feature.featureTitle} src={feature.featureDemo}></img>
+        </Box>
+      ))}
     </Container>
   )
 }

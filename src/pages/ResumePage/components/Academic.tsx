@@ -1,33 +1,9 @@
 import { Container, Typography, Box, List, ListItem } from '@mui/material'
 
-const DUMMY_ACADEMICS = [
-  {
-    schoolName: 'NCCU, Taiwan',
-    degree: ' bachelor Education',
-    timeLine: 'Sep.2018 - Jan.2023',
-    gpa: '3',
-  },
-  {
-    schoolName: 'NCCU ,Taiwan',
-    degree: ' bachelor Business Administration',
-    timeLine: 'Sep.2019 - Jan.2023',
-    gpa: 'number',
-  },
-  {
-    schoolName: 'Masstrict Univeristy ,Netherlands',
-    degree: ' exchange ',
-    timeLine: 'Aug.2022 - Jan.2023',
-    gpa: '',
-  },
-]
-const DUMMY_DIPLOMA = [
-  {
-    chinese: 'https://fakeimg.pl/250x100/',
-  },
-  {
-    english: 'https://fakeimg.pl/250x100/',
-  },
-]
+import data from '../../../api/DummyFiles.json'
+
+const DUMMY_ACADEMICS = data.DUMMY_RUSEME.academics
+const DUMMY_DIPLOMA = data.DUMMY_RUSEME.diploma
 function Academic() {
   return (
     <Container id="Academic">

@@ -4,22 +4,9 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SideDrawer from '../../components/Drawer'
 import FullResume from './components/FullResume'
+import data from '../../api/DummyFiles.json'
 
-const DUMMY_SECTIONS = [
-  {
-    sectionTitle: 'Academic',
-    sectionIcon: '🏫',
-  },
-  { sectionTitle: 'Skills', sectionIcon: '💯' },
-  {
-    sectionTitle: 'Language',
-    sectionIcon: '🔤',
-  },
-  {
-    sectionTitle: 'Experience',
-    sectionIcon: '💼',
-  },
-]
+const DUMMY_SECTIONS = data.DUMMY_SECTIONS.resumepage
 
 function ResumePage() {
   return (

@@ -1,35 +1,8 @@
 import { Container, Typography, Box, List, ListItem } from '@mui/material'
 
-const DUMMY_SKILLS = [
-  {
-    skillType: 'string',
-    skillTitle: 'skill 1',
-    skillIntro:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem',
-    certificate: 'url',
-  },
-  {
-    skillType: 'string',
-    skillTitle: 'skill 2',
-    skillIntro:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem',
-    certificate: 'url',
-  },
-  {
-    skillType: 'string',
-    skillTitle: 'skill 3',
-    skillIntro:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem',
-    certificate: 'url',
-  },
-  {
-    skillType: 'string',
-    skillTitle: 'skill 4',
-    skillIntro:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem',
-    certificate: 'url',
-  },
-]
+import data from '../../../api/DummyFiles.json'
+
+const DUMMY_SKILLS = data.DUMMY_RUSEME.skills
 
 function Skills() {
   return (
