@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import {
   Timeline,
   TimelineItem,
@@ -9,11 +10,35 @@ import {
 } from '@mui/lab'
 import { Container, Typography, Avatar, Box, Divider } from '@mui/material'
 
-import data from '../../../api/DummyFiles.json'
+import { getResumeAPI } from '../../../api/getAPI'
 
-const DUMMY_EXPERIENCES = data.DUMMY_RUSEME.experiences
+interface ExperienceProp {
+  companyName: string
+  industry: string
+  companyLogo: string
+  jobTitle: string
+  timeLine: string
+  jobIntro: [
+    {
+      jobDetail: string
+      detailImage: string
+    },
+  ]
+}
 
 function Experience() {
+  const [experiences, setExperiences] = useState<ExperienceProp[] | null>(null)
+
+  useEffect(() => {
+    const fetchExperiences = async () => {
+      const { data } = await getResumeAPI()
+      setExperiences(data.experiences)
+    }
+
+    fetchExperiences()
+  }, [])
+
+  if (!experiences) return <div>still catching data</div>
   return (
     <Container id="Experience">
       <Typography variant="h2">Work Experiences</Typography>
@@ -25,7 +50,7 @@ function Experience() {
           },
         }}
       >
-        {DUMMY_EXPERIENCES.map((experience) => (
+        {experiences.map((experience) => (
           <TimelineItem sx={{ marginTop: '10px' }}>
             <TimelineSeparator>
               <TimelineDot variant="outlined">

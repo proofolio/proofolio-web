@@ -1,16 +1,32 @@
+import { useState, useEffect } from 'react'
 import { Container, Typography, Box, List, ListItem } from '@mui/material'
 
-import data from '../../../api/DummyFiles.json'
+import { getResumeAPI } from '../../../api/getAPI'
 
-const DUMMY_LANGUAGE = data.DUMMY_RUSEME.languages
+interface LanguageProp {
+  languageName: string
+  proficiency: string
+}
 
 function Language() {
+  const [languages, setLanguages] = useState<LanguageProp[] | null>(null)
+
+  useEffect(() => {
+    const fetchLanguages = async () => {
+      const { data } = await getResumeAPI()
+      setLanguages(data.languages)
+    }
+
+    fetchLanguages()
+  }, [])
+
+  if (!languages) return <div>still catching data</div>
   return (
     <Container id="Language">
       <Typography variant="h2">Languages</Typography>
       <Box>
         <List>
-          {DUMMY_LANGUAGE.map((language) => (
+          {languages.map((language) => (
             <ListItem>
               <Typography variant="h5">{language.languageName} : </Typography>
               <Typography variant="h6"> {language.proficiency}</Typography>

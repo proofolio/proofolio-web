@@ -1,16 +1,34 @@
+import { useState, useEffect } from 'react'
 import { Container, Typography, Box, List, ListItem } from '@mui/material'
 
-import data from '../../../api/DummyFiles.json'
+import { getResumeAPI } from '../../../api/getAPI'
 
-const DUMMY_SKILLS = data.DUMMY_RUSEME.skills
+interface SkillProp {
+  skillType: string
+  skillTitle: string
+  skillIntro: string
+  certificate: string
+}
 
 function Skills() {
+  const [skills, setSkills] = useState<SkillProp[] | null>(null)
+
+  useEffect(() => {
+    const fetchSkills = async () => {
+      const { data } = await getResumeAPI()
+      setSkills(data.skills)
+    }
+
+    fetchSkills()
+  }, [])
+
+  if (!skills) return <div>still catching data</div>
   return (
     <Container id="Skills">
       <Typography variant="h2">Skills</Typography>
       <Box>
         <List>
-          {DUMMY_SKILLS.map((skill) => (
+          {skills.map((skill) => (
             <ListItem divider={true}>
               <Box>
                 <Typography variant="h4">{skill.skillTitle} : </Typography>

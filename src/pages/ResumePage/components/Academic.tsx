@@ -1,16 +1,41 @@
+import { useState, useEffect } from 'react'
 import { Container, Typography, Box, List, ListItem } from '@mui/material'
 
-import data from '../../../api/DummyFiles.json'
+import { getResumeAPI } from '../../../api/getAPI'
 
-const DUMMY_ACADEMICS = data.DUMMY_RUSEME.academics
-const DUMMY_DIPLOMA = data.DUMMY_RUSEME.diploma
+interface AcademicsProp {
+  schoolName: string
+  degree: string
+  timeLine: string
+  gpa: number
+}
+interface DiplomaProp {
+  chinese: string
+  english: string
+}
 function Academic() {
+  const [academics, setAcademics] = useState<AcademicsProp[] | null>(null)
+  const [diploma, setDiploma] = useState<DiplomaProp[] | null>(null)
+
+  useEffect(() => {
+    const fetchAcademics = async () => {
+      const { data } = await getResumeAPI()
+      setAcademics(data.academics)
+      setDiploma(data.diploma)
+    }
+
+    fetchAcademics()
+  }, [])
+
+  if (!academics) return <div>still catching data</div>
+  if (!diploma) return <div>still catching data</div>
+
   return (
     <Container id="Academic">
       <Typography variant="h2">Academics</Typography>
       <Box>
         <List>
-          {DUMMY_ACADEMICS.map((school) => (
+          {academics.map((school) => (
             <ListItem divider={true}>
               <Box>
                 <Typography variant="h5"> {school.degree}</Typography>
@@ -22,8 +47,8 @@ function Academic() {
           ))}
         </List>
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <img alt="chinese diploma" src={DUMMY_DIPLOMA[0].chinese}></img>
-          <img alt="english diploma" src={DUMMY_DIPLOMA[1].english}></img>
+          <img alt="chinese diploma" src={diploma[0].chinese}></img>
+          <img alt="english diploma" src={diploma[1].english}></img>
         </Box>
       </Box>
     </Container>

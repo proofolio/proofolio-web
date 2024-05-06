@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import Icon from '@mui/material/Icon'
 import { Container, Typography, Avatar, Box } from '@mui/material'
 import { Typewriter } from 'react-simple-typewriter'
@@ -7,11 +8,36 @@ import EmailIcon from '@mui/icons-material/Email'
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone'
 
 import TechStack from '../../../components/TechStack'
-import data from '../../../api/DummyFiles.json'
+import { getUserInfoAPI } from '../../../api/getAPI'
 
-const DUMMY_USER_INFO = data.DUMMY_USER_INFO
+interface UserInfo {
+  jobTitle: string
+  name: string
+  headShot: string
+  backupPictures: string[]
+  aboutMe: string
+  techStack: string[]
+  contactInfo: {
+    linkedin: string
+    github: string
+    email: string
+    phone: number
+  }
+}
 
 const UserIntro = () => {
+  const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      const { data } = await getUserInfoAPI()
+      setUserInfo(data)
+    }
+
+    fetchUserInfo()
+  }, [])
+
+  if (!userInfo) return <div>still catching data</div>
   return (
     <Container id="UserIntro">
       <Container
@@ -27,7 +53,7 @@ const UserIntro = () => {
           </Typography>
           <Typography variant="h4">
             <Typewriter
-              words={[DUMMY_USER_INFO.jobTitle]}
+              words={[userInfo.jobTitle]}
               loop={true}
               cursor
               typeSpeed={70}
@@ -37,7 +63,7 @@ const UserIntro = () => {
           </Typography>
           <Box sx={{ display: 'flex' }}>
             <a
-              href={DUMMY_USER_INFO.contactInfo.linkedin}
+              href={userInfo.contactInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: 'inherit', textDecoration: 'none' }}
@@ -45,7 +71,7 @@ const UserIntro = () => {
               <LinkedInIcon />
             </a>
             <a
-              href={DUMMY_USER_INFO.contactInfo.github}
+              href={userInfo.contactInfo.github}
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: 'inherit', textDecoration: 'none' }}
@@ -53,15 +79,15 @@ const UserIntro = () => {
               <GitHubIcon />
             </a>
             <EmailIcon />
-            <Typography>{DUMMY_USER_INFO.contactInfo.email}</Typography>
+            <Typography>{userInfo.contactInfo.email}</Typography>
             <PhoneIphoneIcon />
-            <Typography>{DUMMY_USER_INFO.contactInfo.phone}</Typography>
+            <Typography>{userInfo.contactInfo.phone}</Typography>
           </Box>
         </Box>
         <Avatar
           sx={{ width: 100, height: 100 }}
           alt="name"
-          src={DUMMY_USER_INFO.headShot}
+          src={userInfo.headShot}
         />
       </Container>
       <Container
@@ -69,9 +95,9 @@ const UserIntro = () => {
       >
         <Box>
           <Typography variant="h4">About Me</Typography>
-          <Typography>{DUMMY_USER_INFO.aboutMe}</Typography>
+          <Typography>{userInfo.aboutMe}</Typography>
         </Box>
-        <TechStack techs={DUMMY_USER_INFO.techStack} />
+        <TechStack techs={userInfo.techStack} />
       </Container>
     </Container>
   )
