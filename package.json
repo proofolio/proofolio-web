@@ -52,6 +52,7 @@
   },
   "devDependencies": {
     "@eslint/js": "9.0.0",
+    "@types/axios": "^0.14.0",
     "@types/react-scroll": "^1.8.10",
     "eslint": "8.57.0",
     "eslint-plugin-react": "7.34.1",
