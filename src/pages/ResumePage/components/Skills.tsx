@@ -33,15 +33,15 @@ const DUMMY_SKILLS = [
 
 function Skills() {
   return (
-    <Container id="Skills">
-      <Typography variant="h2">Skills</Typography>
+    <Container id="Skills" sx={{ my: '15px' }}>
+      <Typography variant="h4">Skills</Typography>
       <Box>
         <List>
-          {DUMMY_SKILLS.map((skill) => (
-            <ListItem divider={true}>
+          {DUMMY_SKILLS.map((skill, index) => (
+            <ListItem divider={index !== DUMMY_SKILLS.length - 1}>
               <Box>
-                <Typography variant="h4">{skill.skillTitle} : </Typography>
-                <Typography variant="h6"> {skill.skillIntro}</Typography>
+                <Typography variant="h5">{skill.skillTitle} : </Typography>
+                <Typography> {skill.skillIntro}</Typography>
               </Box>
             </ListItem>
           ))}

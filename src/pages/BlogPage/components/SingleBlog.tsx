@@ -2,6 +2,7 @@ import { Typography, Box, Container, Button } from '@mui/material'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { useNavigate } from 'react-router-dom'
+import ReactMarkdown from 'react-markdown'
 
 const DUMMY_BLOGS = [
   {
@@ -13,26 +14,8 @@ const DUMMY_BLOGS = [
     heartNum: '2',
     blogIntro:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-    blogDetail: [
-      {
-        subTitle: 'subTitle 1',
-        paragraph:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-        image: 'https://picsum.photos/id/1/200/300',
-      },
-      {
-        subTitle: 'subTitle 2',
-        paragraph:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-        image: 'https://picsum.photos/id/1/200/300',
-      },
-      {
-        subTitle: 'subTitle 3',
-        paragraph:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-        image: 'https://picsum.photos/id/1/200/300',
-      },
-    ],
+    content:
+      '# This is a header\n*React-Markdown* is **Awesome**\n\n## This is a subheader \nLorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
     comment: [
       {
         commentId: 1,
@@ -51,26 +34,13 @@ const DUMMY_BLOGS = [
     heartNum: '5',
     blogIntro:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-    blogDetail: [
-      {
-        subTitle: 'subTitle 1',
-        paragraph:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-        image: 'https://picsum.photos/id/1/200/300',
-      },
-      {
-        subTitle: 'subTitle 2',
-        paragraph:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-        image: 'https://picsum.photos/id/1/200/300',
-      },
-      {
-        subTitle: 'subTitle 3',
-        paragraph:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-        image: 'https://picsum.photos/id/1/200/300',
-      },
-    ],
+    content: `# This is a header\n*React-Markdown* is **Awesome**\n\n## This is a subheader \nLorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus. Here is some JavaScript code:
+
+  \`\`\`javascript
+  const greeting = 'Hello, world!';
+  console.log(greeting);
+  \`\`\`
+  `,
   },
   {
     blogId: 2,
@@ -81,26 +51,8 @@ const DUMMY_BLOGS = [
     heartNum: '9',
     blogIntro:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-    blogDetail: [
-      {
-        subTitle: 'subTitle 1',
-        paragraph:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-        image: 'https://picsum.photos/id/1/200/300',
-      },
-      {
-        subTitle: 'subTitle 2',
-        paragraph:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-        image: 'https://picsum.photos/id/1/200/300',
-      },
-      {
-        subTitle: 'subTitle 3',
-        paragraph:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-        image: 'https://picsum.photos/id/1/200/300',
-      },
-    ],
+    content:
+      '# This is a header\n*React-Markdown* is **Awesome**\n\n## This is a subheader \nLorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
     comment: [
       {
         commentId: 2,
@@ -125,26 +77,8 @@ const DUMMY_BLOGS = [
     heartNum: '1',
     blogIntro:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-    blogDetail: [
-      {
-        subTitle: 'subTitle 1',
-        paragraph:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-        image: 'https://picsum.photos/id/1/200/300',
-      },
-      {
-        subTitle: 'subTitle 2',
-        paragraph:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-        image: 'https://picsum.photos/id/1/200/300',
-      },
-      {
-        subTitle: 'subTitle 3',
-        paragraph:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-        image: 'https://picsum.photos/id/1/200/300',
-      },
-    ],
+    content:
+      '# This is a header\n*React-Markdown* is **Awesome**\n\n## This is a subheader \nLorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
     comment: {
       commentId: 4,
       createdDate: '2023.March.23',
@@ -183,15 +117,8 @@ const SingleBlog: React.FC<BlogProps> = ({ blogId }) => {
       <img alt={selectedBlog.blogTitle} src={selectedBlog.thumbnail}></img>
       <Typography>{selectedBlog.publishedDate}</Typography>
       <Typography variant="body1">{selectedBlog.blogIntro}</Typography>
-      {selectedBlog.blogDetail.map((p) => (
-        <Box key={p.subTitle}>
-          <Typography variant="h6">{p.subTitle}</Typography>
-          <Box>
-            <Typography>{p.paragraph}</Typography>
-            <img alt={p.subTitle} src={p.image}></img>
-          </Box>
-        </Box>
-      ))}
+
+      <ReactMarkdown>{selectedBlog.content}</ReactMarkdown>
     </Container>
   )
 }

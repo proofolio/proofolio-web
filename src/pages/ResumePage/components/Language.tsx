@@ -17,14 +17,14 @@ const DUMMY_LANGUAGE = [
 
 function Language() {
   return (
-    <Container id="Language">
-      <Typography variant="h2">Languages</Typography>
+    <Container id="Language" sx={{ my: '15px' }}>
+      <Typography variant="h4">Languages</Typography>
       <Box>
         <List>
           {DUMMY_LANGUAGE.map((language) => (
             <ListItem>
-              <Typography variant="h5">{language.languageName} : </Typography>
-              <Typography variant="h6"> {language.proficiency}</Typography>
+              <Typography variant="h6">{language.languageName} : </Typography>
+              <Typography> {language.proficiency}</Typography>
             </ListItem>
           ))}
         </List>
