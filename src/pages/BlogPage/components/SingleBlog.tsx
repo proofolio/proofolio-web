@@ -1,92 +1,12 @@
-import { Typography, Box, Container, Button } from '@mui/material'
+import { Typography, Box, Container, Button, Divider } from '@mui/material'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { useNavigate } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 
-const DUMMY_BLOGS = [
-  {
-    blogId: 0,
-    publishedDate: '2023.Dec.13',
-    blogTopic: 'Topic A',
-    blogTitle: 'BlogTitle 1',
-    thumbnail: 'https://fakeimg.pl/300/',
-    heartNum: '2',
-    blogIntro:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-    content:
-      '# This is a header\n*React-Markdown* is **Awesome**\n\n## This is a subheader \nLorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-    comment: [
-      {
-        commentId: 1,
-        createdDate: '2023.Dec.23',
-        commentMessage:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus',
-      },
-    ],
-  },
-  {
-    blogId: 1,
-    publishedDate: '2024.Jan.13',
-    blogTopic: 'Topic A',
-    blogTitle: 'BlogTitle 2',
-    thumbnail: 'https://fakeimg.pl/300/',
-    heartNum: '5',
-    blogIntro:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-    content: `# This is a header\n*React-Markdown* is **Awesome**\n\n## This is a subheader \nLorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus. Here is some JavaScript code:
+import data from '../../../api/DummyFiles.json'
 
-  \`\`\`javascript
-  const greeting = 'Hello, world!';
-  console.log(greeting);
-  \`\`\`
-  `,
-  },
-  {
-    blogId: 2,
-    publishedDate: '2023.Jan.24',
-    blogTopic: 'Topic A',
-    blogTitle: 'BlogTitle 3',
-    thumbnail: 'https://fakeimg.pl/300/',
-    heartNum: '9',
-    blogIntro:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-    content:
-      '# This is a header\n*React-Markdown* is **Awesome**\n\n## This is a subheader \nLorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-    comment: [
-      {
-        commentId: 2,
-        createdDate: '2024.Feb.3',
-        commentMessage:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus',
-      },
-      {
-        commentId: 3,
-        createdDate: '2024.Feb.13',
-        commentMessage:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus',
-      },
-    ],
-  },
-  {
-    blogId: 3,
-    publishedDate: '2023.Feb.13',
-    blogTopic: 'Topic A',
-    blogTitle: 'BlogTitle 3',
-    thumbnail: 'https://fakeimg.pl/300/',
-    heartNum: '1',
-    blogIntro:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-    content:
-      '# This is a header\n*React-Markdown* is **Awesome**\n\n## This is a subheader \nLorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.',
-    comment: {
-      commentId: 4,
-      createdDate: '2023.March.23',
-      commentMessage:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus',
-    },
-  },
-]
+const DUMMY_BLOGS = data.DUMMY_BLOGS_ALL
 
 interface BlogProps {
   blogId: number
@@ -118,7 +38,7 @@ const SingleBlog: React.FC<BlogProps> = ({ blogId }) => {
       <Typography>{selectedBlog.publishedDate}</Typography>
       <Typography variant="body1">{selectedBlog.blogIntro}</Typography>
 
-      <ReactMarkdown>{selectedBlog.content}</ReactMarkdown>
+      <ReactMarkdown>{selectedBlog.blogIntro}</ReactMarkdown>
     </Container>
   )
 }

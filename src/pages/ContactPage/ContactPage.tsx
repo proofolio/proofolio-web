@@ -1,10 +1,4 @@
-import {
-  Box,
-  Container,
-  CssBaseline,
-  TextareaAutosize,
-  Typography,
-} from '@mui/material'
+import { Box, Container, CssBaseline, Typography } from '@mui/material'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import Carousel from 'react-material-ui-carousel'

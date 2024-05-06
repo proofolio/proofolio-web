@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import Icon from '@mui/material/Icon'
 import { Container, Typography, Avatar, Box } from '@mui/material'
 import { Typewriter } from 'react-simple-typewriter'
@@ -7,17 +8,36 @@ import EmailIcon from '@mui/icons-material/Email'
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone'
 
 import TechStack from '../../../components/TechStack'
+import { getUserInfoAPI } from '../../../api/getAPI'
 
-const DUMMY_CONTACT = {
-  linkedin: 'linkedin.com',
-  github: 'github.com',
-  email: 'email@email.com',
-  phone: '123456789',
+interface UserInfo {
+  jobTitle: string
+  name: string
+  headShot: string
+  backupPictures: string[]
+  aboutMe: string
+  techStack: string[]
+  contactInfo: {
+    linkedin: string
+    github: string
+    email: string
+    phone: number
+  }
 }
 
-const DUMMY_TECHS: Array<string> = ['html', 'css', 'javascript', 'npm']
-
 const UserIntro = () => {
+  const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      const { data } = await getUserInfoAPI()
+      setUserInfo(data)
+    }
+
+    fetchUserInfo()
+  }, [])
+
+  if (!userInfo) return <div>still catching data</div>
   return (
     <Container id="UserIntro">
       <Box
@@ -35,7 +55,7 @@ const UserIntro = () => {
           </Typography>
           <Typography variant="h4" sx={{ my: '10px' }}>
             <Typewriter
-              words={['Frontend Developer']}
+              words={[userInfo.jobTitle]}
               loop={true}
               cursor
               typeSpeed={70}
@@ -59,22 +79,13 @@ const UserIntro = () => {
         <Avatar
           sx={{ width: 120, height: 120, mr: 10 }}
           alt="name"
-          src="https://mighty.tools/mockmind-api/content/cartoon/32.jpg"
+          src={userInfo.headShot}
         />
       </Box>
       <Box sx={{ display: 'flex', my: 5 }}>
         <Box sx={{ width: '70%', mr: 5 }}>
           <Typography variant="h4">About Me</Typography>
-          <Typography>
-            {' '}
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae
-            quas incidunt, repellendus quis, enim ea officia nemo natus vel
-            inventore dolorem ad praesentium eligendi ipsum molestiae et
-            voluptates rerum non.Lorem ipsum dolor, sit amet consectetur
-            adipisicing elit. Beatae quas incidunt, repellendus quis, enim ea
-            officia nemo natus vel inventore dolorem ad praesentium eligendi
-            ipsum molestiae et voluptates rerum non.
-          </Typography>
+          <Typography>{userInfo.aboutMe}</Typography>
         </Box>
         <Box>
           <Typography variant="h4">Tech Stack</Typography>
