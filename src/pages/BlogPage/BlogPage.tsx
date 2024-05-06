@@ -4,25 +4,9 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SideDrawer from '../../components/Drawer'
 import AllBlogs from './components/AllBlogs'
+import data from '../../api/DummyFiles.json'
 
-const DUMMY_SECTIONS = [
-  {
-    sectionTitle: 'Topic A',
-    sectionIcon: '❄️',
-  },
-  {
-    sectionTitle: 'Topic B',
-    sectionIcon: '❄️',
-  },
-  {
-    sectionTitle: 'Topic C',
-    sectionIcon: '❄️',
-  },
-  {
-    sectionTitle: 'Topic D',
-    sectionIcon: '❄️',
-  },
-]
+const DUMMY_SECTIONS = data.DUMMY_SECTIONS.blogpage
 
 function BlogPage() {
   return (

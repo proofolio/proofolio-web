@@ -14,14 +14,14 @@ const DUMMY_SECTIONS = [
     sectionComponent: <Project selectedIndex={0} />,
   },
   {
-    sectionTitle: '2048Game',
-    sectionIcon: '🧩',
-    sectionComponent: <Project selectedIndex={1} />,
-  },
-  {
     sectionTitle: 'BucketList',
     sectionIcon: '📝',
     sectionComponent: <Project selectedIndex={2} />,
+  },
+  {
+    sectionTitle: '2048Game',
+    sectionIcon: '🧩',
+    sectionComponent: <Project selectedIndex={1} />,
   },
   {
     sectionTitle: 'Proofolio',
