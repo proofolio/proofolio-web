@@ -47,7 +47,11 @@ function Header() {
   }
   const { openDrawer, setOpenDrawer } = context
   return (
-    <AppBar position="fixed" open={openDrawer}>
+    <AppBar
+      position="fixed"
+      open={openDrawer}
+      sx={{ bgcolor: '#F0E5EB', color: 'black' }}
+    >
       <Toolbar>
         <IconButton
           color="inherit"
@@ -87,20 +91,24 @@ function Header() {
           }}
         >
           {PAGES.map((page) => (
-            <Link key={page.pageName} to={`/${page.pageName}`.toLowerCase()}>
-              <Button
-                sx={{
-                  my: 2,
-                  color: 'white',
-                  display: 'block',
-                }}
+            <Button
+              sx={{
+                my: 2,
+                color: 'inherit',
+                display: 'block',
+              }}
+            >
+              <Link
+                key={page.pageName}
+                to={`/${page.pageName}`.toLowerCase()}
+                style={{ textDecoration: 'none', color: 'inherit' }}
               >
                 <Typography>
-                  {page.pageIcon}
+                  {/* {page.pageIcon} */}
                   {page.pageName}
                 </Typography>
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           ))}
         </Box>
       </Toolbar>

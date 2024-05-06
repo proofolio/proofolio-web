@@ -19,7 +19,7 @@ const DUMMY_PROJECTS = [
     projectTechStack: ['typescript', 'react', 'css'],
     projectIntro:
       '<p> BucketList Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente. </p>',
-    demo: 'http://proofolio.site/lander',
+    demo: 'https://daphne-hsueh.github.io/bucket-list/',
     projectGithub: 'https://github.com/',
   },
   {
@@ -44,10 +44,20 @@ const DUMMY_PROJECTS = [
 
 function ProjectBrief() {
   return (
-    <Container id="ProjectBrief" sx={{ display: 'flex', my: 3 }}>
+    <Container id="ProjectBrief" sx={{ my: 3 }}>
+      <Typography variant="h3" sx={{ my: 3 }}>
+        Projects
+      </Typography>
       <Carousel sx={{ width: '100%' }}>
         {DUMMY_PROJECTS.map((project) => (
           <Box key={project.projectId} sx={{ display: 'flex' }}>
+            <Box>
+              <Typography variant="h4">{project.projectTitle}</Typography>
+              <Box sx={{ display: 'flex' }}>
+                <TechStack techs={project.projectTechStack} />
+              </Box>
+              <Typography>{project.projectIntro}</Typography>
+            </Box>
             <iframe
               id={project.projectId.toString()}
               title={project.projectTitle}
@@ -55,13 +65,6 @@ function ProjectBrief() {
               height="500px"
               src={project.demo}
             ></iframe>
-            <Box>
-              <Typography variant="h3">{project.projectTitle}</Typography>
-              <Box sx={{ display: 'flex' }}>
-                <TechStack techs={project.projectTechStack} />
-              </Box>
-              <Typography>{project.projectIntro}</Typography>
-            </Box>
           </Box>
         ))}
       </Carousel>
