@@ -36,8 +36,6 @@ const SingleBlog: React.FC<BlogProps> = ({ blogId }) => {
       </Box>
       <img alt={selectedBlog.blogTitle} src={selectedBlog.thumbnail}></img>
       <Typography>{selectedBlog.publishedDate}</Typography>
-      <Typography variant="body1">{selectedBlog.blogIntro}</Typography>
-
       <ReactMarkdown>{selectedBlog.blogIntro}</ReactMarkdown>
     </Container>
   )

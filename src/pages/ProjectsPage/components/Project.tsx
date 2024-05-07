@@ -46,11 +46,11 @@ const Project: React.FC<ProjectProps> = ({ selectedIndex }) => {
       <Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
         <List>
           <Typography variant="h5">Features</Typography>
-          {selectedProject.projectFeatures.map((feature) => (
+          {/* {selectedProject.projectFeatures.map((feature) => (
             <ListItem>
               <Typography>{feature.featureTitle}</Typography>
             </ListItem>
-          ))}
+          ))} */}
         </List>
         <iframe
           id={selectedProject.projectId.toString()}
@@ -61,13 +61,13 @@ const Project: React.FC<ProjectProps> = ({ selectedIndex }) => {
         ></iframe>
       </Box>
       <Divider sx={{ my: '15px' }} />
-      {selectedProject.projectFeatures.map((feature) => (
+      {/* {selectedProject.projectFeatures.map((feature) => (
         <Box>
           <Typography variant="h5">{feature.featureTitle}</Typography>
           <Typography>{feature.featureIntro}</Typography>
           <img alt={feature.featureTitle} src={feature.featureDemo}></img>
         </Box>
-      ))}
+      ))} */}
       <ReactMarkdown>{selectedProject.projectIntro}</ReactMarkdown>
     </Container>
   )

@@ -1,4 +1,4 @@
-import { Box, CssBaseline } from '@mui/material'
+import { Box, CssBaseline, Divider } from '@mui/material'
 
 import Header from '../../components/Header'
 import SideDrawer from '../../components/Drawer'
@@ -13,7 +13,9 @@ const DUMMY_SECTIONS = data.DUMMY_SECTIONS.homepage
 function HomePage() {
   return (
     <>
-      <Box sx={{ display: 'flex', minHeight: '96vh' }}>
+      <Box
+        sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}
+      >
         <CssBaseline />
         <Header />
         <SideDrawer sections={DUMMY_SECTIONS} sectionLabel="Sections" />

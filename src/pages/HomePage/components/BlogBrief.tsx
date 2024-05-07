@@ -24,7 +24,7 @@ function BlogBrief() {
   }
 
   return (
-    <Container id="BlogBrief">
+    <Container id="BlogBrief" sx={{ mt: 8 }}>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Typography variant="h5" sx={{ width: '400px' }}>
           {' '}

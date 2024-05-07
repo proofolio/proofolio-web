@@ -39,7 +39,15 @@ const UserIntro = () => {
 
   if (!userInfo) return <div>still catching data</div>
   return (
-    <Container id="UserIntro">
+    <Container
+      id="UserIntro"
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        height: '100vh',
+      }}
+    >
       <Box
         sx={{
           display: 'flex',
@@ -50,10 +58,10 @@ const UserIntro = () => {
         }}
       >
         <Box>
-          <Typography variant="h3" sx={{ my: '5px' }}>
+          <Typography variant="h2" sx={{ my: '5px' }}>
             Hi there, I'm Daphne <Icon fontSize="large">grass</Icon>
           </Typography>
-          <Typography variant="h4" sx={{ my: '10px' }}>
+          <Typography variant="h3" sx={{ my: '10px' }}>
             <Typewriter
               words={[userInfo.jobTitle]}
               loop={true}
@@ -66,14 +74,20 @@ const UserIntro = () => {
           <Box sx={{ display: 'flex', my: '10px' }}>
             <LinkedInIcon />
             <Typography sx={{ mx: '8px' }}>
-              {DUMMY_CONTACT.linkedin}｜
+              {userInfo.contactInfo.linkedin}｜
             </Typography>
             <GitHubIcon />
-            <Typography sx={{ mx: '8px' }}>{DUMMY_CONTACT.github}｜</Typography>
+            <Typography sx={{ mx: '8px' }}>
+              {userInfo.contactInfo.github}｜
+            </Typography>
             <EmailIcon />
-            <Typography sx={{ mx: '8px' }}>{DUMMY_CONTACT.email}｜</Typography>
+            <Typography sx={{ mx: '8px' }}>
+              {userInfo.contactInfo.email}｜
+            </Typography>
             <PhoneIphoneIcon />
-            <Typography sx={{ mx: '8px' }}>{DUMMY_CONTACT.phone}</Typography>
+            <Typography sx={{ mx: '8px' }}>
+              {userInfo.contactInfo.phone}
+            </Typography>
           </Box>
         </Box>
         <Avatar
@@ -82,16 +96,15 @@ const UserIntro = () => {
           src={userInfo.headShot}
         />
       </Box>
-      <Box sx={{ display: 'flex', my: 5 }}>
-        <Box sx={{ width: '70%', mr: 5 }}>
-          <Typography variant="h4">About Me</Typography>
-          <Typography>{userInfo.aboutMe}</Typography>
-        </Box>
-        <Box>
-          <Typography variant="h4">Tech Stack</Typography>
-          <Box sx={{ display: 'flex' }}>
-            <TechStack techs={DUMMY_TECHS} />
-          </Box>
+
+      <Box sx={{ width: '70%', my: 7 }}>
+        <Typography variant="h3">About Me</Typography>
+        <Typography>{userInfo.aboutMe}</Typography>
+      </Box>
+      <Box>
+        <Typography variant="h3">Tech Stack</Typography>
+        <Box sx={{ display: 'flex' }}>
+          <TechStack techs={userInfo.techStack} />
         </Box>
       </Box>
     </Container>
