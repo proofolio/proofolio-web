@@ -39,19 +39,29 @@ const UserIntro = () => {
 
   if (!userInfo) return <div>still catching data</div>
   return (
-    <Container id="UserIntro">
-      <Container
+    <Container
+      id="UserIntro"
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        height: '100vh',
+      }}
+    >
+      <Box
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
+          alignItems: 'center',
           my: 3,
+          padding: '0',
         }}
       >
         <Box>
-          <Typography variant="h3">
+          <Typography variant="h2" sx={{ my: '5px' }}>
             Hi there, I'm Daphne <Icon fontSize="large">grass</Icon>
           </Typography>
-          <Typography variant="h4">
+          <Typography variant="h3" sx={{ my: '10px' }}>
             <Typewriter
               words={[userInfo.jobTitle]}
               loop={true}
@@ -61,44 +71,42 @@ const UserIntro = () => {
               delaySpeed={2000}
             />
           </Typography>
-          <Box sx={{ display: 'flex' }}>
-            <a
-              href={userInfo.contactInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: 'inherit', textDecoration: 'none' }}
-            >
-              <LinkedInIcon />
-            </a>
-            <a
-              href={userInfo.contactInfo.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: 'inherit', textDecoration: 'none' }}
-            >
-              <GitHubIcon />
-            </a>
+          <Box sx={{ display: 'flex', my: '10px' }}>
+            <LinkedInIcon />
+            <Typography sx={{ mx: '8px' }}>
+              {userInfo.contactInfo.linkedin}｜
+            </Typography>
+            <GitHubIcon />
+            <Typography sx={{ mx: '8px' }}>
+              {userInfo.contactInfo.github}｜
+            </Typography>
             <EmailIcon />
-            <Typography>{userInfo.contactInfo.email}</Typography>
+            <Typography sx={{ mx: '8px' }}>
+              {userInfo.contactInfo.email}｜
+            </Typography>
             <PhoneIphoneIcon />
-            <Typography>{userInfo.contactInfo.phone}</Typography>
+            <Typography sx={{ mx: '8px' }}>
+              {userInfo.contactInfo.phone}
+            </Typography>
           </Box>
         </Box>
         <Avatar
-          sx={{ width: 100, height: 100 }}
+          sx={{ width: 120, height: 120, mr: 10 }}
           alt="name"
           src={userInfo.headShot}
         />
-      </Container>
-      <Container
-        sx={{ display: 'flex', justifyContent: 'space-between', my: 3 }}
-      >
-        <Box>
-          <Typography variant="h4">About Me</Typography>
-          <Typography>{userInfo.aboutMe}</Typography>
+      </Box>
+
+      <Box sx={{ width: '70%', my: 7 }}>
+        <Typography variant="h3">About Me</Typography>
+        <Typography>{userInfo.aboutMe}</Typography>
+      </Box>
+      <Box>
+        <Typography variant="h3">Tech Stack</Typography>
+        <Box sx={{ display: 'flex' }}>
+          <TechStack techs={userInfo.techStack} />
         </Box>
-        <TechStack techs={userInfo.techStack} />
-      </Container>
+      </Box>
     </Container>
   )
 }

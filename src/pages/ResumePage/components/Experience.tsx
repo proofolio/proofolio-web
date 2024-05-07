@@ -40,8 +40,8 @@ function Experience() {
 
   if (!experiences) return <div>still catching data</div>
   return (
-    <Container id="Experience">
-      <Typography variant="h2">Work Experiences</Typography>
+    <Container id="Experience" sx={{ my: '15px' }}>
+      <Typography variant="h4">Work Experiences</Typography>
       <Timeline
         sx={{
           [`& .${timelineItemClasses.root}:before`]: {

@@ -31,22 +31,20 @@ function Academic() {
   if (!diploma) return <div>still catching data</div>
 
   return (
-    <Container id="Academic">
-      <Typography variant="h2">Academics</Typography>
+    <Container id="Academic" sx={{ my: '15px' }}>
+      <Typography variant="h4">Academics</Typography>
       <Box>
-        <List>
+        <Box sx={{ display: 'flex' }}>
           {academics.map((school) => (
-            <ListItem divider={true}>
-              <Box>
-                <Typography variant="h5"> {school.degree}</Typography>
-                <Typography variant="h6">{school.schoolName} : </Typography>
-                <Typography>{school.timeLine}</Typography>
-                <Typography>{school.gpa}</Typography>
-              </Box>
-            </ListItem>
+            <Box sx={{ margin: '10px', width: '33%' }}>
+              <Typography variant="h6"> {school.degree}</Typography>
+              <Typography variant="h6">{school.schoolName} : </Typography>
+              <Typography>{school.timeLine}</Typography>
+              <Typography>{school.gpa}</Typography>
+            </Box>
           ))}
-        </List>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        </Box>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-start' }}>
           <img alt="chinese diploma" src={diploma[0].chinese}></img>
           <img alt="english diploma" src={diploma[1].english}></img>
         </Box>

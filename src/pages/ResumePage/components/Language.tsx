@@ -22,14 +22,14 @@ function Language() {
 
   if (!languages) return <div>still catching data</div>
   return (
-    <Container id="Language">
-      <Typography variant="h2">Languages</Typography>
+    <Container id="Language" sx={{ my: '15px' }}>
+      <Typography variant="h4">Languages</Typography>
       <Box>
         <List>
           {languages.map((language) => (
             <ListItem>
-              <Typography variant="h5">{language.languageName} : </Typography>
-              <Typography variant="h6"> {language.proficiency}</Typography>
+              <Typography variant="h6">{language.languageName} : </Typography>
+              <Typography> {language.proficiency}</Typography>
             </ListItem>
           ))}
         </List>
