@@ -2,6 +2,7 @@ import { Typography, Box, Container, Button, Divider } from '@mui/material'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { useNavigate } from 'react-router-dom'
+import ReactMarkdown from 'react-markdown'
 
 import data from '../../../api/DummyFiles.json'
 
@@ -35,26 +36,7 @@ const SingleBlog: React.FC<BlogProps> = ({ blogId }) => {
       </Box>
       <img alt={selectedBlog.blogTitle} src={selectedBlog.thumbnail}></img>
       <Typography>{selectedBlog.publishedDate}</Typography>
-      <Typography variant="body1">{selectedBlog.blogIntro}</Typography>
-      {selectedBlog.blogDetail.map((p) => (
-        <Box key={p.subTitle}>
-          <Typography variant="h6">{p.subTitle}</Typography>
-          <Box>
-            <Typography>{p.paragraph}</Typography>
-            <img alt={p.subTitle} src={p.image}></img>
-          </Box>
-        </Box>
-      ))}
-      <Divider sx={{ my: '10px' }} />
-      {selectedBlog.comment &&
-        selectedBlog.comment.map((comment) => (
-          <Box key={comment.commentId}>
-            <Typography>
-              comment created date : {comment.createdDate}
-            </Typography>
-            <Typography>{comment.commentMessage}</Typography>
-          </Box>
-        ))}
+      <ReactMarkdown>{selectedBlog.blogIntro}</ReactMarkdown>
     </Container>
   )
 }

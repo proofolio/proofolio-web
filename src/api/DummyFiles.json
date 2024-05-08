@@ -72,100 +72,32 @@
       "projectTitle": "TabColab",
       "projectTechStack": ["react", "chromeextension", "sass"],
       "projectIntro": "TabColab Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente. ",
-      "demo": "https://www.tabextend.com/",
-      "projectGithub": "https://github.com/",
-      "projectFeatures": [
-        {
-          "featureTitle": "FeatureTitle 1",
-          "featureIntro": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-          "featureDemo": "https://picsum.photos/id/11/200/300"
-        },
-        {
-          "featureTitle": "FeatureTitle 2",
-          "featureIntro": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-          "featureDemo": "https://picsum.photos/id/41/200/300"
-        },
-        {
-          "featureTitle": "FeatureTitle 3",
-          "featureIntro": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-          "featureDemo": "https://picsum.photos/id/14/200/300"
-        }
-      ]
+      "demo": "https://chromewebstore.google.com/detail/tabcolab/pkigikdacbladbiakamiecjjcdakagha?pli=1",
+      "projectGithub": "https://github.com/"
     },
     {
       "projectId": 2,
       "projectTitle": "BucketList",
       "projectTechStack": ["typescript", "react", "css"],
       "projectIntro": "BucketList Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente. ",
-      "demo": "http://proofolio.site/lander",
-      "projectGithub": "https://github.com/",
-      "projectFeatures": [
-        {
-          "featureTitle": "FeatureTitle 1",
-          "featureIntro": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-          "featureDemo": "https://picsum.photos/id/11/200/300"
-        },
-        {
-          "featureTitle": "FeatureTitle 2",
-          "featureIntro": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-          "featureDemo": "https://picsum.photos/id/41/200/300"
-        },
-        {
-          "featureTitle": "FeatureTitle 3",
-          "featureIntro": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-          "featureDemo": "https://picsum.photos/id/14/200/300"
-        }
-      ]
+      "demo": "https://daphne-hsueh.github.io/bucket-list/",
+      "projectGithub": "https://github.com/"
     },
     {
       "projectId": 3,
       "projectTitle": "2048Game",
       "projectTechStack": ["redux", "html", "css"],
       "projectIntro": " 2048Game Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-      "demo": "https://play2048.co/",
-      "projectGithub": "https://github.com/",
-      "projectFeatures": [
-        {
-          "featureTitle": "FeatureTitle 1",
-          "featureIntro": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-          "featureDemo": "https://picsum.photos/id/31/200/300"
-        },
-        {
-          "featureTitle": "FeatureTitle 2",
-          "featureIntro": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-          "featureDemo": "https://picsum.photos/id/21/200/300"
-        },
-        {
-          "featureTitle": "FeatureTitle 3",
-          "featureIntro": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-          "featureDemo": "https://picsum.photos/id/14/200/300"
-        }
-      ]
+      "demo": "https://game-4337e.web.app/",
+      "projectGithub": "https://github.com/"
     },
     {
       "projectId": 4,
       "projectTitle": "Proofolio",
       "projectTechStack": ["typescript", "react", "materialui"],
       "projectIntro": "Proofolio Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-      "demo": "http://proofolio.site/lander",
-      "projectGithub": "https://github.com/",
-      "projectFeatures": [
-        {
-          "featureTitle": "FeatureTitle 1",
-          "featureIntro": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-          "featureDemo": "https://picsum.photos/id/31/200/300"
-        },
-        {
-          "featureTitle": "FeatureTitle 2",
-          "featureIntro": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-          "featureDemo": "https://picsum.photos/id/41/200/300"
-        },
-        {
-          "featureTitle": "FeatureTitle 3",
-          "featureIntro": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-          "featureDemo": "https://picsum.photos/id/14/200/300"
-        }
-      ]
+      "demo": "https://www.proofolio.site/",
+      "projectGithub": "https://github.com/"
     }
   ],
   "DUMMY_BLOG_BRIEF": [
@@ -374,24 +306,8 @@
       "blogTitle": "my first blog",
       "thumbnail": "https://picsum.photos/id/1/200/300",
       "heartNum": 2,
-      "blogIntro": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-      "blogDetail": [
-        {
-          "subTitle": "subTitle 1",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        },
-        {
-          "subTitle": "subTitle 2",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        },
-        {
-          "subTitle": "subTitle 3",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        }
-      ],
+      "blogIntro": " # Lorem ipsum dolor \n\nsit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus. ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus. ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus. ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
+
       "comment": [
         {
           "commentId": 1,
@@ -407,24 +323,7 @@
       "blogTitle": "my 2nd blog",
       "thumbnail": "https://picsum.photos/id/2/200/300",
       "heartNum": 2,
-      "blogIntro": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-      "blogDetail": [
-        {
-          "subTitle": "subTitle 1",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        },
-        {
-          "subTitle": "subTitle 2",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        },
-        {
-          "subTitle": "subTitle 3",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        }
-      ]
+      "blogIntro": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus."
     },
     {
       "blogId": 3,
@@ -434,23 +333,7 @@
       "thumbnail": "https://picsum.photos/id/3/200/300",
       "heartNum": 3,
       "blogIntro": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-      "blogDetail": [
-        {
-          "subTitle": "subTitle 1",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        },
-        {
-          "subTitle": "subTitle 2",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        },
-        {
-          "subTitle": "subTitle 3",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        }
-      ],
+
       "comment": [
         {
           "commentId": 2,
@@ -472,23 +355,7 @@
       "thumbnail": "https://picsum.photos/id/4/200/300",
       "heartNum": 0,
       "blogIntro": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-      "blogDetail": [
-        {
-          "subTitle": "subTitle 1",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        },
-        {
-          "subTitle": "subTitle 2",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        },
-        {
-          "subTitle": "subTitle 3",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        }
-      ],
+
       "comment": [
         {
           "commentId": 4,
@@ -505,23 +372,7 @@
       "thumbnail": "https://picsum.photos/id/5/200/300",
       "heartNum": 2,
       "blogIntro": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-      "blogDetail": [
-        {
-          "subTitle": "subTitle 1",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        },
-        {
-          "subTitle": "subTitle 2",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        },
-        {
-          "subTitle": "subTitle 3",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        }
-      ],
+
       "comment": [
         {
           "commentId": 4,
@@ -538,23 +389,7 @@
       "thumbnail": "https://picsum.photos/id/6/200/300",
       "heartNum": 2,
       "blogIntro": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-      "blogDetail": [
-        {
-          "subTitle": "subTitle 1",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        },
-        {
-          "subTitle": "subTitle 2",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        },
-        {
-          "subTitle": "subTitle 3",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        }
-      ],
+
       "comment": [
         {
           "commentId": 4,
@@ -571,23 +406,7 @@
       "thumbnail": "https://picsum.photos/id/7/200/300",
       "heartNum": 2,
       "blogIntro": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-      "blogDetail": [
-        {
-          "subTitle": "subTitle 1",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        },
-        {
-          "subTitle": "subTitle 2",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        },
-        {
-          "subTitle": "subTitle 3",
-          "paragraph": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
-          "image": "https://picsum.photos/id/1/200/300"
-        }
-      ],
+
       "comment": [
         {
           "commentId": 4,
