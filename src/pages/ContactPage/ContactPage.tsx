@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Box, Container, CssBaseline, Typography } from '@mui/material'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
@@ -6,14 +7,22 @@ import Carousel from 'react-material-ui-carousel'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import SideDrawer from '../../components/Drawer'
-
-const DUMMY_PICS = [
-  'https://picsum.photos/id/10/400/300',
-  'https://picsum.photos/id/20/400/300',
-  'https://picsum.photos/id/30/400/300',
-]
+import { getUserInfo } from '../../api/getAPI'
 
 const ContactPage = () => {
+  const [backupPictures, setBackupPictures] = useState<string[]>([])
+
+  useEffect(() => {
+    async function fetch() {
+      const response = await getUserInfo(
+        'https://api.proofolio.site/user/user-info',
+        {},
+        {}
+      )
+      setBackupPictures(response.response.data.backupPictures)
+    }
+    fetch()
+  }, [])
   return (
     <>
       <Box
@@ -76,7 +85,7 @@ const ContactPage = () => {
                 m: '30px',
               }}
             >
-              {DUMMY_PICS.map((image, index) => (
+              {backupPictures.map((image, index) => (
                 <img
                   alt="contactPageImg"
                   src={image}

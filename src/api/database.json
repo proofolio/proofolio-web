@@ -16,7 +16,7 @@
     ],
     "resumepage": [
       {
-        "sectionTitle": "Academic",
+        "sectionTitle": "education",
         "sectionIcon": "🏫"
       },
       { "sectionTitle": "Skills", "sectionIcon": "💯" },
@@ -51,9 +51,9 @@
   "DUMMY_USER_INFO": {
     "name": "Daphne",
     "jobTitle": "Frontend Developer",
-    "headShot": "https://mighty.tools/mockmind-api/content/cartoon/32.jpg",
-    "aboutMe": "This is a paragraph about me. It contains multiple sentences. It provides information about me. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quas incidunt, repellendus quis, enim ea officia nemo natus vel inventore dolorem ad praesentium eligendi ipsum molestiae etvoluptates rerum non.",
-    "techStack": ["html", "css", "javascript", "npm"],
+    "headShotUrl": "https://mighty.tools/mockmind-api/content/cartoon/32.jpg",
+    "aboutMe": "This is a paragraph about me. It contains multiple sentences. \nIt provides information about me. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quas incidunt, repellendus quis, enim ea officia nemo natus vel inventore dolorem ad \npraesentium eligendi ipsum molestiae etvoluptates rerum non.Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
+    "techStack": ["HTML", "CSS", "JavaScript", "npm"],
     "backupPictures": [
       "https://picsum.photos/id/10/400/300",
       "https://picsum.photos/id/20/400/300",
@@ -69,35 +69,49 @@
   "DUMMY_PROJECT_BRIEF": [
     {
       "projectId": 1,
-      "projectTitle": "TabColab",
-      "projectTechStack": ["react", "chromeextension", "sass"],
+      "projectTitle": "TabColabbbb",
+      "projectTechStack": ["React", "ChromeExtension", "Sass"],
       "projectIntro": "TabColab Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente. ",
-      "demo": "https://chromewebstore.google.com/detail/tabcolab/pkigikdacbladbiakamiecjjcdakagha?pli=1",
-      "projectGithub": "https://github.com/"
+      "projectDetail": "# TabColab Lorem ipsum\n\n dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum \nquasi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapienasi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. te.\n\n hihiVoluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! \n\n ## hihih \n2Voluptates facilis, nisi ad, ipsum  cum iure amalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. te.\n hihiVoluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. te eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. te ",
+      "demoUrl": "https://chromewebstore.google.com/detail/tabcolab/pkigikdacbladbiakamiecjjcdakagha?pli=1",
+      "demoVideo": "url.com",
+      "projectGithub": "https://github.com/",
+      "featureList": [
+        "feature 1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velitdolor sit amet consectetur, ",
+        "feature 2Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit",
+        "feature 3Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit",
+        "feature 4Loremdolor sit amet consectetur,  ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit"
+      ]
     },
     {
       "projectId": 2,
       "projectTitle": "BucketList",
-      "projectTechStack": ["typescript", "react", "css"],
+      "projectTechStack": ["TypeScript", "React", "CSS"],
       "projectIntro": "BucketList Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente. ",
-      "demo": "https://daphne-hsueh.github.io/bucket-list/",
-      "projectGithub": "https://github.com/"
+      "projectDetail": "# TabColab Lorem ipsum\n\n dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum \nquasi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. ",
+      "demoUrl": "https://daphne-hsueh.github.io/bucket-list/",
+      "projectGithub": "https://github.com/",
+      "featureList": ["feature 1", "feature 2", "feature 3", "feature 4"]
     },
     {
       "projectId": 3,
       "projectTitle": "2048Game",
-      "projectTechStack": ["redux", "html", "css"],
+      "projectTechStack": ["Redux", "HTML", "CSS"],
       "projectIntro": " 2048Game Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-      "demo": "https://game-4337e.web.app/",
-      "projectGithub": "https://github.com/"
+      "projectDetail": "# TabColab Lorem ipsum\n\n dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum \nquasi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. ",
+      "demoUrl": "https://game-4337e.web.app/",
+      "projectGithub": "https://github.com/",
+      "featureList": ["feature 1", "feature 2", "feature 3", "feature 4"]
     },
     {
       "projectId": 4,
       "projectTitle": "Proofolio",
-      "projectTechStack": ["typescript", "react", "materialui"],
+      "projectTechStack": ["TypeScript", "React", "MaterialUI"],
       "projectIntro": "Proofolio Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-      "demo": "https://www.proofolio.site/",
-      "projectGithub": "https://github.com/"
+      "projectDetail": "# TabColab Lorem ipsum\n\n dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum \nquasi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. ",
+      "demoUrl": "https://www.proofolio.site/",
+      "projectGithub": "https://github.com/",
+      "featureList": ["feature 1", "feature 2", "feature 3", "feature 4"]
     }
   ],
   "DUMMY_BLOG_BRIEF": [
@@ -158,37 +172,34 @@
       "heartNum": 2
     }
   ],
-  "DUMMY_RUSEME": {
-    "updatedDate": "string",
-    "fullResume": "url",
+  "DUMMY_RESUME": {
+    "intro": {
+      "username": "string",
+      "aboutMe": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id.",
+      "updatedDate": "2024.May.09",
+      "fullResume": "https://www.clickdimensions.com/links/TestPDFfile.pdf"
+    },
     "diploma": [
+      { "alphaCamp": "https://fakeimg.pl/250x100/" },
       { "chinese": "https://fakeimg.pl/250x100/" },
       { "english": "https://fakeimg.pl/250x100/" }
     ],
     "skills": [
       {
-        "skillType": "string",
-        "skillTitle": "skill 1",
-        "skillIntro": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem",
-        "certificate": "url"
+        "skillType": "SkillType 1",
+        "skillTitle": ["skill 1", "skill 2", "skill 3", "skill 4"]
       },
       {
-        "skillType": "string",
-        "skillTitle": "skill 2",
-        "skillIntro": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem",
-        "certificate": "url"
+        "skillType": "SkillType 2",
+        "skillTitle": ["skill 1", "skill 2", "skill 3", "skill 4"]
       },
       {
-        "skillType": "string",
-        "skillTitle": "skill 3",
-        "skillIntro": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem",
-        "certificate": "url"
+        "skillType": "SkillType 3",
+        "skillTitle": ["skill 1", "skill 2", "skill 3", "skill 4"]
       },
       {
-        "skillType": "string",
-        "skillTitle": "skill 4",
-        "skillIntro": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem",
-        "certificate": "url"
+        "skillType": "SkillType 4",
+        "skillTitle": ["skill 1", "skill 2", "skill 3", "skill 4"]
       }
     ],
     "languages": [
@@ -205,21 +216,32 @@
         "proficiency": "Advanced"
       }
     ],
-    "academics": [
+    "certificate": [
+      {
+        "name": "string",
+        "loglUrl": "<url>",
+        "issueAt": "<timestamp>",
+        "detail": "string"
+      }
+    ],
+    "educations": [
       {
         "schoolName": "NCCU, Taiwan",
+        "schoolLogo": "https://www.nccu.edu.tw/sites/default/files/logo.png",
         "degree": " bachelor Education",
         "timeLine": "Sep.2018 - Jan.2023",
         "gpa": "3"
       },
       {
         "schoolName": "NCCU ,Taiwan",
+        "schoolLogo": "https://www.nccu.edu.tw/sites/default/files/logo.png",
         "degree": " bachelor Business Administration",
         "timeLine": "Sep.2019 - Jan.2023",
         "gpa": "number"
       },
       {
         "schoolName": "Masstrict Univeristy ,Netherlands",
+        "schoolLogo": "https://www.maastrichtuniversity.nl/sites/default/files/um-logo.png",
         "degree": " exchange ",
         "timeLine": "Aug.2022 - Jan.2023",
         "gpa": ""
@@ -232,17 +254,7 @@
         "companyLogo": "https://avatars.githubusercontent.com/u/8667311?s=280&v=4",
         "jobTitle": "Frontend Developer",
         "timeLine": "Nov.2023 ~ April.2024",
-        "jobIntro": [
-          {
-            "jobDetail": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id.",
-            "detailImage": "https://picsum.photos/id/50/200/300"
-          },
-
-          {
-            "jobDetail": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id.",
-            "detailImage": "https://picsum.photos/id/52/200/300"
-          }
-        ]
+        "jobIntro": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id."
       },
       {
         "companyName": "Anke Media Corp",
@@ -250,17 +262,7 @@
         "companyLogo": "https://www.ankecare.com/assets/images/about/anke.png",
         "jobTitle": "Event specialist",
         "timeLine": "March.2023 ~ October.2024",
-        "jobIntro": [
-          {
-            "jobDetail": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id.",
-            "detailImage": "https://picsum.photos/id/40/200/300"
-          },
-
-          {
-            "jobDetail": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id.",
-            "detailImage": "https://picsum.photos/id/38/200/300"
-          }
-        ]
+        "jobIntro": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id."
       },
       {
         "companyName": "Impact Hub Taipei",
@@ -268,16 +270,7 @@
         "companyLogo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbTm9dpemZhDUhoiUGIxxYTLnefm-G3lpW-9ryMo748Q&s",
         "jobTitle": "Corporate Innovation Team Intern",
         "timeLine": "Jan.2022 ~ June.2022",
-        "jobIntro": [
-          {
-            "jobDetail": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id.",
-            "detailImage": "https://picsum.photos/id/37/200/300"
-          },
-          {
-            "jobDetail": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id.",
-            "detailImage": "https://picsum.photos/id/54/200/300"
-          }
-        ]
+        "jobIntro": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id."
       },
       {
         "companyName": "BenQ HeadQuarter",
@@ -285,16 +278,7 @@
         "companyLogo": "https://www.benq.com/etc/designs/g6/clientlib-site/img/header-icon/nav-icon-benq-logo.png",
         "jobTitle": "US/UK Digital Marketing Intern",
         "timeLine": "July.2021 ~ Jan.2022",
-        "jobIntro": [
-          {
-            "jobDetail": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id.",
-            "detailImage": "https://picsum.photos/id/46/200/300"
-          },
-          {
-            "jobDetail": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id.",
-            "detailImage": "https://picsum.photos/id/28/200/300"
-          }
-        ]
+        "jobIntro": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id."
       }
     ]
   },
@@ -312,7 +296,7 @@
         {
           "commentId": 1,
           "createdDate": "2023.Dec.23",
-          "commentMessage": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus"
+          "commentContent": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus"
         }
       ]
     },
@@ -338,12 +322,12 @@
         {
           "commentId": 2,
           "createdDate": "2024.Feb.3",
-          "commentMessage": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus"
+          "commentContent": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus"
         },
         {
           "commentId": 3,
           "createdDate": "2024.Feb.13",
-          "commentMessage": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus"
+          "commentContent": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus"
         }
       ]
     },
@@ -360,7 +344,7 @@
         {
           "commentId": 4,
           "createdDate": "2023.March.23",
-          "commentMessage": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus"
+          "commentContent": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus"
         }
       ]
     },
@@ -377,7 +361,7 @@
         {
           "commentId": 4,
           "createdDate": "2023.March.23",
-          "commentMessage": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus"
+          "commentContent": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus"
         }
       ]
     },
@@ -394,7 +378,7 @@
         {
           "commentId": 4,
           "createdDate": "2023.March.23",
-          "commentMessage": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus"
+          "commentContent": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus"
         }
       ]
     },
@@ -411,7 +395,7 @@
         {
           "commentId": 4,
           "createdDate": "2023.March.23",
-          "commentMessage": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus"
+          "commentContent": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus"
         }
       ]
     }
