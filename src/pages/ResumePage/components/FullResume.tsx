@@ -1,13 +1,34 @@
+import { useState, useEffect } from 'react'
 import { Container, Typography, Box, Button, Divider } from '@mui/material'
-import GitHubIcon from '@mui/icons-material/GitHub'
-import LinkedInIcon from '@mui/icons-material/LinkedIn'
 
 import Experience from './Experience'
 import Language from './Language'
 import Skills from './Skills'
-import Academic from './Academic'
+import Education from './Education'
+import { getResume } from '../../../api/getAPI'
+
+interface IntroProp {
+  username: string
+  aboutMe: string
+  updatedDate: string
+  fullResume: string
+}
 
 function FullResume() {
+  const [intro, setIntro] = useState<IntroProp | null>(null)
+
+  useEffect(() => {
+    async function fetch() {
+      const response = await getResume(
+        'https://api.proofolio.site/user/resume',
+        {},
+        {}
+      )
+
+      setIntro(response.response.data.intro)
+    }
+    fetch()
+  }, [])
   return (
     <Container id="Full Resume">
       <Container>
@@ -19,19 +40,26 @@ function FullResume() {
             my: '20px',
           }}
         >
-          <Typography variant="h3">Hi this is my full resume</Typography>
-          <Button>
-            <Typography variant="h5">download resume</Typography>
-          </Button>
+          <Typography variant="h4">Hi this is my full resume</Typography>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Button>
+              <a href={intro?.fullResume} download>
+                <Typography> download resume</Typography>
+              </a>
+            </Button>
+            <Typography fontSize={10} sx={{ mt: -1 }}>
+              updated at: {intro?.updatedDate}
+            </Typography>
+          </Box>
         </Box>
-        <Typography>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident
-          suscipit sapiente tempora libero obcaecati beatae commodi voluptatem,
-          asperiores ab deserunt nihil iusto voluptatum in aspernatur at
-          molestiae vel maxime dicta?
-        </Typography>
-        <GitHubIcon />
-        <LinkedInIcon />
+        <Typography sx={{ mb: 3 }}>{intro?.aboutMe}</Typography>
+
         <Divider />
       </Container>
       <Box
@@ -41,7 +69,7 @@ function FullResume() {
           justifyContent: 'space-around',
         }}
       >
-        <Academic />
+        <Education />
         <Divider />
         <Language />
         <Divider />
