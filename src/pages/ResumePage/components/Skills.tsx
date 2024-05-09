@@ -1,25 +1,27 @@
 import { useState, useEffect } from 'react'
 import { Container, Typography, Box, List, ListItem } from '@mui/material'
 
-import { getResumeAPI } from '../../../api/getAPI'
+import { getResume } from '../../../api/getAPI'
 
 interface SkillProp {
   skillType: string
-  skillTitle: string
-  skillIntro: string
-  certificate: string
+  skillTitle: Array<string>
 }
 
 function Skills() {
   const [skills, setSkills] = useState<SkillProp[] | null>(null)
 
   useEffect(() => {
-    const fetchSkills = async () => {
-      const { data } = await getResumeAPI()
-      setSkills(data.skills)
-    }
+    async function fetch() {
+      const response = await getResume(
+        'https://api.proofolio.site/user/resume',
+        {},
+        {}
+      )
 
-    fetchSkills()
+      setSkills(response.response.data.skills)
+    }
+    fetch()
   }, [])
 
   if (!skills) return <div>still catching data</div>
@@ -29,10 +31,10 @@ function Skills() {
       <Box>
         <List>
           {skills.map((skill) => (
-            <ListItem divider={true}>
+            <ListItem>
               <Box>
-                <Typography variant="h5">{skill.skillTitle} : </Typography>
-                <Typography> {skill.skillIntro}</Typography>
+                <Typography variant="h5">{skill.skillType} : </Typography>
+                <Typography> {skill.skillTitle.join('、')}</Typography>
               </Box>
             </ListItem>
           ))}

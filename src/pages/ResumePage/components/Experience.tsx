@@ -9,8 +9,9 @@ import {
   timelineItemClasses,
 } from '@mui/lab'
 import { Container, Typography, Avatar, Box, Divider } from '@mui/material'
+import ReactMarkdown from 'react-markdown'
 
-import { getResumeAPI } from '../../../api/getAPI'
+import { getResume } from '../../../api/getAPI'
 
 interface ExperienceProp {
   companyName: string
@@ -18,24 +19,23 @@ interface ExperienceProp {
   companyLogo: string
   jobTitle: string
   timeLine: string
-  jobIntro: [
-    {
-      jobDetail: string
-      detailImage: string
-    },
-  ]
+  jobIntro: string
 }
 
 function Experience() {
   const [experiences, setExperiences] = useState<ExperienceProp[] | null>(null)
 
   useEffect(() => {
-    const fetchExperiences = async () => {
-      const { data } = await getResumeAPI()
-      setExperiences(data.experiences)
-    }
+    async function fetch() {
+      const response = await getResume(
+        'https://api.proofolio.site/user/resume',
+        {},
+        {}
+      )
 
-    fetchExperiences()
+      setExperiences(response.response.data.experiences)
+    }
+    fetch()
   }, [])
 
   if (!experiences) return <div>still catching data</div>
@@ -66,13 +66,8 @@ function Experience() {
               <Typography variant="h5">{experience.jobTitle}</Typography>
               <Typography>{experience.companyName}</Typography>
               <Typography>{experience.industry}</Typography>
+              <ReactMarkdown>{experience.jobIntro}</ReactMarkdown>
               <Divider sx={{ my: '10px' }} />
-              {experience.jobIntro.map((job) => (
-                <Box sx={{ display: 'flex' }}>
-                  <Typography>{job.jobDetail}</Typography>
-                  <img alt={experience.jobTitle} src={job.detailImage}></img>
-                </Box>
-              ))}
             </TimelineContent>
           </TimelineItem>
         ))}

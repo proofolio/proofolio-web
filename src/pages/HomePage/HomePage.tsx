@@ -1,4 +1,5 @@
-import { Box, CssBaseline, Divider } from '@mui/material'
+import { useState, useEffect } from 'react'
+import { Box, CssBaseline, Container } from '@mui/material'
 
 import Header from '../../components/Header'
 import SideDrawer from '../../components/Drawer'
@@ -6,11 +7,33 @@ import UserIntro from './components/UserIntro'
 import ProjectBrief from './components/ProjectBrief'
 import BlogBrief from './components/BlogBrief'
 import Footer from '../../components/Footer'
-import data from '../../api/DummyFiles.json'
+import { getSections } from '../../api/getAPI'
 
-const DUMMY_SECTIONS = data.DUMMY_SECTIONS.homepage
+type SectionType = {
+  sectionTitle: string
+  sectionIcon: string
+}
+
+type SectionsType = {
+  homepage: SectionType[]
+  resumepage: SectionType[]
+  blogpage: SectionType[]
+}
 
 function HomePage() {
+  const [sections, setSections] = useState<SectionsType | null>(null)
+
+  useEffect(() => {
+    async function fetch() {
+      const response = await getSections(
+        'https://api.proofolio.site/user/sections',
+        {},
+        {}
+      )
+      setSections(response.response.data)
+    }
+    fetch()
+  }, [])
   return (
     <>
       <Box
@@ -18,7 +41,9 @@ function HomePage() {
       >
         <CssBaseline />
         <Header />
-        <SideDrawer sections={DUMMY_SECTIONS} sectionLabel="Sections" />
+        {sections && (
+          <SideDrawer sections={sections?.homepage} sectionLabel="Sections" />
+        )}
         <Box
           component={'main'}
           sx={{
@@ -27,9 +52,11 @@ function HomePage() {
             marginTop: '60px',
           }}
         >
-          <UserIntro />
-          <ProjectBrief />
-          <BlogBrief />
+          <Container>
+            <UserIntro />
+            <ProjectBrief />
+            <BlogBrief />
+          </Container>
         </Box>
       </Box>
       <Footer />

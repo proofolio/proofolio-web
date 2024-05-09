@@ -1,20 +1,43 @@
+import { useState, useEffect } from 'react'
 import { Typography, Box, Container, Button, Divider } from '@mui/material'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { useNavigate } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 
-import data from '../../../api/DummyFiles.json'
+import { getBlogs } from '../../../api/getAPI'
 
-const DUMMY_BLOGS = data.DUMMY_BLOGS_ALL
+interface BlogsType {
+  blogId: number
+  publishedDate: string
+  blogTopic: string
+  blogTitle: string
+  heartNum: number
+  thumbnail: string
+  blogIntro: string
+}
 
-interface BlogProps {
+interface BlogType {
   blogId: number
 }
 
-const SingleBlog: React.FC<BlogProps> = ({ blogId }) => {
+const SingleBlog: React.FC<BlogType> = ({ blogId }) => {
+  const [blogs, setBlogs] = useState<BlogsType[] | null>(null)
+
+  useEffect(() => {
+    async function fetch() {
+      const response = await getBlogs(
+        'https://api.proofolio.site/user/blogs',
+        {},
+        {}
+      )
+      setBlogs(response.response.data)
+    }
+    fetch()
+  }, [])
+
   const navigate = useNavigate()
-  const selectedBlog = DUMMY_BLOGS.find((blog) => blog.blogId === blogId)
+  const selectedBlog = blogs && blogs.find((blog) => blog.blogId === blogId)
   if (!selectedBlog) {
     return <div>No Blog found</div>
   }

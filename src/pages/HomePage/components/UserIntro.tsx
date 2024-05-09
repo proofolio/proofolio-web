@@ -8,12 +8,12 @@ import EmailIcon from '@mui/icons-material/Email'
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone'
 
 import TechStack from '../../../components/TechStack'
-import { getUserInfoAPI } from '../../../api/getAPI'
+import { getUserInfo } from '../../../api/getAPI'
 
-interface UserInfo {
+interface UserInfoType {
   jobTitle: string
   name: string
-  headShot: string
+  headShotUrl: string
   backupPictures: string[]
   aboutMe: string
   techStack: string[]
@@ -26,15 +26,18 @@ interface UserInfo {
 }
 
 const UserIntro = () => {
-  const [userInfo, setUserInfo] = useState<UserInfo | null>(null)
+  const [userInfo, setUserInfo] = useState<UserInfoType | null>(null)
 
   useEffect(() => {
-    const fetchUserInfo = async () => {
-      const { data } = await getUserInfoAPI()
-      setUserInfo(data)
+    async function fetch() {
+      const response = await getUserInfo(
+        'https://api.proofolio.site/user/user-info',
+        {},
+        {}
+      )
+      setUserInfo(response.response.data)
     }
-
-    fetchUserInfo()
+    fetch()
   }, [])
 
   if (!userInfo) return <div>still catching data</div>
@@ -59,7 +62,7 @@ const UserIntro = () => {
       >
         <Box>
           <Typography variant="h2" sx={{ my: '5px' }}>
-            Hi there, I'm Daphne <Icon fontSize="large">grass</Icon>
+            Hi there, I'm {userInfo.name} <Icon fontSize="large">grass</Icon>
           </Typography>
           <Typography variant="h3" sx={{ my: '10px' }}>
             <Typewriter
@@ -93,7 +96,7 @@ const UserIntro = () => {
         <Avatar
           sx={{ width: 120, height: 120, mr: 10 }}
           alt="name"
-          src={userInfo.headShot}
+          src={userInfo.headShotUrl}
         />
       </Box>
 

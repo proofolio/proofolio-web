@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Container, Typography, Box, List, ListItem } from '@mui/material'
 
-import { getResumeAPI } from '../../../api/getAPI'
+import { getResume } from '../../../api/getAPI'
 
 interface LanguageProp {
   languageName: string
@@ -12,12 +12,16 @@ function Language() {
   const [languages, setLanguages] = useState<LanguageProp[] | null>(null)
 
   useEffect(() => {
-    const fetchLanguages = async () => {
-      const { data } = await getResumeAPI()
-      setLanguages(data.languages)
-    }
+    async function fetch() {
+      const response = await getResume(
+        'https://api.proofolio.site/user/resume',
+        {},
+        {}
+      )
 
-    fetchLanguages()
+      setLanguages(response.response.data.languages)
+    }
+    fetch()
   }, [])
 
   if (!languages) return <div>still catching data</div>

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
 import ImageListItemBar from '@mui/material/ImageListItemBar'
@@ -6,10 +7,9 @@ import { Container, Typography, Box } from '@mui/material'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { useNavigate } from 'react-router-dom'
 
-import data from '../../../api/DummyFiles.json'
+import { getBlogBrief } from '../../../api/getAPI'
 
-const DUMMY_BLOGS = data.DUMMY_BLOG_BRIEF
-interface BlogProps {
+interface BlogBriefType {
   blogId: number
   publishedDate: string
   blogTopic: string
@@ -17,9 +17,9 @@ interface BlogProps {
   thumbnail: string
   heartNum: number
 }
-function groupByTopic(blogs: Array<BlogProps>) {
+function groupByTopic(blogs: Array<BlogBriefType>) {
   return blogs.reduce(
-    (groupedBlogs: { [key: string]: Array<BlogProps> }, blog) => {
+    (groupedBlogs: { [key: string]: Array<BlogBriefType> }, blog) => {
       ;(groupedBlogs[blog.blogTopic] = groupedBlogs[blog.blogTopic] || []).push(
         blog
       )
@@ -30,7 +30,20 @@ function groupByTopic(blogs: Array<BlogProps>) {
 }
 
 function AllBlogs() {
-  const groupedBlogs = groupByTopic(DUMMY_BLOGS)
+  const [blogBrief, setBlogBrief] = useState<BlogBriefType[] | null>(null)
+  useEffect(() => {
+    async function fetch() {
+      const response = await getBlogBrief(
+        'https://api.proofolio.site/user/blogBrief',
+        {},
+        {}
+      )
+      setBlogBrief(response.response.data)
+    }
+    fetch()
+  }, [])
+
+  const groupedBlogs = groupByTopic(blogBrief || [])
   const navigate = useNavigate()
 
   return (
@@ -43,13 +56,14 @@ function AllBlogs() {
               <ImageListItem
                 key={blog.blogId}
                 onClick={() => navigate(`/blog/${blog.blogId}`)}
+                sx={{ cursor: 'pointer' }}
               >
                 <img
                   srcSet={`${blog.thumbnail}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   src={`${blog.thumbnail}?w=248&fit=crop&auto=format`}
                   alt={blog.blogTitle}
                   loading="lazy"
-                  style={{ height: '200px' }}
+                  style={{ height: '200px', borderRadius: '10px' }}
                 />
                 <ImageListItemBar
                   title={blog.blogTitle}
