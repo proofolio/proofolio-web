@@ -51,7 +51,17 @@ function ProjectsPage() {
       >
         <Header />
         <SideDrawer sections={SECTIONS} sectionLabel="Projects" />
-        <Box component={'main'} sx={{ flexGrow: 1, p: 3, marginTop: '60px' }}>
+        <Box
+          component={'main'}
+          sx={{
+            flexGrow: 1,
+            p: 3,
+            marginTop: '60px',
+            maxWidth: '100%',
+            overflowX: 'auto',
+            width: '100%',
+          }}
+        >
           {sectionIndex === -1
             ? SECTIONS[0].sectionComponent
             : SECTIONS[sectionIndex].sectionComponent}

@@ -32,22 +32,22 @@ let theme = createTheme({
       fontSize: '2rem',
     },
     h6: {
-      fontSize: '1.5rem',
+      fontSize: '1.8rem',
     },
     body1: {
-      fontSize: '1.2rem',
+      fontSize: '1.4rem',
     },
     body2: {
-      fontSize: '1rem',
+      fontSize: '1.2rem',
     },
     subtitle1: {
-      fontSize: '0.9rem',
+      fontSize: '1rem',
     },
     subtitle2: {
-      fontSize: '0.8rem',
+      fontSize: '0.9rem',
     },
     caption: {
-      fontSize: '0.7rem',
+      fontSize: '0.8rem',
     },
   },
 })
