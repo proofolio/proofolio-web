@@ -40,9 +40,11 @@ const ContactPage = () => {
             p: 3,
             marginTop: '60px',
             width: '100%',
+            maxWidth: '100%',
+            overflowX: 'auto',
           }}
         >
-          <Typography variant="h5" textAlign={'center'}>
+          <Typography variant="h4" textAlign={'center'} sx={{ my: 2 }}>
             leave a message?
           </Typography>
           <Container
@@ -50,9 +52,10 @@ const ContactPage = () => {
               width: '100%',
               display: { sx: 'block', md: 'flex' },
               justifyContent: 'center',
+              alignItems: 'center',
             }}
           >
-            <form style={{ width: '100%', marginTop: '30px' }}>
+            <form style={{ width: '100%', marginTop: '-20px' }}>
               <TextField
                 label="Name"
                 variant="outlined"
@@ -73,7 +76,11 @@ const ContactPage = () => {
                 rows={8}
                 margin="normal"
               />
-              <Button variant="contained" color="primary" type="submit">
+              <Button
+                variant="contained"
+                type="submit"
+                sx={{ bgcolor: '#F0E5EB', color: 'black' }}
+              >
                 Submit
               </Button>
             </form>
@@ -82,17 +89,23 @@ const ContactPage = () => {
               navButtonsAlwaysInvisible
               sx={{
                 width: '100%',
-                m: '30px',
               }}
             >
               {backupPictures.map((image, index) => (
-                <img
-                  alt="contactPageImg"
-                  src={image}
+                <Box
+                  component="img"
                   key={index}
-                  width={600}
-                  style={{ margin: '0 auto' }}
-                ></img>
+                  alt={image}
+                  src={image}
+                  sx={{
+                    margin: '0 auto',
+                    width: '100%',
+                    height: '100%',
+                    borderRadius: '10px',
+                    marginLeft: { xs: 0, md: 3 },
+                    marginTop: { xs: 3, md: 0 },
+                  }}
+                ></Box>
               ))}
             </Carousel>
           </Container>

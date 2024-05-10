@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles'
+import { Typography } from '@mui/material'
 import MuiDrawer from '@mui/material/Drawer'
 import List from '@mui/material/List'
 import Divider from '@mui/material/Divider'
@@ -15,7 +16,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { DrawerContext } from '../store/DrawerContext'
 import { SectionContext } from '../store/SectionContext'
 
-const drawerWidth = 220
+const drawerWidth = 180
 const PAGES = [
   { pageName: 'Projects', pageIcon: '🆒' },
   { pageName: 'Resume', pageIcon: '📜' },
@@ -111,12 +112,17 @@ function SideDrawer({ sections, sectionLabel }: Props) {
         <ListItem
           style={{
             writingMode: openDrawer ? 'horizontal-tb' : 'vertical-rl',
+            fontSize: '0.8rem',
           }}
         >
           Pages
         </ListItem>
         {PAGES.map((page) => (
-          <Link key={page.pageName} to={`/${page}`.toLowerCase()}>
+          <Link
+            key={page.pageName}
+            to={`/${page}`.toLowerCase()}
+            style={{ color: 'inherit', textDecoration: 'none' }}
+          >
             <ListItem disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -135,7 +141,9 @@ function SideDrawer({ sections, sectionLabel }: Props) {
                   {page.pageIcon}
                 </ListItemIcon>
                 <ListItemText
-                  primary={page.pageName}
+                  primary={
+                    <Typography variant="subtitle1">{page.pageName}</Typography>
+                  }
                   sx={{ opacity: openDrawer ? 1 : 0 }}
                 />
               </ListItemButton>
@@ -148,6 +156,7 @@ function SideDrawer({ sections, sectionLabel }: Props) {
         <ListItem
           style={{
             writingMode: openDrawer ? 'horizontal-tb' : 'vertical-rl',
+            fontSize: '0.8rem',
           }}
         >
           {sectionLabel}
@@ -185,9 +194,14 @@ function SideDrawer({ sections, sectionLabel }: Props) {
                   {section.sectionIcon}
                 </ListItemIcon>
                 <ListItemText
-                  primary={section.sectionTitle}
-                  sx={{ opacity: openDrawer ? 1 : 0 }}
-                />
+                  sx={{
+                    opacity: openDrawer ? 1 : 0,
+                  }}
+                >
+                  <Typography variant="subtitle1">
+                    {section.sectionTitle}
+                  </Typography>
+                </ListItemText>
               </ListItemButton>
             </ListItem>
           ))}

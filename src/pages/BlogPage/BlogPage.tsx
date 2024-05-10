@@ -45,9 +45,19 @@ function BlogPage() {
         {sections && (
           <SideDrawer sections={sections?.blogpage} sectionLabel="Topics" />
         )}
-        <Box component={'main'} sx={{ flexGrow: 1, p: 3, marginTop: '60px' }}>
+        <Box
+          component={'main'}
+          sx={{
+            flexGrow: 1,
+            p: 3,
+            marginTop: '60px',
+            maxWidth: '100%',
+            overflowX: 'auto',
+            width: '100%',
+          }}
+        >
           <Container>
-            <Typography variant="h4" textAlign={'center'}>
+            <Typography variant="h4" textAlign={'center'} sx={{ my: 1 }}>
               Welcome to my study notes !{' '}
             </Typography>
             <Typography textAlign={'center'}>

@@ -55,15 +55,23 @@ const Project: React.FC<ProjectProps> = ({ selectedIndex }) => {
   return (
     <Container>
       <Box>
-        <Typography variant="h2">{selectedProject.projectTitle}</Typography>
+        <Typography variant="h2" sx={{ my: 1 }}>
+          {selectedProject.projectTitle}
+        </Typography>
         <a
           href={selectedProject.projectGithub}
           target="_blank"
           rel="noopener noreferrer"
-          style={{ color: 'inherit', textDecoration: 'none', display: 'flex' }}
+          style={{
+            color: 'inherit',
+            textDecoration: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            paddingLeft: '16px',
+          }}
         >
           <GitHubIcon />
-          <Typography sx={{ ml: 1 }}>
+          <Typography variant="caption" sx={{ ml: 1 }}>
             {selectedProject.projectGithub}
           </Typography>
         </a>
@@ -76,28 +84,41 @@ const Project: React.FC<ProjectProps> = ({ selectedIndex }) => {
             textDecoration: 'none',
             display: 'flex',
             marginBottom: '10px',
+            alignItems: 'center',
+            paddingLeft: '16px',
           }}
         >
           <LanguageIcon />
-          <Typography sx={{ ml: 1 }}>{selectedProject.demoUrl}</Typography>
+          <Typography variant="caption" sx={{ ml: 1 }}>
+            {selectedProject.demoUrl}
+          </Typography>
         </a>
       </Box>
 
-      <Typography variant="h6" sx={{ mb: 2 }}>
+      <Typography variant="subtitle1" sx={{ mb: 2, pl: '16px' }}>
         just a brief intro of project {selectedProject.projectIntro}
       </Typography>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Box sx={{ mr: 4 }}>
-          <Box sx={{ display: 'flex' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          flexDirection: { xs: 'column', md: 'row' },
+        }}
+      >
+        <Box>
+          <Box sx={{ display: 'flex', mb: 1, alignItems: 'center' }}>
             <Typography variant="h5" sx={{ mr: 2 }}>
-              Tech Stack:
+              Tech Stack
             </Typography>
             <TechStack techs={selectedProject.projectTechStack} />
           </Box>
           <List>
             <Typography variant="h5">Features</Typography>
             {selectedProject.featureList.map((feature, index) => (
-              <ListItem key={index}>{feature}</ListItem>
+              <ListItem key={index} sx={{ width: '100%' }}>
+                {' '}
+                {index + 1}. {feature}
+              </ListItem>
             ))}
           </List>
         </Box>
@@ -108,6 +129,7 @@ const Project: React.FC<ProjectProps> = ({ selectedIndex }) => {
             width="600px"
             height="400px"
             src={selectedProject.demoUrl}
+            style={{ border: 'none', borderRadius: '10px' }}
           ></iframe>
         </Box>
       </Box>

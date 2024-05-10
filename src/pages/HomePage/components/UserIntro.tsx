@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Icon from '@mui/material/Icon'
-import { Container, Typography, Avatar, Box } from '@mui/material'
+import { Container, Typography, Box } from '@mui/material'
 import { Typewriter } from 'react-simple-typewriter'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import GitHubIcon from '@mui/icons-material/GitHub'
@@ -47,16 +47,17 @@ const UserIntro = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
-        height: '100vh',
+        justifyContent: { sx: 'flex-start', md: 'center' },
+        height: '90vh',
+        m: 3,
       }}
     >
       <Box
         sx={{
           display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          my: 3,
+          justifyContent: { md: 'space-between' },
+          flexDirection: { xs: 'column', md: 'row' },
+          // my: 3,
           padding: '0',
         }}
       >
@@ -74,41 +75,71 @@ const UserIntro = () => {
               delaySpeed={2000}
             />
           </Typography>
-          <Box sx={{ display: 'flex', my: '10px' }}>
-            <LinkedInIcon />
-            <Typography sx={{ mx: '8px' }}>
-              {userInfo.contactInfo.linkedin}｜
-            </Typography>
-            <GitHubIcon />
-            <Typography sx={{ mx: '8px' }}>
-              {userInfo.contactInfo.github}｜
-            </Typography>
-            <EmailIcon />
-            <Typography sx={{ mx: '8px' }}>
-              {userInfo.contactInfo.email}｜
-            </Typography>
-            <PhoneIphoneIcon />
-            <Typography sx={{ mx: '8px' }}>
-              {userInfo.contactInfo.phone}
-            </Typography>
+          <Box
+            component="img"
+            alt={userInfo.name}
+            src={userInfo.headShotUrl}
+            sx={{
+              width: '50%',
+              borderRadius: '20px',
+              objectFit: 'cover',
+              display: { xs: 'block', md: 'none' },
+              mb: 2,
+            }}
+          ></Box>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', md: 'row' },
+              gap: '8px',
+            }}
+          >
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <LinkedInIcon />
+              <Typography variant="caption">
+                {userInfo.contactInfo.linkedin}
+              </Typography>
+              <GitHubIcon />
+              <Typography variant="caption">
+                {userInfo.contactInfo.github}
+              </Typography>
+            </Box>
+
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <EmailIcon />
+              <Typography variant="caption">
+                {userInfo.contactInfo.email}
+              </Typography>
+              <PhoneIphoneIcon />
+              <Typography variant="caption" sx={{ marginLeft: '-6px' }}>
+                {userInfo.contactInfo.phone}
+              </Typography>
+            </Box>
           </Box>
         </Box>
-        <Avatar
-          sx={{ width: 120, height: 120, mr: 10 }}
-          alt="name"
+        <Box
+          component="img"
+          alt={userInfo.name}
           src={userInfo.headShotUrl}
-        />
+          sx={{
+            width: '25%',
+            borderRadius: '20px',
+            objectFit: 'cover',
+            display: { xs: 'none', md: 'block' },
+            mr: 4,
+          }}
+        ></Box>
       </Box>
 
-      <Box sx={{ width: '70%', my: 7 }}>
-        <Typography variant="h3">About Me</Typography>
-        <Typography>{userInfo.aboutMe}</Typography>
+      <Box sx={{ my: 7 }}>
+        <Typography variant="h4">About Me</Typography>
+        <Typography variant="subtitle1">{userInfo.aboutMe}</Typography>
       </Box>
       <Box>
-        <Typography variant="h3">Tech Stack</Typography>
-        <Box sx={{ display: 'flex' }}>
-          <TechStack techs={userInfo.techStack} />
-        </Box>
+        <Typography variant="h4" sx={{ mb: 1 }}>
+          Tech Stack
+        </Typography>
+        <TechStack techs={userInfo.techStack} />
       </Box>
     </Container>
   )

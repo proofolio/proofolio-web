@@ -45,20 +45,24 @@ const SingleBlog: React.FC<BlogType> = ({ blogId }) => {
   return (
     <Container>
       <Box>
-        <Button sx={{ display: 'flex' }} onClick={() => navigate(`/blog`)}>
+        <Button
+          sx={{ display: 'flex', ml: -2 }}
+          onClick={() => navigate(`/blog`)}
+        >
           <ArrowBackIcon />
           <Typography>back to Blogs</Typography>
         </Button>
-        <Box sx={{ display: 'flex' }}>
-          <Typography variant="h2">{selectedBlog.blogTitle}</Typography>
+        <Box sx={{ display: 'flex', my: 1 }}>
+          <Typography variant="h3">{selectedBlog.blogTitle}</Typography>
           <Button>
             <FavoriteBorderIcon />
             {selectedBlog.heartNum}
           </Button>
         </Box>
       </Box>
-      <img alt={selectedBlog.blogTitle} src={selectedBlog.thumbnail}></img>
-      <Typography>{selectedBlog.publishedDate}</Typography>
+      {/* <img alt={selectedBlog.blogTitle} src={selectedBlog.thumbnail}></img> */}
+      <Typography variant="subtitle1">{selectedBlog.publishedDate}</Typography>
+      <Divider sx={{ my: 2 }} />
       <ReactMarkdown>{selectedBlog.blogIntro}</ReactMarkdown>
     </Container>
   )
