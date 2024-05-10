@@ -32,7 +32,7 @@ let theme = createTheme({
       fontSize: '2rem',
     },
     h6: {
-      fontSize: '1.8rem',
+      fontSize: '1.6rem',
     },
     body1: {
       fontSize: '1.4rem',
