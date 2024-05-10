@@ -7,7 +7,7 @@ import Footer from '../../components/Footer'
 import Project from './components/Project'
 import { SectionContext } from '../../store/SectionContext'
 
-const DUMMY_SECTIONS = [
+const SECTIONS = [
   {
     sectionTitle: 'TabColab',
     sectionIcon: '🗂️',
@@ -37,7 +37,7 @@ function ProjectsPage() {
   }
   const { whichSection } = sectionContext
 
-  const sectionIndex = DUMMY_SECTIONS.findIndex(
+  const sectionIndex = SECTIONS.findIndex(
     (section) => section.sectionTitle === whichSection
   )
 
@@ -50,11 +50,11 @@ function ProjectsPage() {
         }}
       >
         <Header />
-        <SideDrawer sections={DUMMY_SECTIONS} sectionLabel="Projects" />
+        <SideDrawer sections={SECTIONS} sectionLabel="Projects" />
         <Box component={'main'} sx={{ flexGrow: 1, p: 3, marginTop: '60px' }}>
           {sectionIndex === -1
-            ? DUMMY_SECTIONS[0].sectionComponent
-            : DUMMY_SECTIONS[sectionIndex].sectionComponent}
+            ? SECTIONS[0].sectionComponent
+            : SECTIONS[sectionIndex].sectionComponent}
         </Box>
       </Box>
       <Footer />

@@ -46,11 +46,26 @@ function BlogBrief() {
   }, [])
 
   return (
-    <Container id="BlogBrief" sx={{ mt: 8 }}>
-      <Box sx={{ display: 'flex', alignItems: 'center' }}>
-        <Typography variant="h5" sx={{ width: '400px' }}>
+    <Container
+      id="BlogBrief"
+      sx={{
+        m: 3,
+        mt: 8,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: { xs: 'flex-start', sm: 'center', md: 'flex-start' },
+      }}
+    >
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', sm: 'row' },
+          alignItems: { xs: 'flex-start', sm: 'center' },
+        }}
+      >
+        <Typography variant="h5">
           {' '}
-          the most {value.toUpperCase()} of my blog :{' '}
+          The most {value.toUpperCase()} of my blog :{' '}
         </Typography>
         <BottomNavigation value={value} onChange={handleChange}>
           <BottomNavigationAction
@@ -70,20 +85,24 @@ function BlogBrief() {
         cols={3}
         gap={15}
         sx={{
-          width: '100%',
-          height: 300,
+          width: { sm: '50%', md: '100%' },
+          maxHeight: '200%',
           overflowX: 'auto',
           display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
         }}
       >
         {(blogBrief || []).map((blog) => (
-          <ImageListItem key={blog.blogId}>
+          <ImageListItem
+            key={blog.blogId}
+            sx={{ width: '250px', height: '250px' }}
+          >
             <img
               srcSet={`${blog.thumbnail}?w=248&fit=crop&auto=format&dpr=2 2x`}
               src={`${blog.thumbnail}?w=248&fit=crop&auto=format`}
               alt={blog.blogTitle}
               loading="lazy"
-              style={{ width: '250px', borderRadius: '10px' }}
+              style={{ borderRadius: '10px', height: '250px', width: '250px' }}
               onClick={() => navigate(`/blog/${blog.blogId}`)}
             />
             <ImageListItemBar

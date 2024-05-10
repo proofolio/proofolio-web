@@ -78,6 +78,7 @@ function Header() {
             color: 'inherit',
             textDecoration: 'none',
             display: { xs: 'block', md: 'flex' },
+            textAlign: 'center',
             margin: '0 auto',
           }}
         >

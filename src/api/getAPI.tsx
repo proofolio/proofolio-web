@@ -24,46 +24,46 @@ export function getSections(
   url: string,
   body: object,
   options: object
-): Promise<ApiResponse<typeof database.DUMMY_SECTIONS>> {
-  return fetchData(url, body, options, database.DUMMY_SECTIONS)
+): Promise<ApiResponse<typeof database.SECTIONS>> {
+  return fetchData(url, body, options, database.SECTIONS)
 }
 
 export function getUserInfo(
   url: string,
   body: object,
   options: object
-): Promise<ApiResponse<typeof database.DUMMY_USER_INFO>> {
-  return fetchData(url, body, options, database.DUMMY_USER_INFO)
+): Promise<ApiResponse<typeof database.USER_INFO>> {
+  return fetchData(url, body, options, database.USER_INFO)
 }
 
 export function getProjectBrief(
   url: string,
   body: object,
   options: object
-): Promise<ApiResponse<typeof database.DUMMY_PROJECT_BRIEF>> {
-  return fetchData(url, body, options, database.DUMMY_PROJECT_BRIEF)
+): Promise<ApiResponse<typeof database.PROJECT_BRIEF>> {
+  return fetchData(url, body, options, database.PROJECT_BRIEF)
 }
 
 export function getBlogBrief(
   url: string,
   body: object,
   options: object
-): Promise<ApiResponse<typeof database.DUMMY_BLOG_BRIEF>> {
-  return fetchData(url, body, options, database.DUMMY_BLOG_BRIEF)
+): Promise<ApiResponse<typeof database.BLOG_BRIEF>> {
+  return fetchData(url, body, options, database.BLOG_BRIEF)
 }
 
 export function getResume(
   url: string,
   body: object,
   options: object
-): Promise<ApiResponse<typeof database.DUMMY_RESUME>> {
-  return fetchData(url, body, options, database.DUMMY_RESUME)
+): Promise<ApiResponse<typeof database.RESUME>> {
+  return fetchData(url, body, options, database.RESUME)
 }
 
 export function getBlogs(
   url: string,
   body: object,
   options: object
-): Promise<ApiResponse<typeof database.DUMMY_BLOGS_ALL>> {
-  return fetchData(url, body, options, database.DUMMY_BLOGS_ALL)
+): Promise<ApiResponse<typeof database.BLOGS_ALL>> {
+  return fetchData(url, body, options, database.BLOGS_ALL)
 }

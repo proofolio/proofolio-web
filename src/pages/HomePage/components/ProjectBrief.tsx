@@ -34,8 +34,8 @@ function ProjectBrief() {
   }, [])
 
   return (
-    <Container id="ProjectBrief" sx={{ my: 3 }}>
-      <Typography variant="h3" sx={{ my: 3 }}>
+    <Container id="ProjectBrief" sx={{ m: 3 }}>
+      <Typography variant="h4" sx={{ my: 3 }}>
         Projects
       </Typography>
       <Carousel
@@ -48,26 +48,32 @@ function ProjectBrief() {
       >
         {projectBrief &&
           projectBrief.map((project) => (
-            <Box key={project.projectId} sx={{ display: 'flex' }}>
+            <Box
+              key={project.projectId}
+              sx={{
+                display: 'flex',
+                flexDirection: { xs: 'column', md: 'row' },
+              }}
+            >
               <Box sx={{ m: 2 }}>
-                <Typography variant="h4">{project.projectTitle}</Typography>
+                <Typography variant="h5">{project.projectTitle}</Typography>
                 <Box sx={{ display: 'flex', my: 2 }}>
                   <TechStack techs={project.projectTechStack} />
                 </Box>
-                <Typography sx={{ pr: 2 }}>{project.projectIntro}</Typography>
+                <Typography variant="subtitle1" sx={{ pr: 2 }}>
+                  {project.projectIntro}
+                </Typography>
               </Box>
-              <iframe
-                id={project.projectId.toString()}
-                title={project.projectTitle}
-                width="100%"
-                height="500px"
+              <video
+                width="500px"
+                height="300px"
                 src={project.demoUrl}
                 style={{
-                  border: 'none',
+                  border: '2px solid red',
                   borderRadius: '10px',
-                  margin: '10px',
+                  margin: '0 auto',
                 }}
-              ></iframe>
+              ></video>
             </Box>
           ))}
       </Carousel>

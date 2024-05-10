@@ -37,7 +37,10 @@ function HomePage() {
   return (
     <>
       <Box
-        sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}
+        sx={{
+          display: 'flex',
+          minHeight: '100vh',
+        }}
       >
         <CssBaseline />
         <Header />
@@ -50,13 +53,22 @@ function HomePage() {
             flexGrow: 1,
             p: 3,
             marginTop: '60px',
+            maxWidth: '100%',
+            overflowX: 'auto',
+            width: '100%',
           }}
         >
-          <Container>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
             <UserIntro />
             <ProjectBrief />
             <BlogBrief />
-          </Container>
+          </Box>
         </Box>
       </Box>
       <Footer />
