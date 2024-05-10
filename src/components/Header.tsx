@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 import { DrawerContext } from '../store/DrawerContext'
 
-const drawerWidth = 220
+const drawerWidth = 180
 const PAGES = [
   { pageName: 'Projects', pageIcon: '🆒' },
   { pageName: 'Resume', pageIcon: '📜' },

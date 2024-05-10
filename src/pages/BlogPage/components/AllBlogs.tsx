@@ -56,7 +56,7 @@ function AllBlogs() {
               <ImageListItem
                 key={blog.blogId}
                 onClick={() => navigate(`/blog/${blog.blogId}`)}
-                sx={{ cursor: 'pointer' }}
+                sx={{ cursor: 'pointer', width: '250px', height: '250px' }}
               >
                 <img
                   srcSet={`${blog.thumbnail}?w=248&fit=crop&auto=format&dpr=2 2x`}

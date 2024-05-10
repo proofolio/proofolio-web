@@ -16,7 +16,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { DrawerContext } from '../store/DrawerContext'
 import { SectionContext } from '../store/SectionContext'
 
-const drawerWidth = 220
+const drawerWidth = 180
 const PAGES = [
   { pageName: 'Projects', pageIcon: '🆒' },
   { pageName: 'Resume', pageIcon: '📜' },
