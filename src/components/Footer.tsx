@@ -1,4 +1,4 @@
-import { Container, Typography } from '@mui/material'
+import { Container, Typography, Box } from '@mui/material'
 import Link from '@mui/material/Link'
 
 function Footer() {
@@ -8,20 +8,24 @@ function Footer() {
       sx={{
         display: 'flex',
         justifyContent: 'center',
-        bgcolor: 'lightgray',
-        marginTop: 'auto',
-        paddingTop: '20px',
+        bgcolor: '#F0E5EB',
+        py: '10px',
       }}
     >
-      <Typography> thanks for visiting! </Typography>
-      <Typography variant="body2" color="text.secondary">
-        {'Copyright © '}
-        <Link color="inherit" href="https://proofolio.com/">
-          Your Website
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Typography variant="subtitle2" sx={{ mr: 1 }}>
+          {' '}
+          THANKS FOR VISITING !{' '}
+        </Typography>
+        <Typography variant="caption" color="text.secondary">
+          {'Copyright © '}
+          <Link color="inherit" href="https://proofolio.com/">
+            Proofolio
+          </Link>{' '}
+          {new Date().getFullYear()}
+          {'.'}
+        </Typography>
+      </Box>
     </Container>
   )
 }
