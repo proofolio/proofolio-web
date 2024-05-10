@@ -24,6 +24,11 @@ const logoPool: LogoPoolType = {
   ChromeExtension:
     'https://cdn.iconscout.com/icon/free/png-512/free-google-chrome-5-722700.png?f=webp&w=256',
   Sass: 'https://cdn.iconscout.com/icon/free/png-512/free-sass-3629037-3030394.png?f=webp&w=256',
+  GithubActions: 'https://avatars.githubusercontent.com/u/44036562?s=280&v=4',
+  git: 'https://cdn.iconscout.com/icon/free/png-512/free-git-17-1175218.png?f=webp&w=256',
+  OAuth2: 'https://oauth.net/images/oauth-2-sm.png',
+  Firebase:
+    'https://cdn.iconscout.com/icon/free/png-512/free-firebase-3628772-3030134.png?f=webp&w=256',
 }
 
 interface TechStackProps {

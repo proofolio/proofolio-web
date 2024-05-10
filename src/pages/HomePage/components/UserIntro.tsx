@@ -6,6 +6,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import EmailIcon from '@mui/icons-material/Email'
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone'
+import ReactMarkdown from 'react-markdown'
 
 import TechStack from '../../../components/TechStack'
 import { getUserInfo } from '../../../api/getAPI'
@@ -21,7 +22,7 @@ interface UserInfoType {
     linkedin: string
     github: string
     email: string
-    phone: number
+    phone: string
   }
 }
 
@@ -48,7 +49,7 @@ const UserIntro = () => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: { sx: 'flex-start', md: 'center' },
-        height: '90vh',
+        // height: '90vh',
         m: 3,
       }}
     >
@@ -57,7 +58,6 @@ const UserIntro = () => {
           display: 'flex',
           justifyContent: { md: 'space-between' },
           flexDirection: { xs: 'column', md: 'row' },
-          // my: 3,
           padding: '0',
         }}
       >
@@ -90,30 +90,85 @@ const UserIntro = () => {
           <Box
             sx={{
               display: 'flex',
-              flexDirection: { xs: 'column', md: 'row' },
+              flexDirection: 'column',
               gap: '8px',
             }}
           >
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <LinkedInIcon />
-              <Typography variant="caption">
-                {userInfo.contactInfo.linkedin}
-              </Typography>
-              <GitHubIcon />
-              <Typography variant="caption">
-                {userInfo.contactInfo.github}
-              </Typography>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: { xs: 'column', md: 'row' },
+                gap: 2,
+              }}
+            >
+              <a
+                href={`mailto:${userInfo.contactInfo.email}`}
+                style={{
+                  color: 'inherit',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '5px',
+                }}
+              >
+                <EmailIcon />
+                <Typography variant="caption">
+                  {userInfo.contactInfo.email}
+                </Typography>
+              </a>
+              <a
+                href={`tel:${userInfo.contactInfo.phone}`}
+                style={{
+                  color: 'inherit',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '5px',
+                }}
+              >
+                <PhoneIphoneIcon />
+                <Typography variant="caption" sx={{ marginLeft: '-6px' }}>
+                  {userInfo.contactInfo.phone}
+                </Typography>
+              </a>
             </Box>
-
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <EmailIcon />
-              <Typography variant="caption">
-                {userInfo.contactInfo.email}
-              </Typography>
-              <PhoneIphoneIcon />
-              <Typography variant="caption" sx={{ marginLeft: '-6px' }}>
-                {userInfo.contactInfo.phone}
-              </Typography>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: { xs: 'column', md: 'row' },
+                gap: 2,
+              }}
+            >
+              <a
+                href={userInfo.contactInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: 'inherit',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '5px',
+                }}
+              >
+                <LinkedInIcon />
+                <Typography variant="caption">
+                  {userInfo.contactInfo.linkedin}
+                </Typography>
+              </a>
+              <a
+                href={userInfo.contactInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: 'inherit',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '5px',
+                }}
+              >
+                <GitHubIcon />
+                <Typography variant="caption">
+                  {userInfo.contactInfo.github}
+                </Typography>
+              </a>
             </Box>
           </Box>
         </Box>
@@ -133,7 +188,9 @@ const UserIntro = () => {
 
       <Box sx={{ my: 7 }}>
         <Typography variant="h4">About Me</Typography>
-        <Typography variant="subtitle1">{userInfo.aboutMe}</Typography>
+        <Typography variant="subtitle1">
+          <ReactMarkdown>{userInfo.aboutMe}</ReactMarkdown>
+        </Typography>
       </Box>
       <Box>
         <Typography variant="h4" sx={{ mb: 1 }}>

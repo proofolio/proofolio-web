@@ -52,66 +52,99 @@
     "name": "Daphne",
     "jobTitle": "Frontend Developer",
     "headShotUrl": "https://images.cakeresume.com/nykPQD/daphne-hsueh/7f81b476-1471-4c79-ad30-f5cf564bfc8f.png",
-    "aboutMe": "This is a paragraph about me. It contains multiple sentences. \nIt provides information about me. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quas incidunt, repellendus quis, enim ea officia nemo natus vel inventore dolorem ad \npraesentium eligendi ipsum molestiae etvoluptates rerum non.Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
-    "techStack": ["HTML", "CSS", "JavaScript", "npm"],
+    "aboutMe": "Armed with a proficiency in modern frontend technologies honed through intensive boot camp training,  I am adept at translating design concepts into responsive and user-friendly interfaces.  My background in business administration and education instilled in me a strong foundation in problem-solving and adaptability, traits essential for navigating the dynamic landscape of web development.",
+    "techStack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "MaterialUI",
+      "Sass",
+      "Redux",
+      "ChromeExtension",
+      "git",
+      "GithubActions",
+      "npm"
+    ],
     "backupPictures": [
       "https://picsum.photos/id/10/400/300",
       "https://picsum.photos/id/20/400/300",
       "https://picsum.photos/id/30/400/300"
     ],
     "contactInfo": {
-      "linkedin": "linkedin.com ",
-      "github": "github.com ",
-      "email": "email@email.com ",
-      "phone": 123456789
+      "linkedin": "https://www.linkedin.com/in/daphne-hsueh",
+      "github": "https://github.com/Daphne-Hsueh  ",
+      "email": "daphnewk23@gmail.com   ",
+      "phone": "+886 933 356 358 "
     }
   },
   "PROJECT_BRIEF": [
     {
       "projectId": 1,
-      "projectTitle": "TabColabbbb",
-      "projectTechStack": ["React", "ChromeExtension", "Sass"],
-      "projectIntro": "TabColab Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente. ",
-      "projectDetail": "# TabColab Lorem ipsum\n\n dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum \nquasi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapienasi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. te.\n\n hihiVoluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! \n\n ## hihih \n2Voluptates facilis, nisi ad, ipsum  cum iure amalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. te.\n hihiVoluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. te eaque, beatae culpa sapiente. asi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. te ",
+      "projectTitle": "TabColab",
+      "projectTechStack": ["React", "ChromeExtension", "Sass", "OAuth2"],
+      "projectIntro": "Chrome Extension for Enhanced Tab Management. A powerful Chrome extension designed to revolutionize the way you manage your browser tabs. With TabColab, you can effortlessly group tabs by dragging, add detailed notes, and manage your todos directly from your browser.  ",
+      "projectDetail": "# Project Functions \n **1. Tab Grouping**\n\n- Drag to Group: Easily group your tabs by dragging them together. This visual approach helps you organize tabs into categories or projects, enhancing your workflow and focus.\\n- Manage Groups: Rename, chose group Icon, or dissolve groups as your project needs evolve.\n\n**2. Notes and Todos**\n\n- Add Notes: add a new note or todo at the end of your desired group, to keep track of important information or quick reminders.\n- Manage Todos: Create, check off, and delete todos related to specific tabs or projects. Keep your task list integrated with your browsing. \n\n**3. Popup Interface**\n\n- Quick Access: Use the popup to quickly add new tabs and new notes to existing groups, adding a note without leaving your current context.\n- Seamless Integration: The popup interface integrates smoothly with your browsing, providing a natural and intuitive tool for managing your tabs, notes.\n\n**4. Search Functionality**\n\n- Search Tab: Quickly locate any open tab with a powerful search feature that filters tabs by their title or URL, making it easier to manage large numbers of tabs.\n\n**5. Theme customization**\n\n- Dark and Light Modes: Toggle between dark and light themes to customize the appearance of your extension interface according to your preference or ambient lighting conditions.\n\n**6. Google OAuth Sign-In**\n\n- Personalized Experience: Sign in with your Google account to synchronize your tab groups, notes, and todos across all your devices. This ensures a seamless experience no matter where you access your browser. \n\n# Develop Notes \n\n - **JWT- payload**\n\n  ```tsx\n  {\n    \\\"user_id\\\": \\\"8d3fc75d-1d79-4b27-a27d-fb612cf437d8\\\",\n    \\\"email\\\": \\\"daphnewk23@gmail.com\\\",\n    \\\"version\\\": \\\"v1.0\\\",\n    \\\"iat\\\": 1714314052,\n    \\\"exp\\\": 1714918852\n  }\n  ```\n\n- **Why use local storage to store JWT**\n  - Extension-Specific Security Context: Because it's a Chrome extension, the environment is less susceptible to malicious scripts stealing tokens, as extension pages (background script) are isolated from web pages. With the latest version of the manifest enhancing security features and limitations on what resources can be loaded or executed, this framework inherently reduces the risk of XSS attacks significantly.\n  - Using local storage avoids constant communication with the backend, enhancing performance.\n- **OAuth challenges**\n  - Initially handled by the backend with the Passport package: Passport redirects to the Google login page, post-login navigates back to the callback URL to retrieve the accessToken, which internally is used to fetch the user profile. If the user is not in the database, create user data and generate JWT; if present, just generate JWT and route the JWT to /google/token.\n  - Utilizing the PKCE method.\n  - **`chrome.identity.launchWebAuthFlow()`**\n- **Manifest function**: Includes information about the software version, the environment it runs in, dependencies it requires, and permissions it needs, among other data.\n- **Google API**\n  - **`chrome.runtime.onConnect.addListener`** event listener\n  - Set event names **`console.assert([port.name](http://port.name/) === \\\"tabsUpdate\\\");`**\n  - **`port.onDisconnect.addListener`** for cleanup when the connection is closed, removing all event listeners added to the tabs. This is crucial for preventing performance issues due to \\\"zombie\\\" listeners that keep running even after they are no longer needed.\n  - **chrome.runtime** provides mechanisms for internal communication, initialization, and lifecycle management. This API helps ensure that the extension behaves as an integrated part of the Chrome browser, with capabilities to interact seamlessly across its different components.\n    - Messaging\n      - **`chrome.runtime.sendMessage`** and **`chrome.runtime.onMessage`**: Used for sending messages between background scripts, content scripts, and other extension pages. This can be useful for passing data and commands between different components.\n      - **`chrome.runtime.connect`** and **`chrome.runtime.onConnect`**: Used to create a more persistent communication channel between components, which can be useful for continuous data exchange or state monitoring.\n    - Event Handling\n      - **`chrome.runtime.onInstalled`**: Triggered when the extension is first installed, when it's updated to a new version, or when Chrome updates.\n      - **`chrome.runtime.onStartup`**: Fired when the browser starts up and the extension is already installed. This allows the extension to initialize itself at startup.\n      - **`chrome.runtime.onSuspend`** and **`chrome.runtime.onSuspendCanceled`**: Handle the unloading of an extension due to browser shutdown or extension reloading.\n    - Identity, Error Handling, Update Management…\n- **Popup and index.html communication**\n  - Using two HTML files: In a Chrome extension, each HTML file you use generally creates a new browsing context, such as a popup or a new tab. This means that when you use **`index.html`** and **`popup.html`** in your Chrome extension and both load the same **`main.jsx`** script, they do not automatically share the same runtime context or state even though they use the same script file.\n  - Solution for managing shared data:\n    1. Chrome Storage API (includes local storage, sync storage)\n    2. Messaging API \n    3. Event Pages or Background Scripts\n    4. Broadcasting Changes\n    5. Use Observables or Similar Patterns\n- **DragDrop**\n  - handleDragStart\n    - **`e.dataTransfer.setData(\\\"itemId\\\", itemId);`** Set which item (itemId) & from where to start dragging (originGroupId)\n    - **`e.dataTransfer.effectAllowed = \\\"move\\\"`;** Specify that the operation is a move, at the same time preventing other operations.\n  - handlerDragOver\n    - **`e.preventDefault()`**; necessary to allow dropping\n    - **`e.dataTransfer.dropEffect = \\\"move\\\"`;** Indicates to the user that a drag is in progress\n  - handleDrop\n    - **`onDrop={(e) => handleDrop(e, group.group_id)}`** Find out the targetGroup\n    - Update state on the backend and frontend\n\n---\n\nreference\n\n- https://developer.chrome.com/docs/extensions/reference/api\n- https://pjchender.dev/chrome-extension/chrome-extension-api/",
+
       "demoUrl": "https://chromewebstore.google.com/detail/tabcolab/pkigikdacbladbiakamiecjjcdakagha?pli=1",
       "demoVideo": "url.com",
-      "projectGithub": "https://github.com/",
+      "projectGithub": "https://github.com/SideProjectAC/tab-frontend",
       "featureList": [
-        "feature 1 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velitdolor sit amet consectetur, ",
-        "feature 2Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit",
-        "feature 3Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit",
-        "feature 4Loremdolor sit amet consectetur,  ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit"
+        "- Group tabs and notes via **drag-and-drop** functionality, also leverage the **Google Extensions API** to automatically detect tab movements ",
+        "- Implemented dual authentication mechanisms: JWT login and **Google OAuth** with PKCE",
+        "- Integrated **Skeleton screen** to provide immediate feedback through placeholder elements, and dynamically adjusting to selected **dark/light theme** with **Sass**.",
+        "- Applied **Responsive Web Design (RWD)** techniques to guarantee seamless UI across various desktop monitors"
+      ]
+    },
+
+    {
+      "projectId": 3,
+      "projectTitle": "2048Game",
+      "projectTechStack": ["JavaScript", "Redux", "Firebase"],
+      "projectIntro": " The classic 2048 puzzle game that challenges players to combine numbered tiles to reach the elusive 2048 tile. Implemented Redux for state management and Firebase for deployment.",
+
+      "projectDetail": " # Develop Notes \n\n- **Game logic**\n  - **Two-dimensional array**: Use rows and columns to set rules of the game.\n    - **Error**: Remember to include 'tiles that have been flipped' in the evaluation process, even if they are 0.\n- **State management**\n  - **Record board state**: Track which tiles are 0 and which have numbers.\n  - **UseContext** → Control all tiles.\n\n    ```\n    const board = [\n        [0, 0, 0, 0],\n        [0, 0, 0, 0],\n        [0, 0, 0, 0],\n        [0, 0, 0, 0]\n      ]\n    ```\n\n  - **Redux Toolkit**\n    - **Basic concept**:\n      - **State**: Variables and state.\n      - **Action**: Call to change state (trigger).\n      - **Reducer**: Actually perform the update.\n    - **Setup**:\n      - **store.js** → configureStore\n        - **Reducers**\n      - **index.js** → provider store = store\n    - **Slice**:\n      - In Redux Toolkit → Define state, reducers, action all in `createSlice`.\n      - **Example**: increment\n        - Increment by one: `state.count +=1`\n        - Add specific amount: `state.count += action.payload` (action is variable to pass in as payload)\n    - **In component**:\n      - **useReducer**: from ‘react-redux’; tell React I want to read this variable from this reducer.\n      - **useDispatch**: Call action from reducers.\n    - **Application issues**:\n      - Cannot directly modify the original state → Make a deep copy first.\n      - After dispatching, you cannot immediately get the latest state.\n        - [React Redux Fast Update State](https://stackoverflow.com/questions/71139700/react-redux-fast-update-state)\n    - **Score** → Since immediate reaction is not necessary, manage state using Redux.\n    - **Board** → Because you cannot get the latest state immediately after dispatching, use context.\n\n    ### **Advantages of Using Redux**\n\n    1. **Centralized State Management**: Redux provides a central store for state that can help manage the game state transparently across different components and layers of your application.\n    2. **Debugging and DevTools**: Redux’s DevTools are powerful for tracking state changes over time, which can be very helpful for debugging game logic and UI issues.\n    3. **Predictable State Updates**: Redux enforces a unidirectional data flow, which can make the state transitions in your game predictable and easier to understand and maintain.\n    4. **Time Travel**: Redux allows you to implement time-travel features quite easily, which can be a fun and useful feature in a game like 2048. It allows players to undo moves and see previous states of the game.\n\n    ### **Disadvantages of Using Redux**\n\n    1. **Boilerplate and Complexity**: Redux can introduce a significant amount of boilerplate code, which might complicate your project unnecessarily, especially if the game's logic isn't complex enough to justify it.\n    2. **Performance Considerations**: While Redux itself is quite fast, the frequent updates associated with game state management can lead to performance bottlenecks, especially if not implemented carefully. Every move in 2048 results in multiple state updates, and if these are not handled efficiently, it can lead to slow rendering and poor user experience.\n    3. **Overhead of Learning and Setup**: If you or your team are not already familiar with Redux, there can be a learning curve that might slow down development initially.\n- **Firebase**\n  - **Basic process**: [How to deploy a React app with Firebase](https://www.freecodecamp.org/news/how-to-deploy-a-react-app-with-firebase/)\n  - **Encountered issue**: **Resolving EACCES permissions errors when installing packages globally** → [NPM Docs on EACCES errors](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)",
+
+      "demoUrl": "https://game-4337e.web.app/",
+      "projectGithub": "https://github.com/Daphne-Hsueh/2048game",
+      "featureList": [
+        "- Developed a **fully interactive** version of the popular 2048 game, utilizing JavaScript and HTML5 to create a smooth and responsive user experience.",
+        "- Integrated **Redux** for  state management, ensuring seamless game dynamics and consistent user experiences ",
+        "- Implemented core game mechanics such as **tile merging and movement algorithms**, focusing on fluid gameplay and intuitive user interactions",
+        "- Deployed the game using **Firebase**, providing a reliable and scalable platform for hosting and serving the game to users"
       ]
     },
     {
       "projectId": 2,
       "projectTitle": "BucketList",
       "projectTechStack": ["TypeScript", "React", "CSS"],
-      "projectIntro": "BucketList Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente. ",
-      "projectDetail": "# TabColab Lorem ipsum\n\n dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum \nquasi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. ",
+      "projectIntro": "Embark on a journey of personal growth, adventure, and accomplishment as you create your ultimate bucket list. ",
+
+      "projectDetail": " # Project Functions \n\n - Add tasks: Users can add new tasks to their bucket list by clicking the \"Go\" button or pressing Enter.\n- Edit tasks: Users can edit existing tasks to modify their content.\n- Delete tasks: Users can delete tasks they no longer wish to keep on their bucket list.\n- Mark tasks as done: Users can mark tasks as done, moving them from the \"Go Big or Go Home\" section to the \"Mission Complete\" section.\n- **Confetti effect**: Clicking the check button in the \"Mission Complete\" section triggers a confetti effect.\n- **Responsive design:** The app is built using TypeScript and features Responsive Web Design (RWD) to ensure compatibility across various devices and screen sizes.",
       "demoUrl": "https://daphne-hsueh.github.io/bucket-list/",
-      "projectGithub": "https://github.com/",
-      "featureList": ["feature 1", "feature 2", "feature 3", "feature 4"]
-    },
-    {
-      "projectId": 3,
-      "projectTitle": "2048Game",
-      "projectTechStack": ["Redux", "HTML", "CSS"],
-      "projectIntro": " 2048Game Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-      "projectDetail": "# TabColab Lorem ipsum\n\n dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum \nquasi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. ",
-      "demoUrl": "https://game-4337e.web.app/",
-      "projectGithub": "https://github.com/",
-      "featureList": ["feature 1", "feature 2", "feature 3", "feature 4"]
+      "projectGithub": "https://github.com/Daphne-Hsueh/bucket-list",
+      "featureList": [
+        "- Developed a **dynamic bucket list management** app allowing users to easily add, edit, and delete items on their bucket list via intuitive controls like a Go button or keyboard input.",
+        "- Enhanced user experience by enabling tasks to be marked as completed, automatically moving them to the Mission Complete section with a celebratory **confetti effect**",
+        "- Implemented **responsive design** , ensuring seamless functionality across different devices and screen sizes",
+        "- Focused on **user interaction**, the app features visually engaging transitions and effects, improving engagement and satisfaction for users."
+      ]
     },
     {
       "projectId": 4,
       "projectTitle": "Proofolio",
       "projectTechStack": ["TypeScript", "React", "MaterialUI"],
-      "projectIntro": "Proofolio Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum quasi totam cum iure eaque, beatae culpa sapiente.",
-      "projectDetail": "# TabColab Lorem ipsum\n\n dolor sit amet consectetur, adipisicing elit. Earum, alias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum \nquasi totamalias nisi velit aliquid unde quos ad dolores! Voluptates facilis, nisi ad, ipsum  cum iure eaque, beatae culpa sapiente. ",
+      "projectIntro": "A personal website all about ME! (or any other users)",
+      "projectDetail": "# Develop Notes \n\n coming up soon :) ",
       "demoUrl": "https://www.proofolio.site/",
-      "projectGithub": "https://github.com/",
-      "featureList": ["feature 1", "feature 2", "feature 3", "feature 4"]
+      "projectGithub": "https://github.com/proofolio/proofolio-web",
+      "featureList": [
+        "- Showcasing projects, resume,  study blog, and contact page, implemented with **React Router** for navigation",
+        "- Managed static assets on **AWS S3** and distributed them via CloudFront for high availability and fast delivery",
+        "- Implemented **RWD** and Skeleton screen to enhance user experience.",
+        "- Automated deployment using **GitHub Actions**"
+      ]
     }
   ],
   "BLOG_BRIEF": [
@@ -174,8 +207,8 @@
   ],
   "RESUME": {
     "intro": {
-      "username": "string",
-      "aboutMe": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id.",
+      "username": "Daphne Hsueh",
+      "aboutMe": "Innovative **Junior Frontend Developer** with a passion for crafting **immersive digital experiences**. Equipped with proficiency in modern frontend technologies such as HTML5, CSS3, JavaScript, TypeScript and frameworks like React.js, I am adept at translating design concepts into responsive and user-friendly interfaces. With a keen eye for detail and a commitment to staying abreast of industry trends, I am driven to deliver solutions that not only meet but **exceed expectations**.\n\nEager to contribute my skills and enthusiasm to a collaborative team environment, I am ready to embark on a journey of continuous learning and growth in the ever-evolving field of frontend development. \n\n**Let's build something remarkable together!**",
       "updatedDate": "2024.May.09",
       "fullResume": "https://www.clickdimensions.com/links/TestPDFfile.pdf"
     },
@@ -186,20 +219,30 @@
     ],
     "skills": [
       {
-        "skillType": "SkillType 1",
-        "skillTitle": ["skill 1", "skill 2", "skill 3", "skill 4"]
+        "skillType": "Programming Languages",
+        "skillTitle": ["HTML", "CSS", "JavaScript", "TypeScript"]
       },
       {
-        "skillType": "SkillType 2",
-        "skillTitle": ["skill 1", "skill 2", "skill 3", "skill 4"]
+        "skillType": "Frameworks / Libraries / User Interface",
+        "skillTitle": [
+          "React",
+          "Material-UI",
+          "Sass",
+          "React Router",
+          "Redux",
+          "Responsive Web Design (RWD)"
+        ]
       },
       {
-        "skillType": "SkillType 3",
-        "skillTitle": ["skill 1", "skill 2", "skill 3", "skill 4"]
+        "skillType": "Development Tools",
+        "skillTitle": ["Git", "GitHub Actions", "AWS S3", "CloudFront", "npm"]
       },
       {
-        "skillType": "SkillType 4",
-        "skillTitle": ["skill 1", "skill 2", "skill 3", "skill 4"]
+        "skillType": "Web Development Concepts",
+        "skillTitle": [
+          "Single Page Applications (SPA)",
+          "RESTful API Integration"
+        ]
       }
     ],
     "languages": [
@@ -216,34 +259,26 @@
         "proficiency": "Advanced"
       }
     ],
-    "certificate": [
-      {
-        "name": "string",
-        "loglUrl": "<url>",
-        "issueAt": "<timestamp>",
-        "detail": "string"
-      }
-    ],
     "educations": [
       {
-        "schoolName": "NCCU, Taiwan",
+        "schoolName": "Alpha Camp",
         "schoolLogo": "https://www.nccu.edu.tw/sites/default/files/logo.png",
-        "degree": " bachelor Education",
-        "timeLine": "Sep.2018 - Jan.2023",
+        "degree": " FullStack Developer Bootcamp: Frontend Specialization",
+        "timeLine": "Nov 2023 - April 2024",
         "gpa": "3"
       },
       {
-        "schoolName": "NCCU ,Taiwan",
+        "schoolName": "Masstrict University, NL",
         "schoolLogo": "https://www.nccu.edu.tw/sites/default/files/logo.png",
-        "degree": " bachelor Business Administration",
-        "timeLine": "Sep.2019 - Jan.2023",
+        "degree": " School of Business and Economic : Exchange Student",
+        "timeLine": "Aug 2022 - Jan 2023",
         "gpa": "number"
       },
       {
-        "schoolName": "Masstrict Univeristy ,Netherlands",
+        "schoolName": "National Cheng-Chi University, TW",
         "schoolLogo": "https://www.maastrichtuniversity.nl/sites/default/files/um-logo.png",
-        "degree": " exchange ",
-        "timeLine": "Aug.2022 - Jan.2023",
+        "degree": " Bachelor of Education｜Bachelor of Business Administration ",
+        "timeLine": "Sep 2018 - Jan 2023",
         "gpa": ""
       }
     ],
@@ -254,7 +289,7 @@
         "companyLogo": "https://avatars.githubusercontent.com/u/8667311?s=280&v=4",
         "jobTitle": "Frontend Developer",
         "timeLine": "Nov.2023 ~ April.2024",
-        "jobIntro": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id."
+        "jobIntro": "- Completed a rigorous **4-month training program** in frontend development, successfully delivered 22+ small-scale side projects, dedicating over 50 hours weekly to mastering new skills. \n\n -  Completed 2 **large-scale projects** with a team of frontend and backend developers, utilized Git for version control and collaboration, enhancing teamwork with other developers and ensuring efficient workflow management. \n\n - Actively participated in online speeches and workshops to advance my technical knowledge and soft skills, preparing for a **professional software engineering** career."
       },
       {
         "companyName": "Anke Media Corp",
@@ -262,7 +297,7 @@
         "companyLogo": "https://www.ankecare.com/assets/images/about/anke.png",
         "jobTitle": "Event specialist",
         "timeLine": "March.2023 ~ October.2024",
-        "jobIntro": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id."
+        "jobIntro": "- **Planned and executed** 10 large-scale forums on long-term care, consistently attracting an average of 200+ attendees per forum through targeted advertising strategies and socail media marketing.\n\n - Drafted and submitted detailed plans to government bodies and client companies, ensuring compliance and alignment with objectives.\n\n - Managed and updated trade show **website content**, optimizing user engagement and **information accessibility**.\n\n - Cultivated and maintained strong relationships with keynote speakers, ensuring high-quality presentations and **ongoing partnerships**."
       },
       {
         "companyName": "Impact Hub Taipei",
@@ -270,7 +305,7 @@
         "companyLogo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbTm9dpemZhDUhoiUGIxxYTLnefm-G3lpW-9ryMo748Q&s",
         "jobTitle": "Corporate Innovation Team Intern",
         "timeLine": "Jan.2022 ~ June.2022",
-        "jobIntro": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id."
+        "jobIntro": "- **Authored 3 insightful columns** and edited 10 opening videos using **Adobe Premiere** for the 2nd Bailan MayB Lab Project, contributing to the project's final proposal and showcasing my ability to communicate complex ideas effectively.\n\n - Led the creation of over 40 **social media posts** for Facebook and Instagram as part of the Vision Future Project, utilizing **Adobe Illustrator** to design visually appealing and brand-aligned content.\n\n - Played a key role in organizing and conducting 5+ **live events**, including sessions for a Startup Accelerator and Incubator, enhancing participant engagement and facilitating successful knowledge exchange and networking opportunities."
       },
       {
         "companyName": "BenQ HeadQuarter",
@@ -278,7 +313,7 @@
         "companyLogo": "https://www.benq.com/etc/designs/g6/clientlib-site/img/header-icon/nav-icon-benq-logo.png",
         "jobTitle": "US/UK Digital Marketing Intern",
         "timeLine": "July.2021 ~ Jan.2022",
-        "jobIntro": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id."
+        "jobIntro": " - Spearheaded the establishment of robust **partnerships** with over 10 key opinion leaders (KOLs) across the UK and US, focusing on influential YouTubers and TikTokers, to enhance **brand visibility and engagement**.\n\n - Led the influencer marketing projects by coordinating product reviews, meticulously analyzing video performance metrics to gauge **audience engagement and campaign effectiveness**.\n\n - Enhanced promotional content by editing 5+ **advertising videos** showing on YouTube and Amazon, utilizing **Adobe Premiere** to ensure top-quality visual presentation."
       }
     ]
   },

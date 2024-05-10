@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Container, Typography, Box, Button, Divider } from '@mui/material'
-
+import ReactMarkdown from 'react-markdown'
 import Experience from './Experience'
 import Language from './Language'
 import Skills from './Skills'
@@ -40,7 +40,7 @@ function FullResume() {
             my: '20px',
           }}
         >
-          <Typography variant="h4">Hi this is my full resume</Typography>
+          <Typography variant="h4">Hello, my name is Daphne</Typography>
           <Box
             sx={{
               display: 'flex',
@@ -62,7 +62,7 @@ function FullResume() {
           </Box>
         </Box>
         <Typography variant="body2" sx={{ mb: 3 }}>
-          {intro?.aboutMe}
+          <ReactMarkdown>{intro?.aboutMe}</ReactMarkdown>
         </Typography>
 
         <Divider />

@@ -33,9 +33,9 @@ function Language() {
           {languages.map((language) => (
             <ListItem>
               <Typography variant="body1">
-                {language.languageName} :{' '}
+                {language.languageName} :{'  '}
               </Typography>
-              <Typography variant="subtitle1">
+              <Typography variant="subtitle1" sx={{ pl: 1 }}>
                 {' '}
                 {language.proficiency}
               </Typography>

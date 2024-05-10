@@ -14,13 +14,13 @@ const SECTIONS = [
     sectionComponent: <Project selectedIndex={0} />,
   },
   {
-    sectionTitle: 'BucketList',
-    sectionIcon: '📝',
+    sectionTitle: '2048Game',
+    sectionIcon: '🧩',
     sectionComponent: <Project selectedIndex={2} />,
   },
   {
-    sectionTitle: '2048Game',
-    sectionIcon: '🧩',
+    sectionTitle: 'BucketList',
+    sectionIcon: '📝',
     sectionComponent: <Project selectedIndex={1} />,
   },
   {

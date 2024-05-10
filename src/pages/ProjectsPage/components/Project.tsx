@@ -71,7 +71,7 @@ const Project: React.FC<ProjectProps> = ({ selectedIndex }) => {
           }}
         >
           <GitHubIcon />
-          <Typography variant="caption" sx={{ ml: 1 }}>
+          <Typography variant="caption" sx={{ ml: 1, color: 'darkblue' }}>
             {selectedProject.projectGithub}
           </Typography>
         </a>
@@ -89,14 +89,14 @@ const Project: React.FC<ProjectProps> = ({ selectedIndex }) => {
           }}
         >
           <LanguageIcon />
-          <Typography variant="caption" sx={{ ml: 1 }}>
+          <Typography variant="caption" sx={{ ml: 1, color: 'darkblue' }}>
             {selectedProject.demoUrl}
           </Typography>
         </a>
       </Box>
 
-      <Typography variant="subtitle1" sx={{ mb: 2, pl: '16px' }}>
-        just a brief intro of project {selectedProject.projectIntro}
+      <Typography variant="body1" sx={{ my: 3, pl: '16px' }}>
+        {selectedProject.projectIntro}
       </Typography>
       <Box
         sx={{
@@ -115,9 +115,8 @@ const Project: React.FC<ProjectProps> = ({ selectedIndex }) => {
           <List>
             <Typography variant="h5">Features</Typography>
             {selectedProject.featureList.map((feature, index) => (
-              <ListItem key={index} sx={{ width: '100%' }}>
-                {' '}
-                {index + 1}. {feature}
+              <ListItem key={index} sx={{ width: '100%', pl: 0 }}>
+                <ReactMarkdown>{feature}</ReactMarkdown>
               </ListItem>
             ))}
           </List>

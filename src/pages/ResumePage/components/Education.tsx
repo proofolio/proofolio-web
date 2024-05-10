@@ -64,7 +64,7 @@ function Education() {
             flexDirection: { xs: 'column', md: 'row' },
             justifyContent: 'flex-start',
             mb: 2,
-            gap: 3,
+            gap: '13%',
           }}
         >
           <img alt="alpha diploma" src={diploma[0].alphaCamp}></img>

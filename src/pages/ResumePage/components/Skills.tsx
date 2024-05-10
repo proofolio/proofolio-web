@@ -33,8 +33,10 @@ function Skills() {
           {skills.map((skill) => (
             <ListItem>
               <Box>
-                <Typography variant="h6">{skill.skillType} : </Typography>
-                <Typography variant="body2">
+                <Typography variant="h6" style={{ fontWeight: 500 }}>
+                  {skill.skillType} :{' '}
+                </Typography>
+                <Typography variant="body2" sx={{ pl: 2 }}>
                   {' '}
                   {skill.skillTitle.join('、')}
                 </Typography>
