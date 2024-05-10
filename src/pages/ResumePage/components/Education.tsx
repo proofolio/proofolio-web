@@ -1,12 +1,5 @@
 import { useState, useEffect } from 'react'
-import {
-  Container,
-  Typography,
-  Box,
-  List,
-  ListItem,
-  Avatar,
-} from '@mui/material'
+import { Container, Typography, Box, Avatar } from '@mui/material'
 
 import { getResume } from '../../../api/getAPI'
 

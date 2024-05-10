@@ -8,7 +8,7 @@ import {
   TimelineContent,
   timelineItemClasses,
 } from '@mui/lab'
-import { Container, Typography, Avatar, Box, Divider } from '@mui/material'
+import { Container, Typography, Avatar, Divider } from '@mui/material'
 import ReactMarkdown from 'react-markdown'
 
 import { getResume } from '../../../api/getAPI'

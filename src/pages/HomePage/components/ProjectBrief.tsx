@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Container, Typography, Box } from '@mui/material'
-import GitHubIcon from '@mui/icons-material/GitHub'
 import Carousel from 'react-material-ui-carousel'
 
 import TechStack from '../../../components/TechStack'
-
 import { getProjectBrief } from '../../../api/getAPI'
 
 interface ProjectBriefType {

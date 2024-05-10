@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Box, CssBaseline, Container } from '@mui/material'
+import { Box, CssBaseline } from '@mui/material'
 
 import Header from '../../components/Header'
 import SideDrawer from '../../components/Drawer'

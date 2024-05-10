@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Icon from '@mui/material/Icon'
-import { Container, Typography, Avatar, Box } from '@mui/material'
+import { Container, Typography, Box } from '@mui/material'
 import { Typewriter } from 'react-simple-typewriter'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import GitHubIcon from '@mui/icons-material/GitHub'
