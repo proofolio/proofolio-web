@@ -26,6 +26,7 @@ interface ProjectBriefType {
   projectGithub: string
   demoUrl: string
   featureList: string[]
+  demoVideo?: string
 }
 
 const Project: React.FC<ProjectProps> = ({ selectedIndex }) => {
@@ -122,14 +123,31 @@ const Project: React.FC<ProjectProps> = ({ selectedIndex }) => {
           </List>
         </Box>
         <Box>
-          <iframe
-            id={selectedProject.projectId.toString()}
-            title={selectedProject.projectTitle}
-            width="600px"
-            height="400px"
-            src={selectedProject.demoUrl}
-            style={{ border: 'none', borderRadius: '10px' }}
-          ></iframe>
+          {(selectedProject.projectId === 1 ||
+            selectedProject.projectId === 4) && (
+            <video
+              width="130%"
+              height="400px"
+              controls
+              autoPlay
+              src={selectedProject.demoVideo}
+              style={{
+                borderRadius: '10px',
+                margin: '0 auto',
+              }}
+            ></video>
+          )}
+          {(selectedProject.projectId === 2 ||
+            selectedProject.projectId === 3) && (
+            <iframe
+              id={selectedProject.projectId.toString()}
+              title={selectedProject.projectTitle}
+              width="600px"
+              height="400px"
+              src={selectedProject.demoUrl}
+              style={{ border: 'none', borderRadius: '10px' }}
+            ></iframe>
+          )}
         </Box>
       </Box>
       <Divider sx={{ my: '15px' }} />

@@ -40,7 +40,7 @@ function FullResume() {
             my: '20px',
           }}
         >
-          <Typography variant="h4">Hello, my name is Daphne</Typography>
+          <Typography variant="h4">Hello, my name is Daphne :)</Typography>
           <Box
             sx={{
               display: 'flex',
@@ -49,7 +49,12 @@ function FullResume() {
             }}
           >
             <Button>
-              <a href={intro?.fullResume} download>
+              <a
+                href={intro?.fullResume}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Typography variant="subtitle2"> download resume</Typography>
               </a>
             </Button>

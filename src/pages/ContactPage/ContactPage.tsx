@@ -11,6 +11,12 @@ import { getUserInfo } from '../../api/getAPI'
 
 const ContactPage = () => {
   const [backupPictures, setBackupPictures] = useState<string[]>([])
+  const bgImage = [
+    'https://d10joe98l23w8w.cloudfront.net/personal/bgimage1.jpg',
+    'https://d10joe98l23w8w.cloudfront.net/personal/bgimage2.jpg',
+    'https://d10joe98l23w8w.cloudfront.net/personal/bgimage3.jpg',
+    'https://d10joe98l23w8w.cloudfront.net/personal/bgimage4.jpg',
+  ]
 
   useEffect(() => {
     async function fetch() {
@@ -91,7 +97,7 @@ const ContactPage = () => {
                 width: '100%',
               }}
             >
-              {backupPictures.map((image, index) => (
+              {bgImage.map((image, index) => (
                 <Box
                   component="img"
                   key={index}

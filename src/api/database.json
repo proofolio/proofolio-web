@@ -31,27 +31,28 @@
     ],
     "blogpage": [
       {
-        "sectionTitle": "Topic A",
+        "sectionTitle": "Programming Languages",
         "sectionIcon": "❄️"
       },
       {
-        "sectionTitle": "Topic B",
+        "sectionTitle": "Web Development",
         "sectionIcon": "❄️"
       },
       {
-        "sectionTitle": "Topic C",
+        "sectionTitle": "Development Tools",
         "sectionIcon": "❄️"
       },
       {
-        "sectionTitle": "Topic D",
+        "sectionTitle": "React",
         "sectionIcon": "❄️"
       }
     ]
   },
   "USER_INFO": {
     "name": "Daphne",
+    "logo": "https://d10joe98l23w8w.cloudfront.net/logo/logo_d.png",
     "jobTitle": "Frontend Developer",
-    "headShotUrl": "https://images.cakeresume.com/nykPQD/daphne-hsueh/7f81b476-1471-4c79-ad30-f5cf564bfc8f.png",
+    "headShotUrl": "https://d10joe98l23w8w.cloudfront.net/personal/headshot.png",
     "aboutMe": "Armed with a proficiency in modern frontend technologies honed through intensive boot camp training,  I am adept at translating design concepts into responsive and user-friendly interfaces.  My background in business administration and education instilled in me a strong foundation in problem-solving and adaptability, traits essential for navigating the dynamic landscape of web development.",
     "techStack": [
       "HTML",
@@ -68,9 +69,10 @@
       "npm"
     ],
     "backupPictures": [
-      "https://picsum.photos/id/10/400/300",
-      "https://picsum.photos/id/20/400/300",
-      "https://picsum.photos/id/30/400/300"
+      "https://d10joe98l23w8w.cloudfront.net/personal/bgimage1.jpg",
+      "https://d10joe98l23w8w.cloudfront.net/personal/bgimage2.jpg",
+      "https://d10joe98l23w8w.cloudfront.net/personal/bgimage3.jpg",
+      "https://d10joe98l23w8w.cloudfront.net/personal/bgimage4.jpg"
     ],
     "contactInfo": {
       "linkedin": "https://www.linkedin.com/in/daphne-hsueh",
@@ -88,7 +90,7 @@
       "projectDetail": "# Project Functions \n **1. Tab Grouping**\n\n- Drag to Group: Easily group your tabs by dragging them together. This visual approach helps you organize tabs into categories or projects, enhancing your workflow and focus.\\n- Manage Groups: Rename, chose group Icon, or dissolve groups as your project needs evolve.\n\n**2. Notes and Todos**\n\n- Add Notes: add a new note or todo at the end of your desired group, to keep track of important information or quick reminders.\n- Manage Todos: Create, check off, and delete todos related to specific tabs or projects. Keep your task list integrated with your browsing. \n\n**3. Popup Interface**\n\n- Quick Access: Use the popup to quickly add new tabs and new notes to existing groups, adding a note without leaving your current context.\n- Seamless Integration: The popup interface integrates smoothly with your browsing, providing a natural and intuitive tool for managing your tabs, notes.\n\n**4. Search Functionality**\n\n- Search Tab: Quickly locate any open tab with a powerful search feature that filters tabs by their title or URL, making it easier to manage large numbers of tabs.\n\n**5. Theme customization**\n\n- Dark and Light Modes: Toggle between dark and light themes to customize the appearance of your extension interface according to your preference or ambient lighting conditions.\n\n**6. Google OAuth Sign-In**\n\n- Personalized Experience: Sign in with your Google account to synchronize your tab groups, notes, and todos across all your devices. This ensures a seamless experience no matter where you access your browser. \n\n# Develop Notes \n\n - **JWT- payload**\n\n  ```tsx\n  {\n    \\\"user_id\\\": \\\"8d3fc75d-1d79-4b27-a27d-fb612cf437d8\\\",\n    \\\"email\\\": \\\"daphnewk23@gmail.com\\\",\n    \\\"version\\\": \\\"v1.0\\\",\n    \\\"iat\\\": 1714314052,\n    \\\"exp\\\": 1714918852\n  }\n  ```\n\n- **Why use local storage to store JWT**\n  - Extension-Specific Security Context: Because it's a Chrome extension, the environment is less susceptible to malicious scripts stealing tokens, as extension pages (background script) are isolated from web pages. With the latest version of the manifest enhancing security features and limitations on what resources can be loaded or executed, this framework inherently reduces the risk of XSS attacks significantly.\n  - Using local storage avoids constant communication with the backend, enhancing performance.\n- **OAuth challenges**\n  - Initially handled by the backend with the Passport package: Passport redirects to the Google login page, post-login navigates back to the callback URL to retrieve the accessToken, which internally is used to fetch the user profile. If the user is not in the database, create user data and generate JWT; if present, just generate JWT and route the JWT to /google/token.\n  - Utilizing the PKCE method.\n  - **`chrome.identity.launchWebAuthFlow()`**\n- **Manifest function**: Includes information about the software version, the environment it runs in, dependencies it requires, and permissions it needs, among other data.\n- **Google API**\n  - **`chrome.runtime.onConnect.addListener`** event listener\n  - Set event names **`console.assert([port.name](http://port.name/) === \\\"tabsUpdate\\\");`**\n  - **`port.onDisconnect.addListener`** for cleanup when the connection is closed, removing all event listeners added to the tabs. This is crucial for preventing performance issues due to \\\"zombie\\\" listeners that keep running even after they are no longer needed.\n  - **chrome.runtime** provides mechanisms for internal communication, initialization, and lifecycle management. This API helps ensure that the extension behaves as an integrated part of the Chrome browser, with capabilities to interact seamlessly across its different components.\n    - Messaging\n      - **`chrome.runtime.sendMessage`** and **`chrome.runtime.onMessage`**: Used for sending messages between background scripts, content scripts, and other extension pages. This can be useful for passing data and commands between different components.\n      - **`chrome.runtime.connect`** and **`chrome.runtime.onConnect`**: Used to create a more persistent communication channel between components, which can be useful for continuous data exchange or state monitoring.\n    - Event Handling\n      - **`chrome.runtime.onInstalled`**: Triggered when the extension is first installed, when it's updated to a new version, or when Chrome updates.\n      - **`chrome.runtime.onStartup`**: Fired when the browser starts up and the extension is already installed. This allows the extension to initialize itself at startup.\n      - **`chrome.runtime.onSuspend`** and **`chrome.runtime.onSuspendCanceled`**: Handle the unloading of an extension due to browser shutdown or extension reloading.\n    - Identity, Error Handling, Update Management…\n- **Popup and index.html communication**\n  - Using two HTML files: In a Chrome extension, each HTML file you use generally creates a new browsing context, such as a popup or a new tab. This means that when you use **`index.html`** and **`popup.html`** in your Chrome extension and both load the same **`main.jsx`** script, they do not automatically share the same runtime context or state even though they use the same script file.\n  - Solution for managing shared data:\n    1. Chrome Storage API (includes local storage, sync storage)\n    2. Messaging API \n    3. Event Pages or Background Scripts\n    4. Broadcasting Changes\n    5. Use Observables or Similar Patterns\n- **DragDrop**\n  - handleDragStart\n    - **`e.dataTransfer.setData(\\\"itemId\\\", itemId);`** Set which item (itemId) & from where to start dragging (originGroupId)\n    - **`e.dataTransfer.effectAllowed = \\\"move\\\"`;** Specify that the operation is a move, at the same time preventing other operations.\n  - handlerDragOver\n    - **`e.preventDefault()`**; necessary to allow dropping\n    - **`e.dataTransfer.dropEffect = \\\"move\\\"`;** Indicates to the user that a drag is in progress\n  - handleDrop\n    - **`onDrop={(e) => handleDrop(e, group.group_id)}`** Find out the targetGroup\n    - Update state on the backend and frontend\n\n---\n\nreference\n\n- https://developer.chrome.com/docs/extensions/reference/api\n- https://pjchender.dev/chrome-extension/chrome-extension-api/",
 
       "demoUrl": "https://chromewebstore.google.com/detail/tabcolab/pkigikdacbladbiakamiecjjcdakagha?pli=1",
-      "demoVideo": "url.com",
+      "demoVideo": "https://d10joe98l23w8w.cloudfront.net/demos/TabcolabDemo.mp4",
       "projectGithub": "https://github.com/SideProjectAC/tab-frontend",
       "featureList": [
         "- Group tabs and notes via **drag-and-drop** functionality, also leverage the **Google Extensions API** to automatically detect tab movements ",
@@ -105,7 +107,7 @@
       "projectIntro": " The classic 2048 puzzle game that challenges players to combine numbered tiles to reach the elusive 2048 tile. Implemented Redux for state management and Firebase for deployment.",
 
       "projectDetail": " # Develop Notes \n\n- **Game logic**\n  - **Two-dimensional array**: Use rows and columns to set rules of the game.\n    - **Error**: Remember to include 'tiles that have been flipped' in the evaluation process, even if they are 0.\n- **State management**\n  - **Record board state**: Track which tiles are 0 and which have numbers.\n  - **UseContext** → Control all tiles.\n\n    ```\n    const board = [\n        [0, 0, 0, 0],\n        [0, 0, 0, 0],\n        [0, 0, 0, 0],\n        [0, 0, 0, 0]\n      ]\n    ```\n\n  - **Redux Toolkit**\n    - **Basic concept**:\n      - **State**: Variables and state.\n      - **Action**: Call to change state (trigger).\n      - **Reducer**: Actually perform the update.\n    - **Setup**:\n      - **store.js** → configureStore\n        - **Reducers**\n      - **index.js** → provider store = store\n    - **Slice**:\n      - In Redux Toolkit → Define state, reducers, action all in `createSlice`.\n      - **Example**: increment\n        - Increment by one: `state.count +=1`\n        - Add specific amount: `state.count += action.payload` (action is variable to pass in as payload)\n    - **In component**:\n      - **useReducer**: from ‘react-redux’; tell React I want to read this variable from this reducer.\n      - **useDispatch**: Call action from reducers.\n    - **Application issues**:\n      - Cannot directly modify the original state → Make a deep copy first.\n      - After dispatching, you cannot immediately get the latest state.\n        - [React Redux Fast Update State](https://stackoverflow.com/questions/71139700/react-redux-fast-update-state)\n    - **Score** → Since immediate reaction is not necessary, manage state using Redux.\n    - **Board** → Because you cannot get the latest state immediately after dispatching, use context.\n\n    ### **Advantages of Using Redux**\n\n    1. **Centralized State Management**: Redux provides a central store for state that can help manage the game state transparently across different components and layers of your application.\n    2. **Debugging and DevTools**: Redux’s DevTools are powerful for tracking state changes over time, which can be very helpful for debugging game logic and UI issues.\n    3. **Predictable State Updates**: Redux enforces a unidirectional data flow, which can make the state transitions in your game predictable and easier to understand and maintain.\n    4. **Time Travel**: Redux allows you to implement time-travel features quite easily, which can be a fun and useful feature in a game like 2048. It allows players to undo moves and see previous states of the game.\n\n    ### **Disadvantages of Using Redux**\n\n    1. **Boilerplate and Complexity**: Redux can introduce a significant amount of boilerplate code, which might complicate your project unnecessarily, especially if the game's logic isn't complex enough to justify it.\n    2. **Performance Considerations**: While Redux itself is quite fast, the frequent updates associated with game state management can lead to performance bottlenecks, especially if not implemented carefully. Every move in 2048 results in multiple state updates, and if these are not handled efficiently, it can lead to slow rendering and poor user experience.\n    3. **Overhead of Learning and Setup**: If you or your team are not already familiar with Redux, there can be a learning curve that might slow down development initially.\n- **Firebase**\n  - **Basic process**: [How to deploy a React app with Firebase](https://www.freecodecamp.org/news/how-to-deploy-a-react-app-with-firebase/)\n  - **Encountered issue**: **Resolving EACCES permissions errors when installing packages globally** → [NPM Docs on EACCES errors](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)",
-
+      "demoVideo": "https://d10joe98l23w8w.cloudfront.net/demos/2048Demo.mp4",
       "demoUrl": "https://game-4337e.web.app/",
       "projectGithub": "https://github.com/Daphne-Hsueh/2048game",
       "featureList": [
@@ -122,6 +124,7 @@
       "projectIntro": "Embark on a journey of personal growth, adventure, and accomplishment as you create your ultimate bucket list. ",
 
       "projectDetail": " # Project Functions \n\n - Add tasks: Users can add new tasks to their bucket list by clicking the \"Go\" button or pressing Enter.\n- Edit tasks: Users can edit existing tasks to modify their content.\n- Delete tasks: Users can delete tasks they no longer wish to keep on their bucket list.\n- Mark tasks as done: Users can mark tasks as done, moving them from the \"Go Big or Go Home\" section to the \"Mission Complete\" section.\n- **Confetti effect**: Clicking the check button in the \"Mission Complete\" section triggers a confetti effect.\n- **Responsive design:** The app is built using TypeScript and features Responsive Web Design (RWD) to ensure compatibility across various devices and screen sizes.",
+      "demoVideo": "https://d10joe98l23w8w.cloudfront.net/demos/bucketDemo.mp4",
       "demoUrl": "https://daphne-hsueh.github.io/bucket-list/",
       "projectGithub": "https://github.com/Daphne-Hsueh/bucket-list",
       "featureList": [
@@ -138,6 +141,7 @@
       "projectIntro": "A personal website all about ME! (or any other users)",
       "projectDetail": "# Develop Notes \n\n coming up soon :) ",
       "demoUrl": "https://www.proofolio.site/",
+      "demoVideo": "https://d10joe98l23w8w.cloudfront.net/demos/ProofolioDemo.mp4",
       "projectGithub": "https://github.com/proofolio/proofolio-web",
       "featureList": [
         "- Showcasing projects, resume,  study blog, and contact page, implemented with **React Router** for navigation",
@@ -151,56 +155,56 @@
     {
       "blogId": 1,
       "publishedDate": "2024.Feb.05",
-      "blogTopic": "Topic A",
-      "blogTitle": "my first blog",
+      "blogTopic": "Programming Languages",
+      "blogTitle": "TypeScript",
       "thumbnail": "https://picsum.photos/id/1/200/300",
       "heartNum": 2
     },
     {
       "blogId": 2,
       "publishedDate": "2024.Feb.05",
-      "blogTopic": "Topic A",
-      "blogTitle": "my 2nd blog",
+      "blogTopic": "Programming Languages",
+      "blogTitle": "JS Basics - data types",
       "thumbnail": "https://picsum.photos/id/2/200/300",
       "heartNum": 2
     },
     {
       "blogId": 3,
       "publishedDate": "2024.Feb.05",
-      "blogTopic": "Topic B",
-      "blogTitle": "my 3rd blog",
+      "blogTopic": "Programming Languages",
+      "blogTitle": "JS Basics - Promise",
       "thumbnail": "https://picsum.photos/id/3/200/300",
       "heartNum": 3
     },
     {
       "blogId": 4,
       "publishedDate": "2024.Feb.05",
-      "blogTopic": "Topic A",
-      "blogTitle": "my 4th blog",
+      "blogTopic": "Web Development",
+      "blogTitle": "JWT",
       "thumbnail": "https://picsum.photos/id/4/200/300",
       "heartNum": 0
     },
     {
       "blogId": 5,
       "publishedDate": "2024.Feb.05",
-      "blogTopic": "Topic C",
-      "blogTitle": "my 5th blog",
+      "blogTopic": "Web Development",
+      "blogTitle": "localStorage, session, cookie",
       "thumbnail": "https://picsum.photos/id/5/200/300",
       "heartNum": 2
     },
     {
       "blogId": 6,
       "publishedDate": "2024.Feb.05",
-      "blogTopic": "Topic D",
-      "blogTitle": "my 6th blog",
+      "blogTopic": "Development Tools",
+      "blogTitle": "Vite",
       "thumbnail": "https://picsum.photos/id/6/200/300",
       "heartNum": 2
     },
     {
       "blogId": 7,
       "publishedDate": "2024.Feb.05",
-      "blogTopic": "Topic C",
-      "blogTitle": "my 7th blog",
+      "blogTopic": "React",
+      "blogTitle": "React Basics",
       "thumbnail": "https://picsum.photos/id/7/200/300",
       "heartNum": 2
     }
@@ -210,12 +214,18 @@
       "username": "Daphne Hsueh",
       "aboutMe": "Innovative **Junior Frontend Developer** with a passion for crafting **immersive digital experiences**. Equipped with proficiency in modern frontend technologies such as HTML5, CSS3, JavaScript, TypeScript and frameworks like React.js, I am adept at translating design concepts into responsive and user-friendly interfaces. With a keen eye for detail and a commitment to staying abreast of industry trends, I am driven to deliver solutions that not only meet but **exceed expectations**.\n\nEager to contribute my skills and enthusiasm to a collaborative team environment, I am ready to embark on a journey of continuous learning and growth in the ever-evolving field of frontend development. \n\n**Let's build something remarkable together!**",
       "updatedDate": "2024.May.09",
-      "fullResume": "https://www.clickdimensions.com/links/TestPDFfile.pdf"
+      "fullResume": "https://d10joe98l23w8w.cloudfront.net/personal/Daphne%20Hsueh.pdf"
     },
     "diploma": [
-      { "alphaCamp": "https://fakeimg.pl/250x100/" },
-      { "chinese": "https://fakeimg.pl/250x100/" },
-      { "english": "https://fakeimg.pl/250x100/" }
+      {
+        "alphaCamp": "https://d10joe98l23w8w.cloudfront.net/personal/alpha_certificate.png"
+      },
+      {
+        "chinese": "https://d10joe98l23w8w.cloudfront.net/personal/diploma_ch.jpg"
+      },
+      {
+        "english": "https://d10joe98l23w8w.cloudfront.net/personal/dipolma_en.jpg"
+      }
     ],
     "skills": [
       {
@@ -262,21 +272,21 @@
     "educations": [
       {
         "schoolName": "Alpha Camp",
-        "schoolLogo": "https://www.nccu.edu.tw/sites/default/files/logo.png",
+        "schoolLogo": "https://d10joe98l23w8w.cloudfront.net/orgs/alphaCamp.png",
         "degree": " FullStack Developer Bootcamp: Frontend Specialization",
         "timeLine": "Nov 2023 - April 2024",
         "gpa": "3"
       },
       {
         "schoolName": "Masstrict University, NL",
-        "schoolLogo": "https://www.nccu.edu.tw/sites/default/files/logo.png",
+        "schoolLogo": "https://d10joe98l23w8w.cloudfront.net/orgs/MU.png",
         "degree": " School of Business and Economic : Exchange Student",
         "timeLine": "Aug 2022 - Jan 2023",
         "gpa": "number"
       },
       {
         "schoolName": "National Cheng-Chi University, TW",
-        "schoolLogo": "https://www.maastrichtuniversity.nl/sites/default/files/um-logo.png",
+        "schoolLogo": "https://d10joe98l23w8w.cloudfront.net/orgs/NCCU.jpeg",
         "degree": " Bachelor of Education｜Bachelor of Business Administration ",
         "timeLine": "Sep 2018 - Jan 2023",
         "gpa": ""
@@ -321,11 +331,11 @@
     {
       "blogId": 1,
       "publishedDate": "2024.Feb.05",
-      "blogTopic": "Topic A",
-      "blogTitle": "my first blog",
+      "blogTopic": "Programming Languages",
+      "blogTitle": "TypeScript",
       "thumbnail": "https://picsum.photos/id/1/200/300",
       "heartNum": 2,
-      "blogIntro": " # Lorem ipsum dolor \n\nsit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus. ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus. ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus. ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
+      "blogIntro": "- **定義資料型態**\n\n  - 需要先 定義資料型\n    \n    `let 變數:資料型態 ;`\n    \n    - 可選擇多種資料型態→使用`union |`\n    \n    ```tsx\n    let name : string;\n    name = 5 --> 出現error\n    name = \\\"Tim\\\" --> okay\n    \n    ------\n    let age: number | string; // age can be number or string\n    let hobbies : string[];\n    let isStudent : boolean;\n    let role : [number, string];\n    let happy: any //也可以定義成任何型態都行（不建議）應該用unkown\n    let happy: unkown;\n    \n    ```\n    \n    - 定義物件\n    \n    ```tsx\n    //先定義物件型態\n    type 物件名稱（首字要大寫）Person = {\n    \tname : string;\n    \tage?: number; //加問號-> 該屬性為optional\n    }\n    \n    //再宣告變數\n    let person: Person;\n    \n    //宣告an array of Person object\n    let lotsOfPeople : Person[];\n    \n    ```\n    \n    - 定義函式\n    \n    ```tsx\n    let 函式名稱: (所帶入的變數型態) => return值的型態\n    \n    let printName : (name: string) => void //return undefined\n    let printName : (name: string) => never // 完全不return\n    ```\n    \n- **Aliases (type and interface)**\n    \n    ```tsx\n    type X = {\n    \ta: string;\n    \tb: number;\n    }\n    \n    type Y = {\n    \tc: string;\n    \td: number;\n    }\n    //想要在Y 裡面有用到X 裡的值 加上 X &，之後在y 就必須有abcd值\n    let y: Y = X & {\n    \tc: \\\"mewo\\\"\n    \td: 3 // 少了ab 會出現error\n    }\n    ```\n    \n    ```tsx\n    interface Person {\n    \tname : string;\n    \tage?: number;\n    }\n    \n    interface Guy extends Person { //想要沿用Person 就加上 extends\n    \tprofession: string;\n    }\n    ```\n    \n    - string vs. String 大小寫不一樣！\n        \n        In JavaScript and TypeScript, `string` and `String` are different, but related.\n        \n        `string` (lowercase 's') is a primitive data type in JavaScript and TypeScript, while `String` (uppercase 'S') is a global object that can be used to manipulate strings.\n        \n        Here's a brief comparison:\n        \n        - `string` (primitive): This is a basic data type. When you create a string using string literals (e.g., `let str = 'hello'`), you're creating a string primitive.\n        - `String` (object): This is a wrapper object that JavaScript automatically wraps around the string primitive when you use properties or methods on a string (e.g., `let str = new String('hello')`). It's generally recommended to use string primitives (`string`) instead of string objects (`String`) in JavaScript for performance reasons.\n        \n        In TypeScript, when you're defining types, you should use `string` (lowercase 's').\n        \n    - react types\n        - contextProvider {**`children`**}\n            \n            we often type it as `ReactNode`, which is a type provided by the React TypeScript definitions. This type is used to represent any thing that can be rendered in React. This includes numbers, strings, JSX elements or arrays of these things.\n            \n            ```tsx\n            interface DrawerProviderProps {\n              children: ReactNode\n            }\n            ```\n            \n            ```tsx\n            //完整 useContext / createContext code\n            import React from 'react'\n            import { createContext, useState, useContext, ReactNode } from 'react'\n            \n            type DrawerContextType = {\n              openDrawer: boolean\n              setOpenDrawer: React.Dispatch<React.SetStateAction<boolean>>\n            }\n            const DrawerContext = createContext<DrawerContextType | undefined>(undefined)\n            \n            interface DrawerProviderProps {\n              children: ReactNode\n            }\n            \n            export const DrawerProvider: React.FC<DrawerProviderProps> = ({ children }) => {\n              const [openDrawer, setOpenDrawer] = useState<boolean>(false)\n              return (\n                <DrawerContext.Provider value={{ openDrawer, setOpenDrawer }}>\n                  {children}\n                </DrawerContext.Provider>\n              )\n            }\n            \n            export const useGroups = () => useContext(DrawerContext)\n            \n            ```\n            \n        - pass prop in compent can be NULL!\n            \n            ```tsx\n            //makes it an optional prop, and | null allows it to be null\n            interface Props {\n              sections?: Array<Sections> | null;\n            }\n            //但同時會需要因為有可能是null而特別在元件內處理意外狀況\n            function SideDrawer({ sections }: Props) {\n              return (\n                <div>\n                  {sections && sections.map((section) => (\n                    // Render section...\n                  ))}\n                </div>\n              );\n            }\n            ```\n            \n    - TS + API\n        - 不能直接讓data = [response.data](http://response.data)\n            - The function `getUserInfo` is asynchronous, which means it returns a Promise. In your code, you're trying to assign the result of `getUserInfo()` to `DUMMY_USER_INFO` immediately, but the data won't be available until the Promise resolves.\n            \n            ```jsx\n            const getUserInfo = async () => {\n              const response = await getUserInfoAPI()\n              return response.data\n            }\n            \n            //不能直接：\n             const DUMMY_USER_INFO = getUserInfo()\n            ```\n            \n        - 解決方案：use the `useState` and `useEffect` hooks from React to fetch the data when the component mounts and store it in the component's state.\n            \n            we define a state variable `userInfo` and a function `setUserInfo` to update it. We define a function `fetchUserInfo` inside the `useEffect` hook that fetches the user info and updates the state with it. The `useEffect` hook runs when the component mounts because its dependency array is empty (`[]`).",
 
       "comment": [
         {
@@ -338,17 +348,17 @@
     {
       "blogId": 2,
       "publishedDate": "2024.Feb.05",
-      "blogTopic": "Topic A",
-      "blogTitle": "my 2nd blog",
+      "blogTopic": "Programming Languages",
+      "blogTitle": "JS Basics - data types",
       "thumbnail": "https://picsum.photos/id/2/200/300",
       "heartNum": 2,
-      "blogIntro": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus."
+      "blogIntro": "- **有哪些資料型態 (data types)? 該怎麼辨別一個變數的資料型態?**\n    - JavaScript 的資料型態中，有七個原生值，這七個原生值以外的，全都是屬於物件。\n    - 原生值\n        - 原生值是不可變的 (immutable) ＝不能改變那個值本身\n        \n        ```jsx\n        let greeting = \\\"Hi\\\";\n        greeting = \\\"Hello\\\"; // 賦予另一個值，但上面的 'Hi' 本身沒變動\n        ```\n        \n        1. String\n        2. Boolean\n        3. Number\n            1. JS 沒有分整數與浮點數，皆為number →雙精度浮點數，精度介於 **`-(2^53 − 1)`** 與 **`2^53 − 1`**\n            2. **`+Infinity`**, **`-Infinity`**, 與  **[NaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)** 都是 **`number`** 這個型別，\n            3.  JavaScript 是採用 IEEE 754 六十四位元雙精度浮點 → 0.1+ 0.2 = 0.3000…4\n                1. 因為二進位會導致只有1/2、1/4、1/8 等可以被清楚表達，其他都會因為電腦記憶體有限，所以為了要精準表達，會出現奇怪數字\n                2. 解決辦法： `.toFixed` & `.toPrecision`  或使用套件：mathjs / decimal.js. / bignumber.js\n                `console.log((0.1 + 0.2).toFixed(1));\n                 console.log((0.1 + 0.2).toPrecision(1));`\n                \n        4. **BigInt** 一串數字後面有n\n            1. 可任意選擇其精準度\n            2. 不可以拿 **`BigInt`** 跟 **`number`** 型別的值交互使用，這會出現 **`TypeError`**\n            3. create 方法\n                \n                ```jsx\n                // Using the BigInt function\n                const bigInt1 = BigInt(123456789012345678901234567890);\n                console.log(bigInt1); // Output: 123456789012345678901234567890n\n                \n                // Using the n suffix\n                const bigInt2 = 123456789012345678901234567890n;\n                console.log(bigInt2); // Output: 123456789012345678901234567890n\n                ```\n                \n        5. **Undefined**\n            1. 是一個型別，它本身也是一個值。\n            2. 沒有宣告的變數 or 宣告了但還沒賦值\n        6. **Null**\n            1. 賦予某個變數`null` 值\n        7. **Symbol**\n            1. 一個獨特 (unique) 值，多半會搭配物件一起使用，作為物件的鍵 (key)\n            2. create\n                \n                ```jsx\n                let id = Symbol('id');\n                let user = {\n                  name: 'John Doe',\n                  [id]: 123 // Symbol as a property key\n                };\n                ```\n                \n    - 判別資料型態（注意例外）\n        - 一般來說： **`typeof`**\n        - 例外\n            - typeof `null`→ object ( JS的bug）\n            - type of `array` → object\n            - type of `function` → function\n        - 我們該如何辨別某個變數是物件，還是陣列呢?\n            - 確認陣列 true / false：**`Array.isArray()`**\n            - 辨別陣列、函式與一般物件 ： **`Object.prototype.toString()`**\n                \n                ```jsx\n                const arr = [1, 2, 3];\n                const fn = () => {\n                  return 123;\n                };\n                const obj = { foo: 123 };\n                \n                console.log(Object.prototype.toString.call(arr)); // [object Array]\n                console.log(Object.prototype.toString.call(fn)); // [object Function]\n                console.log(Object.prototype.toString.call(obj)); // [object Object]\n                ```\n                \n            \n\n- **Map 與 object 的差別？為什麼有 object 還需要 Map？**\n    - what is map 一種構造函式 : `new Map([iterable])`\n        - 用鍵與值 (key-value pair) 的形式儲存資料格式\n        - https://www.zhenghao.io/posts/object-vs-map\n        \n        |  | object | map |\n        | --- | --- | --- |\n        |  | 都是key - value pair 的型態 | ← |\n        | key types | string / symbol （都會被強行轉為字串） | 任何 |\n        | 如何取得number of items | https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys+.length | size |\n        | 可一次刪除 | 一一刪除 | clear |\n        | iterable? | 不能直接迭代，要搭配 Object.keys or Object.entries  | 可直接迭代＝可直接使用 for...of 、forEach |\n        | 適合頻繁更改key-value? | x | v  |\n        | serialzation?\n        & parsing (to JSON) | 可直接用 \n        JSON.stringify() \n        JSON.parse() → JSON to object | 不能直接用 |\n        | default keys? \n        (accidental keys) | object 有 prototype, 所以有可能存在default key | 無，放啥就是啥 |\n        | 安全性 for user-provided key-value pairts | 較容易被駭，因可override the object's prototype | safer |\n        |  |  | less memory |\n    - Map 常見操作方法\n        - **`new Map()`** ：生成新Map\n        - **`set(key, value)`**：新增元素至 Map 中\n        - **`get(key)`**：通過鍵 (Key) 查詢特定元素並返回\n        - **`has(key)`**：檢查 Map 中是否存在特定鍵 (Key)\n        - **`delete(key)`**：透從 Map 中刪除特定元素\n        - **`size`**：獲取 Map 中元素的數量\n- **Set、WeakSet 和 WeakMap 的區別？**\n    - Set\n        - 呈現的樣子： `Set(長度）{ 裡面的值 }`\n            - 如： `Set(0) {}`、`Set(4) {1, 5, 'text', { a: 1, b: 2 }}`\n        - 一種「構造函式」 結構類似 陣 列 ，但裡面的值都是唯一（無重複），但可接受各種資料類型\n        - Set 中沒有鍵值(Key) → 使用 entries() 遍"
     },
     {
       "blogId": 3,
       "publishedDate": "2024.Feb.05",
-      "blogTopic": "Topic B",
-      "blogTitle": "my 3rd blog",
+      "blogTopic": "Programming Languages",
+      "blogTitle": "JS Basics - Promise",
       "thumbnail": "https://picsum.photos/id/3/200/300",
       "heartNum": 3,
       "blogIntro": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
@@ -369,8 +379,8 @@
     {
       "blogId": 4,
       "publishedDate": "2024.Feb.05",
-      "blogTopic": "Topic A",
-      "blogTitle": "my 4th blog",
+      "blogTopic": "Web Development",
+      "blogTitle": "JWT",
       "thumbnail": "https://picsum.photos/id/4/200/300",
       "heartNum": 0,
       "blogIntro": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
@@ -386,8 +396,8 @@
     {
       "blogId": 5,
       "publishedDate": "2024.Feb.05",
-      "blogTopic": "Topic C",
-      "blogTitle": "my 5th blog",
+      "blogTopic": "Web Development",
+      "blogTitle": "localStorage, session, cookie",
       "thumbnail": "https://picsum.photos/id/5/200/300",
       "heartNum": 2,
       "blogIntro": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
@@ -403,8 +413,8 @@
     {
       "blogId": 6,
       "publishedDate": "2024.Feb.05",
-      "blogTopic": "Topic D",
-      "blogTitle": "my 6th blog",
+      "blogTopic": "Development Tools",
+      "blogTitle": "Vite",
       "thumbnail": "https://picsum.photos/id/6/200/300",
       "heartNum": 2,
       "blogIntro": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",
@@ -420,8 +430,8 @@
     {
       "blogId": 7,
       "publishedDate": "2024.Feb.05",
-      "blogTopic": "Topic C",
-      "blogTitle": "my 7th blog",
+      "blogTopic": "React",
+      "blogTitle": "React Basics",
       "thumbnail": "https://picsum.photos/id/7/200/300",
       "heartNum": 2,
       "blogIntro": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi optio impedit incidunt tempora assumenda ipsa aut hic similique nulla necessitatibus, totam sint perspiciatis veritatis tenetur. Commodi facere possimus quibusdam accusamus.",

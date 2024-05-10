@@ -65,25 +65,16 @@ function Header() {
         >
           <MenuIcon />
         </IconButton>
-        <Typography
-          variant="h6"
-          noWrap
-          component="a"
-          href="/home"
-          sx={{
-            mr: 2,
-            fontFamily: 'monospace',
-            fontWeight: 700,
-            letterSpacing: '.3rem',
-            color: 'inherit',
-            textDecoration: 'none',
-            display: { xs: 'block', md: 'flex' },
-            textAlign: 'center',
-            margin: '0 auto',
-          }}
-        >
-          LOGO
-        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Link to="/home">
+            <img
+              alt="logo"
+              src="https://d10joe98l23w8w.cloudfront.net/logo/logo_d.png"
+              width="250px"
+              style={{ cursor: 'pointer' }}
+            ></img>
+          </Link>
+        </Box>
         <Box
           sx={{
             flexGrow: 1,

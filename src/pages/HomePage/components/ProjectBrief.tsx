@@ -12,6 +12,7 @@ interface ProjectBriefType {
   projectIntro: string
   projectGithub: string
   demoUrl: string
+  demoVideo?: string
 }
 
 function ProjectBrief() {
@@ -37,6 +38,7 @@ function ProjectBrief() {
         Projects
       </Typography>
       <Carousel
+        duration={500}
         sx={{
           width: '100%',
           borderRadius: '10px',
@@ -62,16 +64,19 @@ function ProjectBrief() {
                   {project.projectIntro}
                 </Typography>
               </Box>
-              <video
-                width="500px"
-                height="300px"
-                src={project.demoUrl}
-                style={{
-                  border: '2px solid red',
-                  borderRadius: '10px',
-                  margin: '0 auto',
-                }}
-              ></video>
+              {project.demoVideo && (
+                <video
+                  width="100%"
+                  height="300px"
+                  controls
+                  autoPlay
+                  src={project.demoVideo}
+                  style={{
+                    borderRadius: '10px',
+                    margin: '0 auto',
+                  }}
+                ></video>
+              )}
             </Box>
           ))}
       </Carousel>

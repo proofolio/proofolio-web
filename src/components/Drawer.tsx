@@ -112,7 +112,7 @@ function SideDrawer({ sections, sectionLabel }: Props) {
         <ListItem
           style={{
             writingMode: openDrawer ? 'horizontal-tb' : 'vertical-rl',
-            fontSize: '0.8rem',
+            fontSize: '1rem',
           }}
         >
           Pages
@@ -120,7 +120,7 @@ function SideDrawer({ sections, sectionLabel }: Props) {
         {PAGES.map((page) => (
           <Link
             key={page.pageName}
-            to={`/${page}`.toLowerCase()}
+            to={`/${page.pageName}`.toLowerCase()}
             style={{ color: 'inherit', textDecoration: 'none' }}
           >
             <ListItem disablePadding sx={{ display: 'block' }}>
@@ -156,7 +156,7 @@ function SideDrawer({ sections, sectionLabel }: Props) {
         <ListItem
           style={{
             writingMode: openDrawer ? 'horizontal-tb' : 'vertical-rl',
-            fontSize: '0.8rem',
+            fontSize: '1rem',
           }}
         >
           {sectionLabel}

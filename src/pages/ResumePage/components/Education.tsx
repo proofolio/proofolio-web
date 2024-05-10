@@ -64,12 +64,30 @@ function Education() {
             flexDirection: { xs: 'column', md: 'row' },
             justifyContent: 'flex-start',
             mb: 2,
-            gap: '13%',
+            gap: '5%',
           }}
         >
-          <img alt="alpha diploma" src={diploma[0].alphaCamp}></img>
-          <img alt="chinese diploma" src={diploma[1].chinese}></img>
-          <img alt="english diploma" src={diploma[2].english}></img>
+          <img
+            alt="alpha diploma"
+            src={diploma[0].alphaCamp}
+            width="30%"
+            height="100%"
+            style={{ marginTop: '10px' }}
+          ></img>
+          <img
+            alt="chinese diploma"
+            src={diploma[1].chinese}
+            width="30%"
+            height="100%"
+            style={{ marginTop: '10px' }}
+          ></img>
+          <img
+            alt="english diploma"
+            src={diploma[2].english}
+            width="30%"
+            height="100%"
+            style={{ marginTop: '10px' }}
+          ></img>
         </Box>
       </Box>
     </Container>
