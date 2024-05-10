@@ -8,7 +8,7 @@ import {
   TimelineContent,
   timelineItemClasses,
 } from '@mui/lab'
-import { Container, Typography, Avatar, Box, Divider } from '@mui/material'
+import { Container, Typography, Avatar, Divider } from '@mui/material'
 import ReactMarkdown from 'react-markdown'
 
 import { getResume } from '../../../api/getAPI'
@@ -41,7 +41,7 @@ function Experience() {
   if (!experiences) return <div>still catching data</div>
   return (
     <Container id="Experience" sx={{ my: '15px' }}>
-      <Typography variant="h4">Work Experiences</Typography>
+      <Typography variant="h5">Work Experiences</Typography>
       <Timeline
         sx={{
           [`& .${timelineItemClasses.root}:before`]: {
@@ -62,11 +62,13 @@ function Experience() {
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent>
-              <Typography>{experience.timeLine}</Typography>
-              <Typography variant="h5">{experience.jobTitle}</Typography>
-              <Typography>{experience.companyName}</Typography>
-              <Typography>{experience.industry}</Typography>
-              <ReactMarkdown>{experience.jobIntro}</ReactMarkdown>
+              <Typography variant="subtitle2">{experience.timeLine}</Typography>
+              <Typography variant="h6">{experience.jobTitle}</Typography>
+              <Typography variant="body2">{experience.companyName}</Typography>
+              <Typography variant="subtitle2">{experience.industry}</Typography>
+              <Typography variant="subtitle1">
+                <ReactMarkdown>{experience.jobIntro}</ReactMarkdown>
+              </Typography>
               <Divider sx={{ my: '10px' }} />
             </TimelineContent>
           </TimelineItem>

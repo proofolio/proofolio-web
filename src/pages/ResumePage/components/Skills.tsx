@@ -27,14 +27,17 @@ function Skills() {
   if (!skills) return <div>still catching data</div>
   return (
     <Container id="Skills" sx={{ my: '15px' }}>
-      <Typography variant="h4">Skills</Typography>
+      <Typography variant="h5">Skills</Typography>
       <Box>
         <List>
           {skills.map((skill) => (
             <ListItem>
               <Box>
-                <Typography variant="h5">{skill.skillType} : </Typography>
-                <Typography> {skill.skillTitle.join('、')}</Typography>
+                <Typography variant="h6">{skill.skillType} : </Typography>
+                <Typography variant="body2">
+                  {' '}
+                  {skill.skillTitle.join('、')}
+                </Typography>
               </Box>
             </ListItem>
           ))}

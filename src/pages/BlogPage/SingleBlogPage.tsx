@@ -7,7 +7,7 @@ import SideDrawer from '../../components/Drawer'
 import SingleBlog from './components/SingleBlog'
 import { SectionContext } from '../../store/SectionContext'
 
-const DUMMY_SECTIONS = [
+const SECTIONS = [
   {
     sectionTitle: 'BlogTitle1',
     sectionIcon: '❄️',
@@ -44,7 +44,7 @@ function SingleBlogPage() {
   }
   const { whichSection } = sectionContext
 
-  const sectionIndex = DUMMY_SECTIONS.findIndex(
+  const sectionIndex = SECTIONS.findIndex(
     (section) => section.sectionTitle === whichSection
   )
 
@@ -58,12 +58,12 @@ function SingleBlogPage() {
       >
         <CssBaseline />
         <Header />
-        <SideDrawer sections={DUMMY_SECTIONS} sectionLabel="Blogs" />
+        <SideDrawer sections={SECTIONS} sectionLabel="Blogs" />
         <Box component={'main'} sx={{ flexGrow: 1, p: 3, marginTop: '60px' }}>
           {sectionIndex === -1 ? (
             <SingleBlog blogId={blogIdNumber} />
           ) : (
-            DUMMY_SECTIONS[sectionIndex].sectionComponent
+            SECTIONS[sectionIndex].sectionComponent
           )}
         </Box>
       </Box>

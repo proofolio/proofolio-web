@@ -50,15 +50,20 @@ function FullResume() {
           >
             <Button>
               <a href={intro?.fullResume} download>
-                <Typography> download resume</Typography>
+                <Typography variant="subtitle2"> download resume</Typography>
               </a>
             </Button>
-            <Typography fontSize={10} sx={{ mt: -1 }}>
+            <Typography
+              variant="caption"
+              sx={{ mt: -1, display: { xs: 'none', sm: 'inline' } }}
+            >
               updated at: {intro?.updatedDate}
             </Typography>
           </Box>
         </Box>
-        <Typography sx={{ mb: 3 }}>{intro?.aboutMe}</Typography>
+        <Typography variant="body2" sx={{ mb: 3 }}>
+          {intro?.aboutMe}
+        </Typography>
 
         <Divider />
       </Container>

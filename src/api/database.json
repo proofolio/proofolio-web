@@ -1,5 +1,5 @@
 {
-  "DUMMY_SECTIONS": {
+  "SECTIONS": {
     "homepage": [
       {
         "sectionTitle": "UserIntro",
@@ -48,10 +48,10 @@
       }
     ]
   },
-  "DUMMY_USER_INFO": {
+  "USER_INFO": {
     "name": "Daphne",
     "jobTitle": "Frontend Developer",
-    "headShotUrl": "https://mighty.tools/mockmind-api/content/cartoon/32.jpg",
+    "headShotUrl": "https://images.cakeresume.com/nykPQD/daphne-hsueh/7f81b476-1471-4c79-ad30-f5cf564bfc8f.png",
     "aboutMe": "This is a paragraph about me. It contains multiple sentences. \nIt provides information about me. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae quas incidunt, repellendus quis, enim ea officia nemo natus vel inventore dolorem ad \npraesentium eligendi ipsum molestiae etvoluptates rerum non.Lorem ipsum dolor, sit amet consectetur adipisicing elit. ",
     "techStack": ["HTML", "CSS", "JavaScript", "npm"],
     "backupPictures": [
@@ -60,13 +60,13 @@
       "https://picsum.photos/id/30/400/300"
     ],
     "contactInfo": {
-      "linkedin": "linkedin.com",
-      "github": "github.com",
-      "email": "email@email.com",
+      "linkedin": "linkedin.com ",
+      "github": "github.com ",
+      "email": "email@email.com ",
       "phone": 123456789
     }
   },
-  "DUMMY_PROJECT_BRIEF": [
+  "PROJECT_BRIEF": [
     {
       "projectId": 1,
       "projectTitle": "TabColabbbb",
@@ -114,7 +114,7 @@
       "featureList": ["feature 1", "feature 2", "feature 3", "feature 4"]
     }
   ],
-  "DUMMY_BLOG_BRIEF": [
+  "BLOG_BRIEF": [
     {
       "blogId": 1,
       "publishedDate": "2024.Feb.05",
@@ -172,7 +172,7 @@
       "heartNum": 2
     }
   ],
-  "DUMMY_RESUME": {
+  "RESUME": {
     "intro": {
       "username": "string",
       "aboutMe": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero dolore minus, exercitationem earum unde excepturi ut saepe quas eos voluptatem voluptates animi numquam expedita eaque temporibus quia iure illum id.",
@@ -282,7 +282,7 @@
       }
     ]
   },
-  "DUMMY_BLOGS_ALL": [
+  "BLOGS_ALL": [
     {
       "blogId": 1,
       "publishedDate": "2024.Feb.05",
