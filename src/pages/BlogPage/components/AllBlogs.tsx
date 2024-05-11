@@ -3,7 +3,7 @@ import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
 import ImageListItemBar from '@mui/material/ImageListItemBar'
 import IconButton from '@mui/material/IconButton'
-import { Container, Typography, Box } from '@mui/material'
+import { Container, Typography, Box, Skeleton } from '@mui/material'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import { useNavigate } from 'react-router-dom'
 
@@ -31,6 +31,7 @@ function groupByTopic(blogs: Array<BlogBriefType>) {
 
 function AllBlogs() {
   const [blogBrief, setBlogBrief] = useState<BlogBriefType[] | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     async function fetch() {
       const response = await getBlogBrief(
@@ -39,6 +40,7 @@ function AllBlogs() {
         {}
       )
       setBlogBrief(response.response.data)
+      setIsLoading(false)
     }
     fetch()
   }, [])
@@ -58,13 +60,17 @@ function AllBlogs() {
                 onClick={() => navigate(`/blog/${blog.blogId}`)}
                 sx={{ cursor: 'pointer', width: '250px', height: '250px' }}
               >
-                <img
-                  srcSet={`${blog.thumbnail}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                  src={`${blog.thumbnail}?w=248&fit=crop&auto=format`}
-                  alt={blog.blogTitle}
-                  loading="lazy"
-                  style={{ height: '200px', borderRadius: '10px' }}
-                />
+                {isLoading ? (
+                  <Skeleton variant="rectangular" width={250} height={250} />
+                ) : (
+                  <img
+                    srcSet={`${blog.thumbnail}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                    src={`${blog.thumbnail}?w=248&fit=crop&auto=format`}
+                    alt={blog.blogTitle}
+                    loading="lazy"
+                    style={{ height: '200px', borderRadius: '10px' }}
+                  />
+                )}
                 <ImageListItemBar
                   title={blog.blogTitle}
                   subtitle={blog.publishedDate}

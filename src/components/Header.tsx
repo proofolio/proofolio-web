@@ -82,8 +82,9 @@ function Header() {
             display: { xs: 'none', md: 'flex' },
           }}
         >
-          {PAGES.map((page) => (
+          {PAGES.map((page, index) => (
             <Button
+              key={index}
               sx={{
                 my: 2,
                 color: 'inherit',

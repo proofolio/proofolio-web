@@ -44,8 +44,11 @@ function Education() {
         <Box
           sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}
         >
-          {educations.map((school) => (
-            <Box sx={{ margin: '10px', width: { xs: '100%', md: '33%' } }}>
+          {educations.map((school, index) => (
+            <Box
+              key={index}
+              sx={{ margin: '10px', width: { xs: '100%', md: '33%' } }}
+            >
               <Box sx={{ display: { xs: 'flex', md: 'block' } }}>
                 <Avatar
                   src={school.schoolLogo}

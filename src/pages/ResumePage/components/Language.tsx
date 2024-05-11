@@ -30,8 +30,8 @@ function Language() {
       <Typography variant="h5">Languages</Typography>
       <Box>
         <List>
-          {languages.map((language) => (
-            <ListItem>
+          {languages.map((language, index) => (
+            <ListItem key={index}>
               <Typography variant="body1">
                 {language.languageName} :{'  '}
               </Typography>

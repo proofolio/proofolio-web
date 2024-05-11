@@ -30,8 +30,8 @@ function Skills() {
       <Typography variant="h5">Skills</Typography>
       <Box>
         <List>
-          {skills.map((skill) => (
-            <ListItem>
+          {skills.map((skill, index) => (
+            <ListItem key={index}>
               <Box>
                 <Typography variant="h6" style={{ fontWeight: 500 }}>
                   {skill.skillType} :{' '}

@@ -50,8 +50,8 @@ function Experience() {
           },
         }}
       >
-        {experiences.map((experience) => (
-          <TimelineItem sx={{ marginTop: '10px' }}>
+        {experiences.map((experience, index) => (
+          <TimelineItem key={index} sx={{ marginTop: '10px' }}>
             <TimelineSeparator>
               <TimelineDot variant="outlined">
                 <Avatar

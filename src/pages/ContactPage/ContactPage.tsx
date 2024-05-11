@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react'
-import { Box, Container, CssBaseline, Typography } from '@mui/material'
+import {
+  Box,
+  Container,
+  CssBaseline,
+  Typography,
+  Skeleton,
+} from '@mui/material'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import Carousel from 'react-material-ui-carousel'
@@ -11,12 +17,7 @@ import { getUserInfo } from '../../api/getAPI'
 
 const ContactPage = () => {
   const [backupPictures, setBackupPictures] = useState<string[]>([])
-  const bgImage = [
-    'https://d10joe98l23w8w.cloudfront.net/personal/bgimage1.jpg',
-    'https://d10joe98l23w8w.cloudfront.net/personal/bgimage2.jpg',
-    'https://d10joe98l23w8w.cloudfront.net/personal/bgimage3.jpg',
-    'https://d10joe98l23w8w.cloudfront.net/personal/bgimage4.jpg',
-  ]
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     async function fetch() {
@@ -26,6 +27,7 @@ const ContactPage = () => {
         {}
       )
       setBackupPictures(response.response.data.backupPictures)
+      setIsLoading(false)
     }
     fetch()
   }, [])
@@ -90,30 +92,39 @@ const ContactPage = () => {
                 Submit
               </Button>
             </form>
-            <Carousel
-              IndicatorIcon
-              navButtonsAlwaysInvisible
-              sx={{
-                width: '100%',
-              }}
-            >
-              {bgImage.map((image, index) => (
-                <Box
-                  component="img"
-                  key={index}
-                  alt={image}
-                  src={image}
-                  sx={{
-                    margin: '0 auto',
-                    width: '100%',
-                    height: '100%',
-                    borderRadius: '10px',
-                    marginLeft: { xs: 0, md: 3 },
-                    marginTop: { xs: 3, md: 0 },
-                  }}
-                ></Box>
-              ))}
-            </Carousel>
+            {isLoading ? (
+              <Skeleton
+                variant="rectangular"
+                width="500px"
+                height="450px"
+                sx={{ borderRadius: '10px', mx: 2 }}
+              />
+            ) : (
+              <Carousel
+                IndicatorIcon
+                navButtonsAlwaysInvisible
+                sx={{
+                  width: '100%',
+                }}
+              >
+                {backupPictures.map((image, index) => (
+                  <Box
+                    component="img"
+                    key={index}
+                    alt={image}
+                    src={image}
+                    sx={{
+                      margin: '0 auto',
+                      width: '100%',
+                      height: '100%',
+                      borderRadius: '10px',
+                      marginLeft: { xs: 0, md: 3 },
+                      marginTop: { xs: 3, md: 0 },
+                    }}
+                  ></Box>
+                ))}
+              </Carousel>
+            )}
           </Container>
         </Box>
       </Box>

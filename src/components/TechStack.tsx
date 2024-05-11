@@ -42,8 +42,8 @@ const TechStack: React.FC<TechStackProps> = ({ techs }) => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      {techStacks.map((techStack) => (
-        <Tooltip title={techStack.tech}>
+      {techStacks.map((techStack, index) => (
+        <Tooltip title={techStack.tech} key={index}>
           <Avatar
             key={techStack.tech}
             src={techStack.logo}
