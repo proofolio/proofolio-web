@@ -50,9 +50,9 @@
   },
   "USER_INFO": {
     "name": "Daphne",
-    "logo": "https://d10joe98l23w8w.cloudfront.net/logo/logo_d.png",
+    "logo": "https://d1gzlmcs77uyca.cloudfront.net/logo/logo_d.png",
     "jobTitle": "Frontend Developer",
-    "headShotUrl": "https://d10joe98l23w8w.cloudfront.net/personal/headshot.png",
+    "headShotUrl": "https://d1gzlmcs77uyca.cloudfront.net/personal/headshot.png",
     "aboutMe": "Armed with a proficiency in modern frontend technologies honed through intensive boot camp training,  I am adept at translating design concepts into responsive and user-friendly interfaces.  My background in business administration and education instilled in me a strong foundation in problem-solving and adaptability, traits essential for navigating the dynamic landscape of web development.",
     "techStack": [
       "HTML",
@@ -69,10 +69,10 @@
       "npm"
     ],
     "backupPictures": [
-      "https://d10joe98l23w8w.cloudfront.net/personal/bgimage1.jpg",
-      "https://d10joe98l23w8w.cloudfront.net/personal/bgimage2.jpg",
-      "https://d10joe98l23w8w.cloudfront.net/personal/bgimage3.jpg",
-      "https://d10joe98l23w8w.cloudfront.net/personal/bgimage4.jpg"
+      "https://d1gzlmcs77uyca.cloudfront.net/personal/bgimage1.jpg",
+      "https://d1gzlmcs77uyca.cloudfront.net/personal/bgimage2.jpg",
+      "https://d1gzlmcs77uyca.cloudfront.net/personal/bgimage3.jpg",
+      "https://d1gzlmcs77uyca.cloudfront.net/personal/bgimage4.jpg"
     ],
     "contactInfo": {
       "linkedin": "https://www.linkedin.com/in/daphne-hsueh",
@@ -90,7 +90,7 @@
       "projectDetail": "# Project Functions \n **1. Tab Grouping**\n\n- Drag to Group: Easily group your tabs by dragging them together. This visual approach helps you organize tabs into categories or projects, enhancing your workflow and focus.\\n- Manage Groups: Rename, chose group Icon, or dissolve groups as your project needs evolve.\n\n**2. Notes and Todos**\n\n- Add Notes: add a new note or todo at the end of your desired group, to keep track of important information or quick reminders.\n- Manage Todos: Create, check off, and delete todos related to specific tabs or projects. Keep your task list integrated with your browsing. \n\n**3. Popup Interface**\n\n- Quick Access: Use the popup to quickly add new tabs and new notes to existing groups, adding a note without leaving your current context.\n- Seamless Integration: The popup interface integrates smoothly with your browsing, providing a natural and intuitive tool for managing your tabs, notes.\n\n**4. Search Functionality**\n\n- Search Tab: Quickly locate any open tab with a powerful search feature that filters tabs by their title or URL, making it easier to manage large numbers of tabs.\n\n**5. Theme customization**\n\n- Dark and Light Modes: Toggle between dark and light themes to customize the appearance of your extension interface according to your preference or ambient lighting conditions.\n\n**6. Google OAuth Sign-In**\n\n- Personalized Experience: Sign in with your Google account to synchronize your tab groups, notes, and todos across all your devices. This ensures a seamless experience no matter where you access your browser. \n\n# Develop Notes \n\n - **JWT- payload**\n\n  ```tsx\n  {\n    \\\"user_id\\\": \\\"8d3fc75d-1d79-4b27-a27d-fb612cf437d8\\\",\n    \\\"email\\\": \\\"daphnewk23@gmail.com\\\",\n    \\\"version\\\": \\\"v1.0\\\",\n    \\\"iat\\\": 1714314052,\n    \\\"exp\\\": 1714918852\n  }\n  ```\n\n- **Why use local storage to store JWT**\n  - Extension-Specific Security Context: Because it's a Chrome extension, the environment is less susceptible to malicious scripts stealing tokens, as extension pages (background script) are isolated from web pages. With the latest version of the manifest enhancing security features and limitations on what resources can be loaded or executed, this framework inherently reduces the risk of XSS attacks significantly.\n  - Using local storage avoids constant communication with the backend, enhancing performance.\n- **OAuth challenges**\n  - Initially handled by the backend with the Passport package: Passport redirects to the Google login page, post-login navigates back to the callback URL to retrieve the accessToken, which internally is used to fetch the user profile. If the user is not in the database, create user data and generate JWT; if present, just generate JWT and route the JWT to /google/token.\n  - Utilizing the PKCE method.\n  - **`chrome.identity.launchWebAuthFlow()`**\n- **Manifest function**: Includes information about the software version, the environment it runs in, dependencies it requires, and permissions it needs, among other data.\n- **Google API**\n  - **`chrome.runtime.onConnect.addListener`** event listener\n  - Set event names **`console.assert([port.name](http://port.name/) === \\\"tabsUpdate\\\");`**\n  - **`port.onDisconnect.addListener`** for cleanup when the connection is closed, removing all event listeners added to the tabs. This is crucial for preventing performance issues due to \\\"zombie\\\" listeners that keep running even after they are no longer needed.\n  - **chrome.runtime** provides mechanisms for internal communication, initialization, and lifecycle management. This API helps ensure that the extension behaves as an integrated part of the Chrome browser, with capabilities to interact seamlessly across its different components.\n    - Messaging\n      - **`chrome.runtime.sendMessage`** and **`chrome.runtime.onMessage`**: Used for sending messages between background scripts, content scripts, and other extension pages. This can be useful for passing data and commands between different components.\n      - **`chrome.runtime.connect`** and **`chrome.runtime.onConnect`**: Used to create a more persistent communication channel between components, which can be useful for continuous data exchange or state monitoring.\n    - Event Handling\n      - **`chrome.runtime.onInstalled`**: Triggered when the extension is first installed, when it's updated to a new version, or when Chrome updates.\n      - **`chrome.runtime.onStartup`**: Fired when the browser starts up and the extension is already installed. This allows the extension to initialize itself at startup.\n      - **`chrome.runtime.onSuspend`** and **`chrome.runtime.onSuspendCanceled`**: Handle the unloading of an extension due to browser shutdown or extension reloading.\n    - Identity, Error Handling, Update Management…\n- **Popup and index.html communication**\n  - Using two HTML files: In a Chrome extension, each HTML file you use generally creates a new browsing context, such as a popup or a new tab. This means that when you use **`index.html`** and **`popup.html`** in your Chrome extension and both load the same **`main.jsx`** script, they do not automatically share the same runtime context or state even though they use the same script file.\n  - Solution for managing shared data:\n    1. Chrome Storage API (includes local storage, sync storage)\n    2. Messaging API \n    3. Event Pages or Background Scripts\n    4. Broadcasting Changes\n    5. Use Observables or Similar Patterns\n- **DragDrop**\n  - handleDragStart\n    - **`e.dataTransfer.setData(\\\"itemId\\\", itemId);`** Set which item (itemId) & from where to start dragging (originGroupId)\n    - **`e.dataTransfer.effectAllowed = \\\"move\\\"`;** Specify that the operation is a move, at the same time preventing other operations.\n  - handlerDragOver\n    - **`e.preventDefault()`**; necessary to allow dropping\n    - **`e.dataTransfer.dropEffect = \\\"move\\\"`;** Indicates to the user that a drag is in progress\n  - handleDrop\n    - **`onDrop={(e) => handleDrop(e, group.group_id)}`** Find out the targetGroup\n    - Update state on the backend and frontend\n\n---\n\nreference\n\n- https://developer.chrome.com/docs/extensions/reference/api\n- https://pjchender.dev/chrome-extension/chrome-extension-api/",
 
       "demoUrl": "https://chromewebstore.google.com/detail/tabcolab/pkigikdacbladbiakamiecjjcdakagha?pli=1",
-      "demoVideo": "https://d10joe98l23w8w.cloudfront.net/demos/TabcolabDemo.mp4",
+      "demoVideo": "https://d1gzlmcs77uyca.cloudfront.net/demos/TabcolabDemo.mp4",
       "projectGithub": "https://github.com/SideProjectAC/tab-frontend",
       "featureList": [
         "- Group tabs and notes via **drag-and-drop** functionality, also leverage the **Google Extensions API** to automatically detect tab movements ",
@@ -107,7 +107,7 @@
       "projectIntro": " The classic 2048 puzzle game that challenges players to combine numbered tiles to reach the elusive 2048 tile. Implemented Redux for state management and Firebase for deployment.",
 
       "projectDetail": " # Develop Notes \n\n- **Game logic**\n  - **Two-dimensional array**: Use rows and columns to set rules of the game.\n    - **Error**: Remember to include 'tiles that have been flipped' in the evaluation process, even if they are 0.\n- **State management**\n  - **Record board state**: Track which tiles are 0 and which have numbers.\n  - **UseContext** → Control all tiles.\n\n    ```\n    const board = [\n        [0, 0, 0, 0],\n        [0, 0, 0, 0],\n        [0, 0, 0, 0],\n        [0, 0, 0, 0]\n      ]\n    ```\n\n  - **Redux Toolkit**\n    - **Basic concept**:\n      - **State**: Variables and state.\n      - **Action**: Call to change state (trigger).\n      - **Reducer**: Actually perform the update.\n    - **Setup**:\n      - **store.js** → configureStore\n        - **Reducers**\n      - **index.js** → provider store = store\n    - **Slice**:\n      - In Redux Toolkit → Define state, reducers, action all in `createSlice`.\n      - **Example**: increment\n        - Increment by one: `state.count +=1`\n        - Add specific amount: `state.count += action.payload` (action is variable to pass in as payload)\n    - **In component**:\n      - **useReducer**: from ‘react-redux’; tell React I want to read this variable from this reducer.\n      - **useDispatch**: Call action from reducers.\n    - **Application issues**:\n      - Cannot directly modify the original state → Make a deep copy first.\n      - After dispatching, you cannot immediately get the latest state.\n        - [React Redux Fast Update State](https://stackoverflow.com/questions/71139700/react-redux-fast-update-state)\n    - **Score** → Since immediate reaction is not necessary, manage state using Redux.\n    - **Board** → Because you cannot get the latest state immediately after dispatching, use context.\n\n    ### **Advantages of Using Redux**\n\n    1. **Centralized State Management**: Redux provides a central store for state that can help manage the game state transparently across different components and layers of your application.\n    2. **Debugging and DevTools**: Redux’s DevTools are powerful for tracking state changes over time, which can be very helpful for debugging game logic and UI issues.\n    3. **Predictable State Updates**: Redux enforces a unidirectional data flow, which can make the state transitions in your game predictable and easier to understand and maintain.\n    4. **Time Travel**: Redux allows you to implement time-travel features quite easily, which can be a fun and useful feature in a game like 2048. It allows players to undo moves and see previous states of the game.\n\n    ### **Disadvantages of Using Redux**\n\n    1. **Boilerplate and Complexity**: Redux can introduce a significant amount of boilerplate code, which might complicate your project unnecessarily, especially if the game's logic isn't complex enough to justify it.\n    2. **Performance Considerations**: While Redux itself is quite fast, the frequent updates associated with game state management can lead to performance bottlenecks, especially if not implemented carefully. Every move in 2048 results in multiple state updates, and if these are not handled efficiently, it can lead to slow rendering and poor user experience.\n    3. **Overhead of Learning and Setup**: If you or your team are not already familiar with Redux, there can be a learning curve that might slow down development initially.\n- **Firebase**\n  - **Basic process**: [How to deploy a React app with Firebase](https://www.freecodecamp.org/news/how-to-deploy-a-react-app-with-firebase/)\n  - **Encountered issue**: **Resolving EACCES permissions errors when installing packages globally** → [NPM Docs on EACCES errors](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)",
-      "demoVideo": "https://d10joe98l23w8w.cloudfront.net/demos/2048Demo.mp4",
+      "demoVideo": "https://d1gzlmcs77uyca.cloudfront.net/demos/2048Demo.mp4",
       "demoUrl": "https://game-4337e.web.app/",
       "projectGithub": "https://github.com/Daphne-Hsueh/2048game",
       "featureList": [
@@ -124,7 +124,7 @@
       "projectIntro": "Embark on a journey of personal growth, adventure, and accomplishment as you create your ultimate bucket list. ",
 
       "projectDetail": " # Project Functions \n\n - Add tasks: Users can add new tasks to their bucket list by clicking the \"Go\" button or pressing Enter.\n- Edit tasks: Users can edit existing tasks to modify their content.\n- Delete tasks: Users can delete tasks they no longer wish to keep on their bucket list.\n- Mark tasks as done: Users can mark tasks as done, moving them from the \"Go Big or Go Home\" section to the \"Mission Complete\" section.\n- **Confetti effect**: Clicking the check button in the \"Mission Complete\" section triggers a confetti effect.\n- **Responsive design:** The app is built using TypeScript and features Responsive Web Design (RWD) to ensure compatibility across various devices and screen sizes.",
-      "demoVideo": "https://d10joe98l23w8w.cloudfront.net/demos/bucketDemo.mp4",
+      "demoVideo": "https://d1gzlmcs77uyca.cloudfront.net/demos/bucketDemo.mp4",
       "demoUrl": "https://daphne-hsueh.github.io/bucket-list/",
       "projectGithub": "https://github.com/Daphne-Hsueh/bucket-list",
       "featureList": [
@@ -141,7 +141,7 @@
       "projectIntro": "A personal website all about ME! (or any other users)",
       "projectDetail": "# Develop Notes \n\n coming up soon :) ",
       "demoUrl": "https://www.proofolio.site/",
-      "demoVideo": "https://d10joe98l23w8w.cloudfront.net/demos/ProofolioDemo.mp4",
+      "demoVideo": "https://d1gzlmcs77uyca.cloudfront.net/demos/ProofolioDemo.mp4",
       "projectGithub": "https://github.com/proofolio/proofolio-web",
       "featureList": [
         "- Showcasing projects, resume,  study blog, and contact page, implemented with **React Router** for navigation",
@@ -214,17 +214,17 @@
       "username": "Daphne Hsueh",
       "aboutMe": "Innovative **Junior Frontend Developer** with a passion for crafting **immersive digital experiences**. Equipped with proficiency in modern frontend technologies such as HTML5, CSS3, JavaScript, TypeScript and frameworks like React.js, I am adept at translating design concepts into responsive and user-friendly interfaces. With a keen eye for detail and a commitment to staying abreast of industry trends, I am driven to deliver solutions that not only meet but **exceed expectations**.\n\nEager to contribute my skills and enthusiasm to a collaborative team environment, I am ready to embark on a journey of continuous learning and growth in the ever-evolving field of frontend development. \n\n**Let's build something remarkable together!**",
       "updatedDate": "2024.May.09",
-      "fullResume": "https://d10joe98l23w8w.cloudfront.net/personal/Daphne%20Hsueh.pdf"
+      "fullResume": "https://d1gzlmcs77uyca.cloudfront.net/personal/Daphne%20Hsueh.pdf"
     },
     "diploma": [
       {
-        "alphaCamp": "https://d10joe98l23w8w.cloudfront.net/personal/alpha_certificate.png"
+        "alphaCamp": "https://d1gzlmcs77uyca.cloudfront.net/personal/alpha_certificate.png"
       },
       {
-        "chinese": "https://d10joe98l23w8w.cloudfront.net/personal/diploma_ch.jpg"
+        "chinese": "https://d1gzlmcs77uyca.cloudfront.net/personal/diploma_ch.jpg"
       },
       {
-        "english": "https://d10joe98l23w8w.cloudfront.net/personal/dipolma_en.jpg"
+        "english": "https://d1gzlmcs77uyca.cloudfront.net/personal/dipolma_en.jpg"
       }
     ],
     "skills": [
@@ -272,21 +272,21 @@
     "educations": [
       {
         "schoolName": "Alpha Camp",
-        "schoolLogo": "https://d10joe98l23w8w.cloudfront.net/orgs/alphaCamp.png",
+        "schoolLogo": "https://d1gzlmcs77uyca.cloudfront.net/orgs/alphaCamp.png",
         "degree": " FullStack Developer Bootcamp: Frontend Specialization",
         "timeLine": "Nov 2023 - April 2024",
         "gpa": "3"
       },
       {
         "schoolName": "Masstrict University, NL",
-        "schoolLogo": "https://d10joe98l23w8w.cloudfront.net/orgs/MU.png",
+        "schoolLogo": "https://d1gzlmcs77uyca.cloudfront.net/orgs/MU.png",
         "degree": " School of Business and Economic : Exchange Student",
         "timeLine": "Aug 2022 - Jan 2023",
         "gpa": "number"
       },
       {
         "schoolName": "National Cheng-Chi University, TW",
-        "schoolLogo": "https://d10joe98l23w8w.cloudfront.net/orgs/NCCU.jpeg",
+        "schoolLogo": "https://d1gzlmcs77uyca.cloudfront.net/orgs/NCCU.jpeg",
         "degree": " Bachelor of Education｜Bachelor of Business Administration ",
         "timeLine": "Sep 2018 - Jan 2023",
         "gpa": ""
