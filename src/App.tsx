@@ -61,13 +61,12 @@ export default function App() {
         <SectionProvider>
           <Router>
             <Routes>
-              <Route path="/" element={<HomePage />} />
+              <Route path="/*" element={<HomePage />} />
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/resume" element={<ResumePage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:blogId" element={<SingleBlogPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/not-found" element={<HomePage />} />
             </Routes>
           </Router>
         </SectionProvider>
