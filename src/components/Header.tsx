@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { styled } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar'
@@ -10,6 +10,7 @@ import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
 
 import { DrawerContext } from '../store/DrawerContext'
+import { getUserInfo } from '../api/getAPI'
 
 const drawerWidth = 180
 const PAGES = [
@@ -39,8 +40,35 @@ const AppBar = styled(MuiAppBar, {
     }),
   }),
 }))
-
+interface UserInfoType {
+  jobTitle: string
+  name: string
+  logo: string
+  headShotUrl: string
+  backupPictures: string[]
+  aboutMe: string
+  techStack: string[]
+  contactInfo: {
+    linkedin: string
+    github: string
+    email: string
+    phone: string
+  }
+}
 function Header() {
+  const [logoURl, setLogoURL] = useState<UserInfoType | null>(null)
+
+  useEffect(() => {
+    async function fetch() {
+      const response = await getUserInfo(
+        'https://api.proofolio.site/user/user-Info',
+        {},
+        {}
+      )
+      setLogoURL(response.response.data)
+    }
+    fetch()
+  }, [])
   const context = useContext(DrawerContext)
   if (!context) {
     throw new Error('Component must be wrapped with <DrawerContext.Provider>')
@@ -69,7 +97,7 @@ function Header() {
           <Link to="/home">
             <img
               alt="logo"
-              src="https://d10joe98l23w8w.cloudfront.net/logo/logo_d.png"
+              src={logoURl?.logo}
               width="250px"
               style={{ cursor: 'pointer' }}
             ></img>
