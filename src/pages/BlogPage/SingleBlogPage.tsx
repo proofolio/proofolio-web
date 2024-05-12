@@ -9,28 +9,46 @@ import { SectionContext } from '../../store/SectionContext'
 
 const SECTIONS = [
   {
-    sectionTitle: 'BlogTitle1',
-    sectionIcon: '❄️',
-    sectionComponent: <SingleBlog blogId={0} />,
-    blogId: 0,
-  },
-  {
-    sectionTitle: 'BlogTitle2',
+    sectionTitle: 'TypeScript',
     sectionIcon: '❄️',
     sectionComponent: <SingleBlog blogId={1} />,
     blogId: 1,
   },
   {
-    sectionTitle: 'BlogTitle3',
+    sectionTitle: 'JS Basics - data types',
     sectionIcon: '❄️',
     sectionComponent: <SingleBlog blogId={2} />,
     blogId: 2,
   },
   {
-    sectionTitle: 'BlogTitle4',
+    sectionTitle: 'JS Basics - Promise',
     sectionIcon: '❄️',
     sectionComponent: <SingleBlog blogId={3} />,
     blogId: 3,
+  },
+  {
+    sectionTitle: 'JWT',
+    sectionIcon: '❄️',
+    sectionComponent: <SingleBlog blogId={4} />,
+    blogId: 4,
+  },
+  {
+    sectionTitle: 'OAuth',
+    sectionIcon: '❄️',
+    sectionComponent: <SingleBlog blogId={5} />,
+    blogId: 5,
+  },
+  {
+    sectionTitle: 'Vite',
+    sectionIcon: '❄️',
+    sectionComponent: <SingleBlog blogId={6} />,
+    blogId: 6,
+  },
+  {
+    sectionTitle: 'React Hooks',
+    sectionIcon: '❄️',
+    sectionComponent: <SingleBlog blogId={7} />,
+    blogId: 7,
   },
 ]
 
