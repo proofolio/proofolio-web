@@ -18,6 +18,9 @@ import { getUserInfo } from '../../api/getAPI'
 const ContactPage = () => {
   const [backupPictures, setBackupPictures] = useState<string[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
 
   useEffect(() => {
     async function fetch() {
@@ -31,6 +34,15 @@ const ContactPage = () => {
     }
     fetch()
   }, [])
+
+  const handleSubmit = (event: React.FormEvent) => {
+    const data = {
+      name,
+      email,
+      message,
+    }
+    console.log(data)
+  }
   return (
     <>
       <Box
@@ -69,6 +81,8 @@ const ContactPage = () => {
                 variant="outlined"
                 fullWidth
                 margin="normal"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
               <TextField
                 fullWidth
@@ -76,6 +90,8 @@ const ContactPage = () => {
                 variant="outlined"
                 sx={{ display: 'block' }}
                 margin="normal"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <TextField
                 fullWidth
@@ -83,11 +99,14 @@ const ContactPage = () => {
                 multiline
                 rows={8}
                 margin="normal"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               />
               <Button
                 variant="contained"
                 type="submit"
                 sx={{ bgcolor: '#F0E5EB', color: 'black' }}
+                onClick={handleSubmit}
               >
                 Submit
               </Button>

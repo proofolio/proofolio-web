@@ -16,12 +16,12 @@ const SECTIONS = [
   {
     sectionTitle: '2048Game',
     sectionIcon: '🧩',
-    sectionComponent: <Project selectedIndex={2} />,
+    sectionComponent: <Project selectedIndex={1} />,
   },
   {
     sectionTitle: 'BucketList',
     sectionIcon: '📝',
-    sectionComponent: <Project selectedIndex={1} />,
+    sectionComponent: <Project selectedIndex={2} />,
   },
   {
     sectionTitle: 'Proofolio',
